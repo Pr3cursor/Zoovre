@@ -13,3 +13,12 @@ config_version=5
 config/name="Zoovre"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[file_customization]
+
+folder_colors={
+"res://2d/": "red",
+"res://blender/": "orange",
+"res://scenes/": "yellow",
+"res://scripts/": "green"
+}

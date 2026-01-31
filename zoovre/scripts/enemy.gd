@@ -31,7 +31,7 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	target = Autoload.player
+	target = Gamemanager.player
 	_enter_state(State.IDLE if patrol_points.is_empty() else State.PATROL)
 	
 
@@ -44,13 +44,19 @@ func _physics_process(delta: float) -> void:
 	_update_path(delta)
 	
 	match state:
-		State.PATROL : _state_patrol(delta)
+		State.IDLE: _state_idle()
+		State.PATROL: _state_patrol(delta)
+		State.CHASE: _state_chase(delta)
+		
+		
+	_looking()
 	_apply_gravity(delta)
 	move_and_slide()
 	
 func _go_to_next_patrol_point() -> void:
 	patrol_index = ( patrol_index + 1 ) % patrol_points.size()
 	agent.set_target_position(patrol_points[patrol_index].global_transform.origin)
+
 func _move_towards(next_pos: Vector3, speed: float) -> void:
 	var dir = (next_pos - global_transform.origin)
 	dir.y = 0.0
@@ -74,6 +80,7 @@ func _walk_to(next_pos: Vector3, speed: float) -> void:
 	_move_towards(next_pos, speed)
 	
 func _update_agent_target() -> void:
+	target = Gamemanager.player
 	match state:
 		State.PATROL:
 			if patrol_points.size() > 0:
@@ -92,6 +99,23 @@ func _update_path(delta):
 		_update_agent_target()
 		update_timer = update_interval
 
+func _can_see_player() -> bool:
+	return target and vision_ray.is_colliding() and vision_ray.get_collider() == target
+
+func _looking() -> void:
+	if not target:
+		return
+	
+	var to_player = (target.global_transform.origin - global_transform.origin).normalized()
+	var forward = -global_transform.basis.z
+	var angle_deg = rad_to_deg(acos(clamp(forward.dot(to_player), -1.0, 1.0)))
+	if angle_deg > VIEW_ANGLE * 0.5:
+		return
+	var ray_forward = -vision_ray.global_transform.basis.z
+	var new_dir = ray_forward.slerp(to_player, SMOOTHING_FACTOR).normalized()
+	vision_ray.look_at(vision_ray.global_transform.origin + new_dir, Vector3.UP)
+	
+
 func _apply_gravity(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -104,7 +128,11 @@ func _enter_state(new_state: State) -> void:
 		State.PATROL:
 			patrol_timer = 0
 			_go_to_next_patrol_point()
-		
+			
+func _state_idle() -> void:
+	if _can_see_player():
+		_enter_state(State.CHASE)
+
 func _state_patrol(delta: float) -> void:
 	if agent.is_navigation_finished():
 		if patrol_timer <= 0.0: 
@@ -116,3 +144,12 @@ func _state_patrol(delta: float) -> void:
 				_go_to_next_patrol_point()
 	else:
 		_walk_to(agent.get_next_path_position(), speed_walk)
+
+	if _can_see_player():
+		_enter_state(State.CHASE)
+		
+func _state_chase(delta: float) -> void:
+	if not target:
+		_enter_state(State.RETURN)
+		return
+	_walk_to(agent.get_next_path_position(), speed_run)

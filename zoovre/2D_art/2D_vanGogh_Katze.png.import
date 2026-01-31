@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsxtf0ldrxr7"
-path="res://.godot/imported/Bilderrahmen.png-394d897fdb2de0f6d7d71831dc4012a6.ctex"
+uid="uid://bkak8w02n4jbu"
+path="res://.godot/imported/2D_vanGogh_Katze.png-4ff2c20d011cf4b14138ce61a5417a22.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://2D_art/Bilderrahmen.png"
-dest_files=["res://.godot/imported/Bilderrahmen.png-394d897fdb2de0f6d7d71831dc4012a6.ctex"]
+source_file="res://2D_art/2D_vanGogh_Katze.png"
+dest_files=["res://.godot/imported/2D_vanGogh_Katze.png-4ff2c20d011cf4b14138ce61a5417a22.ctex"]
 
 [params]
 

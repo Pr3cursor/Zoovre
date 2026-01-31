@@ -10,12 +10,14 @@ var cam_input_direction := Vector2.ZERO
 
 func _ready() -> void:
 	Gamemanager.player = self
-	await get_tree().physics_frame
-	cam = Gamemanager.cur_cam_node.get_node("Camera3D") as Camera3D
+	update_camera()
+	
+func update_camera():
+	if Gamemanager.cur_cam_node:
+		cam = Gamemanager.cur_cam_node.get_node("Camera3D") as Camera3D
 
 func _physics_process(delta: float) -> void:
-	cam = Gamemanager.cur_cam_node.get_node("Camera3D") as Camera3D
-	
+	update_camera()
 	cam_input_direction = Vector2.ZERO
 	var raw_input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	var forward := cam.global_transform.basis.z
@@ -24,6 +26,6 @@ func _physics_process(delta: float) -> void:
 	var move_direction := forward*raw_input.y + right * raw_input.x
 	move_direction.y = 0.0
 	move_direction = move_direction.normalized()
-	
+	look_at(move_direction)
 	velocity = velocity.move_toward(move_direction*move_speed,acceleration * delta)
 	move_and_slide()

@@ -69,7 +69,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6776242, 4, -13.909217)
 mesh = SubResource("BoxMesh_7y2xs")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Node/wall4"]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.6776245, 4, -8.496289)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.6776247, 4, -3.344616)
 mesh = SubResource("BoxMesh_7y2xs")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="Node/wall4"]
@@ -125,6 +125,11 @@ camera_change = NodePath("../camerachange")
 [node name="camera2" parent="." node_paths=PackedStringArray("camera_change") instance=ExtResource("1_7y2xs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.41434574, 5.363407, 10.64827)
 camera_id = 1
+camera_change = NodePath("../camerachange")
+
+[node name="camera3" parent="." node_paths=PackedStringArray("camera_change") instance=ExtResource("1_7y2xs")]
+transform = Transform3D(-0.6091213, 0, 0.79307705, 0, 1, 0, -0.79307705, 0, -0.6091213, -1.660212, 5.363407, -14.688932)
+camera_id = 3
 camera_change = NodePath("../camerachange")
 
 [node name="camerachange" parent="." instance=ExtResource("3_65iv0")]

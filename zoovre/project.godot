@@ -14,6 +14,10 @@ config/name="Zoovre"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Autoload="*res://scripts/autoload.gd"
+
 [file_customization]
 
 folder_colors={

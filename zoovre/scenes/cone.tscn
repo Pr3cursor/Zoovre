@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://chxqf6fs2i1h6"]
+
+[ext_resource type="PackedScene" uid="uid://silg85rygq6a" path="res://blender/cone.glb" id="1_04qlx"]
+[ext_resource type="Material" uid="uid://dgrlpypnjnc3l" path="res://scenes/cameraconemat.tres" id="2_1pvhk"]
+
+[node name="cone" instance=ExtResource("1_04qlx")]
+
+[node name="Cone" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_1pvhk")

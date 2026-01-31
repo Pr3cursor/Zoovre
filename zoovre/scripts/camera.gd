@@ -1,23 +1,43 @@
 extends Node3D
 
 @export var camera_id : int
-@export var camera_change: Area3D
+@export var camera_area3d: Node3D
 @onready var camera = $Camera3D
-# Called when the node enters the scene tree for the first time.
+var is_on : bool = false
+
 func _ready() -> void:
-	if camera_change == null:
-		print("no changed camera!")
-		return
-	camera_change.sig_change_camera.connect(_on_change_camera)
+	camera_area3d.sig_change_camera.connect(change_camera)
 	if camera_id == 1:
 		camera.current = true
+		Gamemanager.auto_cur_cam_id = 1
+		is_on = true
 	
 func _process(delta: float) -> void:
 	pass
-	
-func _on_change_camera(old_cam_id,new_cam_id,current_cam_id):
-	#print(current_cam_id)
-	if camera_id != current_cam_id:
+
+func change_camera(prev_cam_id, next_cam_id):
+	if camera_id == next_cam_id:
 		camera.make_current()
-		current_cam_id = camera_id
-		print("changed camera: ", current_cam_id)
+		Gamemanager.auto_cur_cam_id = camera_id
+		is_on = true
+		print("Camera an ", camera_id)
+	elif camera_id == prev_cam_id:
+		camera.current = false
+		is_on = false
+		print("Camera aus ", camera_id)
+	
+	
+#func change_to_next(goal_id,current_cam_id):
+	#print(goal_id)
+	#if camera_id == goal_id:
+		#camera.make_current()
+		#print(goal_id)
+		#Gamemanager.auto_cur_cam_id == goal_id
+#
+#func change_to_prev(goal_id,current_cam_id):
+	#print(goal_id)
+	#if camera_id == goal_id:
+		#camera.make_current()
+		#print(goal_id)
+		#Gamemanager.auto_cur_cam_id == goal_id
+		

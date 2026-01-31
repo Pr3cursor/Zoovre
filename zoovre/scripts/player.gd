@@ -1,29 +1,35 @@
 extends CharacterBody3D
 
 
-const SPEED = 5.0
+@export var move_speed = 5.0
+@export var acceleration = 20.0
 const JUMP_VELOCITY = 4.5
+var cam: Camera3D
+var cam_input_direction := Vector2.ZERO
+
 
 func _ready() -> void:
 	Gamemanager.player = self
+	update_camera()
+	
+func update_camera():
+	if Gamemanager.cur_cam_node:
+		cam = Gamemanager.cur_cam_node.get_node("Camera3D") as Camera3D
+
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
-
+	update_camera()
+	cam_input_direction = Vector2.ZERO
+	var raw_input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	var forward := cam.global_transform.basis.z
+	var right := cam.global_basis.x
+	
+	var move_direction := forward*raw_input.y + right * raw_input.x
+	move_direction.y = 0.0
+	move_direction = move_direction.normalized()
+	look_at(move_direction)
+	velocity = velocity.move_toward(move_direction*move_speed,acceleration * delta)
 	move_and_slide()
+	if velocity.length() > 0:
+		get_node("raccoon/AnimationPlayer").play("walk_animation")
+	elif velocity.length() <= 0:
+		get_node("raccoon/AnimationPlayer").clear_queue()

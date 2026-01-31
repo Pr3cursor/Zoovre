@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c18mavfwhh5gd"]
+[gd_scene load_steps=6 format=3 uid="uid://c18mavfwhh5gd"]
 
 [ext_resource type="Script" uid="uid://jiu037xjlsnl" path="res://scripts/camera.gd" id="1_cvpoc"]
+[ext_resource type="PackedScene" uid="uid://cair02s85u6t3" path="res://scenes/crt_overlay.tscn" id="2_gtx3x"]
 [ext_resource type="PackedScene" uid="uid://chxqf6fs2i1h6" path="res://scenes/cone.tscn" id="2_kod1s"]
 [ext_resource type="Script" uid="uid://ki2dgep0fgwk" path="res://scripts/cone.gd" id="3_tmlye"]
 
@@ -9,6 +10,8 @@ size = Vector3(20, 0, 20)
 
 [node name="camera" type="Node3D"]
 script = ExtResource("1_cvpoc")
+
+[node name="crt" parent="." instance=ExtResource("2_gtx3x")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
 

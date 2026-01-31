@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://c18mavfwhh5gd"]
+
+[ext_resource type="Script" uid="uid://jiu037xjlsnl" path="res://scripts/camera.gd" id="1_cvpoc"]
+[ext_resource type="PackedScene" uid="uid://chxqf6fs2i1h6" path="res://scenes/cone.tscn" id="2_kod1s"]
+[ext_resource type="Script" uid="uid://ki2dgep0fgwk" path="res://scripts/cone.gd" id="3_tmlye"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_tmlye"]
+size = Vector3(20, 0, 20)
+
+[node name="camera" type="Node3D"]
+script = ExtResource("1_cvpoc")
+camera_id = null
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="cone" parent="." instance=ExtResource("2_kod1s")]
+transform = Transform3D(10, 0, 0, 0, -1.7342478, 9.848472, 0, -9.848472, -1.7342478, 0, 0, -0.20580935)
+script = ExtResource("3_tmlye")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+visible = false
+mesh = SubResource("BoxMesh_tmlye")

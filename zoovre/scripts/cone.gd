@@ -11,7 +11,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var y_rotation_radians = rotation_degrees.y
-	print(back)
 	if y_rotation_radians < 91 and back == false:
 		rotation_degrees += speed * delta
 		if y_rotation_radians > 90:

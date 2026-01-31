@@ -29,3 +29,7 @@ func _physics_process(delta: float) -> void:
 	look_at(move_direction)
 	velocity = velocity.move_toward(move_direction*move_speed,acceleration * delta)
 	move_and_slide()
+	if velocity.length() > 0:
+		get_node("raccoon/AnimationPlayer").play("walk_animation")
+	elif velocity.length() <= 0:
+		get_node("raccoon/AnimationPlayer").clear_queue()

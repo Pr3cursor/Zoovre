@@ -88,7 +88,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.146071, 4, -13.909217)
 shape = SubResource("BoxShape3D_r32pp")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Node/wall4"]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.6776245, 4, -8.496289)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.678, 4, -9.296)
 shape = SubResource("BoxShape3D_r32pp")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="Node/wall4"]
@@ -113,38 +113,32 @@ shape = SubResource("BoxShape3D_7y2xs")
 [node name="player" parent="." instance=ExtResource("4_l2n4a")]
 transform = Transform3D(0.068015315, 0, 0.9976843, 0, 1, 0, -0.9976843, 0, 0.068015315, 6.8189163, -0.5, 4.1122108)
 
-[node name="Camera3D" type="Camera3D" parent="player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.410985, 1.9399366, 0)
-
-[node name="camera" parent="." node_paths=PackedStringArray("camera_change_next", "camera_change_prev") instance=ExtResource("1_7y2xs")]
+[node name="camera" parent="." node_paths=PackedStringArray("camera_area3d") instance=ExtResource("1_7y2xs")]
 transform = Transform3D(-0.70862305, 0, -0.7055872, 0, 1, 0, 0.7055872, 0, -0.70862305, -23.071896, 4.9245825, -2.8847008)
 camera_id = 2
-camera_change_next = NodePath("../camerachange")
-camera_change_prev = NodePath("../camerachange2")
+camera_area3d = NodePath("../camerachange")
 
-[node name="camera2" parent="." node_paths=PackedStringArray("camera_change_next", "camera_change_prev") instance=ExtResource("1_7y2xs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.41434574, 5.363407, 10.64827)
+[node name="camera2" parent="." node_paths=PackedStringArray("camera_area3d") instance=ExtResource("1_7y2xs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34139752, 5.3634033, 10.606827)
 camera_id = 1
-camera_change_next = NodePath("../camerachange")
-camera_change_prev = NodePath("../camerachange2")
+camera_area3d = NodePath("../camerachange")
 
-[node name="camera3" parent="." node_paths=PackedStringArray("camera_change_next", "camera_change_prev") instance=ExtResource("1_7y2xs")]
+[node name="camera3" parent="." node_paths=PackedStringArray("camera_area3d") instance=ExtResource("1_7y2xs")]
 transform = Transform3D(-0.6091213, 0, 0.79307705, 0, 1, 0, -0.79307705, 0, -0.6091213, -1.660212, 5.363407, -14.688932)
 camera_id = 3
-camera_change_next = NodePath("../camerachange2")
-camera_change_prev = NodePath("../test")
+camera_area3d = NodePath("../camerachange2")
 
 [node name="camerachange" parent="." instance=ExtResource("3_65iv0")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8.299244, 0.67159843, 7.9084682)
-old_cam_id = 1
-new_cam_id = 2
+prev_cam_id = 1
+next_cam_id = 2
 
 [node name="camerachange2" parent="." instance=ExtResource("3_65iv0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.862402, 1.6081209, -2.0207841)
-old_cam_id = 2
-new_cam_id = 3
+prev_cam_id = 2
+next_cam_id = 3
 
 [node name="test" parent="." instance=ExtResource("3_65iv0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.862402, 1.6081209, -22.883558)
-old_cam_id = 2
-new_cam_id = 3
+prev_cam_id = 4
+next_cam_id = 5

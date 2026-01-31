@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dpumrfve27ri2"
-path="res://.godot/imported/grade_wand.glb-a523dc5c62f88046d8fe0842ffa62bc0.scn"
+uid="uid://cq3nw660cy4r0"
+path="res://.godot/imported/raccoon_walking.glb-2b0c12e592001a2d05a1284858c159ad.scn"
 
 [deps]
 
-source_file="res://blender/grade_wand.glb"
-dest_files=["res://.godot/imported/grade_wand.glb-a523dc5c62f88046d8fe0842ffa62bc0.scn"]
+source_file="res://blender/raccoon_walking.glb"
+dest_files=["res://.godot/imported/raccoon_walking.glb-2b0c12e592001a2d05a1284858c159ad.scn"]
 
 [params]
 

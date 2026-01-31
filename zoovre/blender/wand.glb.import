@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cvaidoaxq7dbl"
-path="res://.godot/imported/raccoon.glb-31f786739f5945d8cc40680d1d3c0e7e.scn"
+uid="uid://nxb4faukh4hv"
+path="res://.godot/imported/wand.glb-916d8cb8249dcca9206a6830b4a2075d.scn"
 
 [deps]
 
-source_file="res://blender/raccoon.glb"
-dest_files=["res://.godot/imported/raccoon.glb-31f786739f5945d8cc40680d1d3c0e7e.scn"]
+source_file="res://blender/wand.glb"
+dest_files=["res://.godot/imported/wand.glb-916d8cb8249dcca9206a6830b4a2075d.scn"]
 
 [params]
 

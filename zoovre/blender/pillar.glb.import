@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dgb1ip0d64nr3"
-path="res://.godot/imported/kurve_wand.glb-d567e5d811a5f21dd587863b49ce3e1f.scn"
+uid="uid://ba785vji04hxh"
+path="res://.godot/imported/pillar.glb-59fbd83645776a081895f859c0c1f655.scn"
 
 [deps]
 
-source_file="res://blender/kurve_wand.glb"
-dest_files=["res://.godot/imported/kurve_wand.glb-d567e5d811a5f21dd587863b49ce3e1f.scn"]
+source_file="res://blender/pillar.glb"
+dest_files=["res://.godot/imported/pillar.glb-59fbd83645776a081895f859c0c1f655.scn"]
 
 [params]
 

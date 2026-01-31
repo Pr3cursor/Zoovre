@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dgb1ip0d64nr3"
-path="res://.godot/imported/kurve_wand.glb-d567e5d811a5f21dd587863b49ce3e1f.scn"
+uid="uid://nxb4faukh4hv"
+path="res://.godot/imported/wand.glb-916d8cb8249dcca9206a6830b4a2075d.scn"
 
 [deps]
 
-source_file="res://blender/kurve_wand.glb"
-dest_files=["res://.godot/imported/kurve_wand.glb-d567e5d811a5f21dd587863b49ce3e1f.scn"]
+source_file="res://blender/wand.glb"
+dest_files=["res://.godot/imported/wand.glb-916d8cb8249dcca9206a6830b4a2075d.scn"]
 
 [params]
 

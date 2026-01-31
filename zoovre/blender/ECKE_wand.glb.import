@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dgb1ip0d64nr3"
-path="res://.godot/imported/kurve_wand.glb-d567e5d811a5f21dd587863b49ce3e1f.scn"
+uid="uid://kv8wn11c6bbg"
+path="res://.godot/imported/ECKE_wand.glb-877db727f8eab2ff09c4612349333c01.scn"
 
 [deps]
 
-source_file="res://blender/kurve_wand.glb"
-dest_files=["res://.godot/imported/kurve_wand.glb-d567e5d811a5f21dd587863b49ce3e1f.scn"]
+source_file="res://blender/ECKE_wand.glb"
+dest_files=["res://.godot/imported/ECKE_wand.glb-877db727f8eab2ff09c4612349333c01.scn"]
 
 [params]
 

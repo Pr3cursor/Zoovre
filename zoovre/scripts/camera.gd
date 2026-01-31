@@ -10,7 +10,9 @@ func _ready() -> void:
 	if camera_id == 1:
 		camera.current = true
 		Gamemanager.auto_cur_cam_id = 1
+		Gamemanager.cur_cam_node = self
 		is_on = true
+		
 	
 func _process(delta: float) -> void:
 	pass
@@ -19,6 +21,8 @@ func change_camera(prev_cam_id, next_cam_id):
 	if camera_id == next_cam_id:
 		camera.make_current()
 		Gamemanager.auto_cur_cam_id = camera_id
+		Gamemanager.cur_cam_node = self
+		print(Gamemanager.cur_cam_node)
 		is_on = true
 		print("Camera an ", camera_id)
 	elif camera_id == prev_cam_id:

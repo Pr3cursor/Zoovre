@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b1urefvaqtll1"
-path="res://.godot/imported/test_3.glb-a4282d40bf310593e2b83c1602d109f3.scn"
+uid="uid://bav4d3nvldp2n"
+path="res://.godot/imported/grade_wand.glb-a523dc5c62f88046d8fe0842ffa62bc0.scn"
 
 [deps]
 
-source_file="res://blender/test_3.glb"
-dest_files=["res://.godot/imported/test_3.glb-a4282d40bf310593e2b83c1602d109f3.scn"]
+source_file="res://blender/grade_wand.glb"
+dest_files=["res://.godot/imported/grade_wand.glb-a523dc5c62f88046d8fe0842ffa62bc0.scn"]
 
 [params]
 

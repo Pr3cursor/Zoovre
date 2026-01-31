@@ -14,9 +14,16 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+#func _on_body_entered(body: Node3D) -> void:
+	#if body.is_in_group("player"):
+		##print(body)
+		#sig_change_camera.emit(old_cam_id,new_cam_id,current_cam_id)
 
 
-func _on_body_entered(body: Node3D) -> void:
-	if body.is_in_group("player"):
-		#print(body)
-		sig_change_camera.emit(old_cam_id,new_cam_id,current_cam_id)
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body.is_in_group("player")and Gamemanager.auto_cur_cam_id == old_cam_id:
+		sig_change_camera.emit(new_cam_id,current_cam_id)
+
+func _on_area_3d_2_body_entered(body: Node3D) -> void:
+	if body.is_in_group("player") and Gamemanager.auto_cur_cam_id == new_cam_id:
+		sig_change_camera.emit(old_cam_id,current_cam_id)

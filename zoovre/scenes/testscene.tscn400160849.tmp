@@ -116,35 +116,22 @@ transform = Transform3D(0.068015315, 0, 0.9976843, 0, 1, 0, -0.9976843, 0, 0.068
 [node name="Camera3D" type="Camera3D" parent="player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.410985, 1.9399366, 0)
 
-[node name="camera" parent="." node_paths=PackedStringArray("camera_change_next", "camera_change_prev") instance=ExtResource("1_7y2xs")]
+[node name="camera" parent="." node_paths=PackedStringArray("camera_change") instance=ExtResource("1_7y2xs")]
 transform = Transform3D(-0.70862305, 0, -0.7055872, 0, 1, 0, 0.7055872, 0, -0.70862305, -23.071896, 4.9245825, -2.8847008)
 camera_id = 2
-camera_change_next = NodePath("../camerachange")
-camera_change_prev = NodePath("../camerachange2")
+camera_change = NodePath("../camerachange")
 
-[node name="camera2" parent="." node_paths=PackedStringArray("camera_change_next", "camera_change_prev") instance=ExtResource("1_7y2xs")]
+[node name="camera2" parent="." node_paths=PackedStringArray("camera_change") instance=ExtResource("1_7y2xs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.41434574, 5.363407, 10.64827)
 camera_id = 1
-camera_change_next = NodePath("../camerachange")
-camera_change_prev = NodePath("../camerachange2")
+camera_change = NodePath("../camerachange")
 
-[node name="camera3" parent="." node_paths=PackedStringArray("camera_change_next", "camera_change_prev") instance=ExtResource("1_7y2xs")]
+[node name="camera3" parent="." node_paths=PackedStringArray("camera_change") instance=ExtResource("1_7y2xs")]
 transform = Transform3D(-0.6091213, 0, 0.79307705, 0, 1, 0, -0.79307705, 0, -0.6091213, -1.660212, 5.363407, -14.688932)
 camera_id = 3
-camera_change_next = NodePath("../camerachange2")
-camera_change_prev = NodePath("../test")
+camera_change = NodePath("../camerachange")
 
 [node name="camerachange" parent="." instance=ExtResource("3_65iv0")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8.299244, 0.67159843, 7.9084682)
 old_cam_id = 1
 new_cam_id = 2
-
-[node name="camerachange2" parent="." instance=ExtResource("3_65iv0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.862402, 1.6081209, -2.0207841)
-old_cam_id = 2
-new_cam_id = 3
-
-[node name="test" parent="." instance=ExtResource("3_65iv0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.862402, 1.6081209, -22.883558)
-old_cam_id = 2
-new_cam_id = 3

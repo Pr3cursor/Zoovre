@@ -6,7 +6,6 @@ const JUMP_VELOCITY = 4.5
 
 func _ready() -> void:
 	Autoload.player = self
-
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():

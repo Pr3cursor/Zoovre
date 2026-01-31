@@ -1,6 +1,6 @@
 extends Node3D
 
-signal change_camera(old_cam_id, new_cam_id)
+signal sig_change_camera(old_cam_id, new_cam_id)
 
 @export var old_cam_id: int
 @export var new_cam_id: int
@@ -17,4 +17,5 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
-		change_camera.emit(old_cam_id,new_cam_id)
+		print(body)
+		sig_change_camera.emit(old_cam_id,new_cam_id)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cfssv4obp5n6l"]
+[gd_scene load_steps=9 format=3 uid="uid://cfssv4obp5n6l"]
 
 [ext_resource type="PackedScene" uid="uid://c18mavfwhh5gd" path="res://scenes/camera.tscn" id="1_7y2xs"]
+[ext_resource type="Script" uid="uid://jiu037xjlsnl" path="res://scripts/camera.gd" id="2_r32pp"]
 [ext_resource type="PackedScene" uid="uid://ku4eka4g3ovj" path="res://scenes/camerachange.tscn" id="3_65iv0"]
 [ext_resource type="PackedScene" uid="uid://be8djbhs0vga5" path="res://scenes/player.tscn" id="4_l2n4a"]
 
@@ -22,8 +23,8 @@ size = Vector3(50, 1, 50)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Node"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 53.36435, 0)
-visible = false
 omni_range = 2719.853
+script = ExtResource("2_r32pp")
 
 [node name="wall" type="StaticBody3D" parent="Node"]
 
@@ -69,7 +70,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6776242, 4, -13.909217)
 mesh = SubResource("BoxMesh_7y2xs")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Node/wall4"]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.6776247, 4, -3.344616)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.6776245, 4, -8.496289)
 mesh = SubResource("BoxMesh_7y2xs")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="Node/wall4"]
@@ -111,12 +112,6 @@ skeleton = NodePath("../CollisionShape3D")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("BoxShape3D_7y2xs")
 
-[node name="player" parent="." instance=ExtResource("4_l2n4a")]
-transform = Transform3D(0.068015315, 0, 0.9976843, 0, 1, 0, -0.9976843, 0, 0.068015315, 6.8189163, -0.5, 4.1122108)
-
-[node name="Camera3D" type="Camera3D" parent="player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.410985, 1.9399366, 0)
-
 [node name="camera" parent="." node_paths=PackedStringArray("camera_change") instance=ExtResource("1_7y2xs")]
 transform = Transform3D(-0.70862305, 0, -0.7055872, 0, 1, 0, 0.7055872, 0, -0.70862305, -23.071896, 4.9245825, -2.8847008)
 camera_id = 2
@@ -127,12 +122,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.41434574, 5.363407, 10.6482
 camera_id = 1
 camera_change = NodePath("../camerachange")
 
-[node name="camera3" parent="." node_paths=PackedStringArray("camera_change") instance=ExtResource("1_7y2xs")]
-transform = Transform3D(-0.6091213, 0, 0.79307705, 0, 1, 0, -0.79307705, 0, -0.6091213, -1.660212, 5.363407, -14.688932)
-camera_id = 3
-camera_change = NodePath("../camerachange")
-
 [node name="camerachange" parent="." instance=ExtResource("3_65iv0")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8.299244, 0.67159843, 7.9084682)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9565735, 4.0161667, 0.08861363)
 old_cam_id = 1
 new_cam_id = 2
+
+[node name="player" parent="." instance=ExtResource("4_l2n4a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8189163, -0.5, 4.1122108)
+
+[node name="Camera3D" type="Camera3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.410985, 1.9399366, 0)

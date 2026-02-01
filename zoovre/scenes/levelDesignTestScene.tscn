@@ -1,9 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://docdlplf0ur5n"]
+[gd_scene load_steps=13 format=3 uid="uid://docdlplf0ur5n"]
 
 [ext_resource type="MeshLibrary" uid="uid://cgjx22n5axdyn" path="res://blender/basicShapes.tres" id="1_0qqjg"]
 [ext_resource type="PackedScene" uid="uid://be8djbhs0vga5" path="res://scenes/player.tscn" id="2_fpkyo"]
 [ext_resource type="PackedScene" uid="uid://c18mavfwhh5gd" path="res://scenes/camera.tscn" id="3_fpkyo"]
 [ext_resource type="PackedScene" uid="uid://ku4eka4g3ovj" path="res://scenes/camerachange.tscn" id="4_q8cw5"]
+[ext_resource type="PackedScene" uid="uid://dj0hjm7t4vnjf" path="res://blender/Bild_BUNNY.glb" id="5_0kxq1"]
+[ext_resource type="PackedScene" uid="uid://cpnlfojbebgw1" path="res://blender/Bild_CAT.glb" id="6_ewwbp"]
+[ext_resource type="PackedScene" uid="uid://bi44rdmxlt6ax" path="res://blender/Bild_GOAT.glb" id="7_52iff"]
+[ext_resource type="PackedScene" uid="uid://mxde262o52px" path="res://blender/Bild_Goose.glb" id="8_qyr5k"]
+[ext_resource type="PackedScene" uid="uid://c5y2kr337resj" path="res://blender/Bild_MONKEY.glb" id="9_6btqf"]
+[ext_resource type="PackedScene" uid="uid://bkfwgjcmujief" path="res://blender/Bild_MOUSE.glb" id="10_ct4y6"]
+[ext_resource type="PackedScene" uid="uid://bh8pxe7jsf868" path="res://blender/statue.tscn" id="11_ewwbp"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_pissr"]
 
@@ -105,7 +112,7 @@ light_energy = 16.0
 spot_range = 12.60692
 
 [node name="SpotLight3D5" type="SpotLight3D" parent="Light"]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -143.31198, 7.6463814, -22.097704)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -143.31198, 7.6463814, -21.202265)
 light_color = Color(0.23859492, 0.48334014, 1, 1)
 light_energy = 16.0
 spot_range = 11.642301
@@ -183,6 +190,7 @@ light_energy = 16.0
 spot_range = 11.642301
 
 [node name="Cameras" type="Node3D" parent="."]
+visible = false
 
 [node name="camera" parent="Cameras" instance=ExtResource("3_fpkyo")]
 transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, -142.91353, 6.0376363, 39.396355)
@@ -229,6 +237,7 @@ transform = Transform3D(-5.9604645e-08, 0.25881904, -0.96592593, 4.440892e-15, 0
 camera_id = 11
 
 [node name="CameraChanges" type="Node3D" parent="."]
+visible = false
 
 [node name="camerachange" parent="CameraChanges" node_paths=PackedStringArray("prev_cam", "next_cam") instance=ExtResource("4_q8cw5")]
 transform = Transform3D(1.6401532, 0, 0, 0, 1, 0, 0, 0, 1, -143.04202, 0.039100647, 23.771276)
@@ -246,9 +255,9 @@ prev_cam = NodePath("../../Cameras/camera3")
 next_cam = NodePath("../../Cameras/camera4")
 
 [node name="camerachange4" parent="CameraChanges" node_paths=PackedStringArray("prev_cam", "next_cam") instance=ExtResource("4_q8cw5")]
-transform = Transform3D(-1.1560523e-07, 0, -1, 0, 1, 0, 2.6447394, 0, -4.371139e-08, -132.01411, 0.039100647, -22.882286)
-prev_cam = NodePath("../../Cameras/camera6")
-next_cam = NodePath("../../Cameras/camera4")
+transform = Transform3D(-1.1560523e-07, 0, -1, 0, 1, 0, 2.6447394, 0, -4.371139e-08, -132.01411, 0.5674162, -22.882286)
+prev_cam = NodePath("../../Cameras/camera4")
+next_cam = NodePath("../../Cameras/camera6")
 
 [node name="camerachange5" parent="CameraChanges" node_paths=PackedStringArray("prev_cam", "next_cam") instance=ExtResource("4_q8cw5")]
 transform = Transform3D(-1.1560523e-07, 0, -1, 0, 1, 0, 2.6447394, 0, -4.371139e-08, -111.34216, 0.039100647, -21.53439)
@@ -279,3 +288,24 @@ next_cam = NodePath("../../Cameras/camera10")
 transform = Transform3D(5.4165993, 0, 0, 0, 1, 0, 0, 0, 1, -74.71816, 0.5266042, -5.553917)
 prev_cam = NodePath("../../Cameras/camera10")
 next_cam = NodePath("../../Cameras/camera8")
+
+[node name="Bild_BUNNY" parent="." instance=ExtResource("5_0kxq1")]
+transform = Transform3D(-2, 0, -3.019916e-07, 0, 2, 0, 3.019916e-07, 0, -2, -136.88783, 4.2643275, 12.034245)
+
+[node name="Bild_CAT" parent="." instance=ExtResource("6_ewwbp")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -147.50452, 4.2744823, 1.9001606)
+
+[node name="Bild_GOAT" parent="." instance=ExtResource("7_52iff")]
+transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, -123.18387, 3.9637945, -17.318348)
+
+[node name="Bild_Goose" parent="." instance=ExtResource("8_qyr5k")]
+transform = Transform3D(-1.09278474e-07, 0, -2.5, 0, 2.5, 0, 2.5, 0, -1.09278474e-07, -73.97573, 4.2346344, -3.008151)
+
+[node name="Bild_MONKEY" parent="." instance=ExtResource("9_6btqf")]
+transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -99.496925, 4.662092, -25.51439)
+
+[node name="Bild_MOUSE" parent="." instance=ExtResource("10_ct4y6")]
+transform = Transform3D(2.6226832e-07, 0, 2, 0, 2, 0, -2, 0, 2.6226832e-07, -74.67162, 3.826674, -7.2645283)
+
+[node name="STATUE2" parent="." instance=ExtResource("11_ewwbp")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -143.48154, 0.23729151, -21.165253)

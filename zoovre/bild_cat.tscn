@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://c78xqipy6y8el"]
+
+[ext_resource type="PackedScene" uid="uid://cpnlfojbebgw1" path="res://blender/Bild_CAT.glb" id="1_klpgf"]
+[ext_resource type="Script" uid="uid://bq441h38ccukm" path="res://scripts/pick_up.gd" id="2_kl5m4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3bsp6"]
+size = Vector3(1, 2.5, 2)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_klpgf"]
+viewport_path = NodePath("Area3D/Node3D/SubViewport")
+
+[node name="Bild_CAT" instance=ExtResource("1_klpgf")]
+
+[node name="Area3D" type="Area3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.77473795, 0, 0)
+script = ExtResource("2_kl5m4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+shape = SubResource("BoxShape3D_3bsp6")
+
+[node name="Node3D" type="Sprite3D" parent="Area3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.51849055, -0.63512564, 0)
+billboard = 2
+texture = SubResource("ViewportTexture_klpgf")
+
+[node name="SubViewport" type="SubViewport" parent="Area3D/Node3D" index="0"]
+disable_3d = true
+transparent_bg = true
+size = Vector2i(280, 60)
+
+[node name="Label" type="Label" parent="Area3D/Node3D/SubViewport" index="0"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 32
+text = "press e to collect"
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

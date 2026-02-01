@@ -1,10 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://4bkc820hj1q8"]
+[gd_scene load_steps=12 format=3 uid="uid://4bkc820hj1q8"]
 
 [ext_resource type="Texture2D" uid="uid://duqpv3m3ka3rm" path="res://2D_art/2D_Bilderrahmen.png" id="1_0bpdh"]
 [ext_resource type="Script" uid="uid://ddj5udp04o630" path="res://scripts/credits.gd" id="1_8gwij"]
 [ext_resource type="Texture2D" uid="uid://h2nxearxuw2p" path="res://2D_art/2D_credits.png" id="2_2fbfq"]
 [ext_resource type="Texture2D" uid="uid://xb6lkkkdpw8s" path="res://2D_art/2D_backbutton_normal.png" id="3_8gwij"]
 [ext_resource type="Texture2D" uid="uid://ba820mhr5kwkk" path="res://2D_art/2D_backbutton_hovered.png" id="4_mah5v"]
+[ext_resource type="Texture2D" uid="uid://bxyowf7ji7do2" path="res://2D_art/2D_gemaelde_lucifer-ziege.png" id="6_c6kru"]
+[ext_resource type="Texture2D" uid="uid://3eimno45kvr6" path="res://2D_art/2D_gemaelde_clownmaus.png" id="7_qbfqv"]
+[ext_resource type="Texture2D" uid="uid://bkak8w02n4jbu" path="res://2D_art/2D_vanGogh_Katze.png" id="8_x5q3x"]
+[ext_resource type="Texture2D" uid="uid://bimgmptg630cl" path="res://2D_art/2D_scream_monkey.png" id="9_nmdnh"]
+[ext_resource type="Texture2D" uid="uid://c3o24prcxs3it" path="res://2D_art/2D_gemaelde_hase-ohrring.png" id="10_83ncp"]
+[ext_resource type="Texture2D" uid="uid://hkde5weoox68" path="res://2D_art/2D_gemaelde_monalisa-gans.png" id="11_sxold"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -21,8 +27,8 @@ scale = Vector2(0.74505234, 0.5273437)
 texture = ExtResource("1_0bpdh")
 
 [node name="2dCredits" type="Sprite2D" parent="."]
-position = Vector2(967.5, 540)
-scale = Vector2(1.8576645, 1.5103579)
+position = Vector2(1069.5, 540)
+scale = Vector2(1.6094891, 1.5103579)
 texture = ExtResource("2_2fbfq")
 
 [node name="TextureButton" type="TextureButton" parent="."]
@@ -33,5 +39,35 @@ offset_right = 1671.0
 offset_bottom = 273.0
 texture_normal = ExtResource("3_8gwij")
 texture_hover = ExtResource("4_mah5v")
+
+[node name="2dGemaeldeLuciferZiege" type="Sprite2D" parent="."]
+position = Vector2(305.47687, 348.3125)
+scale = Vector2(0.0795678, 0.06459425)
+texture = ExtResource("6_c6kru")
+
+[node name="2dGemaeldeClownmaus" type="Sprite2D" parent="."]
+position = Vector2(305.5, 718.50006)
+scale = Vector2(0.10009766, 0.09940749)
+texture = ExtResource("7_qbfqv")
+
+[node name="2dVanGoghKatze" type="Sprite2D" parent="."]
+position = Vector2(305.5625, 465.77948)
+scale = Vector2(0.10715219, 0.043290224)
+texture = ExtResource("8_x5q3x")
+
+[node name="2dScreamMonkey" type="Sprite2D" parent="."]
+position = Vector2(305.5625, 867.00006)
+scale = Vector2(0.10715221, 0.056655046)
+texture = ExtResource("9_nmdnh")
+
+[node name="2dGemaeldeHaseOhrring" type="Sprite2D" parent="."]
+position = Vector2(305.5, 213.33165)
+scale = Vector2(0.10721757, 0.057173714)
+texture = ExtResource("10_83ncp")
+
+[node name="2dGemaeldeMonalisaGans" type="Sprite2D" parent="."]
+position = Vector2(305.49997, 582.18744)
+scale = Vector2(0.107217565, 0.047487352)
+texture = ExtResource("11_sxold")
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

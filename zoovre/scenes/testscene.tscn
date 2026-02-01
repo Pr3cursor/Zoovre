@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cfssv4obp5n6l"]
+[gd_scene load_steps=11 format=3 uid="uid://cfssv4obp5n6l"]
 
 [ext_resource type="PackedScene" uid="uid://c18mavfwhh5gd" path="res://scenes/camera.tscn" id="1_7y2xs"]
 [ext_resource type="PackedScene" uid="uid://ku4eka4g3ovj" path="res://scenes/camerachange.tscn" id="3_65iv0"]
 [ext_resource type="PackedScene" uid="uid://be8djbhs0vga5" path="res://scenes/player.tscn" id="4_l2n4a"]
 [ext_resource type="PackedScene" uid="uid://dukw52yx3pibx" path="res://scenes/enemy.tscn" id="4_ye8wr"]
+[ext_resource type="PackedScene" uid="uid://st3kosr2fs4u" path="res://bild_bunny.tscn" id="5_ye8wr"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_l2n4a"]
 vertices = PackedVector3Array(-22.75, 0, -4, -19, 0, -4, -18.75, 0, -5, -22.75, 0, -9.25, -24.5, 0, -24.5, -24.5, 0, -9.5, -9, 0, -5, -9, 0, -24.5, -6.75, 0, 6, -7.75, 0, 6.25, -7.75, 0, 10.25, 6, 0, 10.25, -6.75, 0, -4.75, 24.5, 0, 11.25, 24.5, 0, -24.5, 6.25, 0, 11.25, -24, 9.5, 11.5, 5.25, 9.5, 11.5, -23.5, 9.5, 11.25, -24, 9.5, -8.5, -18.75, 0, -2.75, -9, 0, 6, -9, 0, -2.75, -22.75, 0, 10.25, -8.25, 9.5, -3.75, -7.75, 9.5, 5.25, -7.75, 9.5, -4, -18, 9.5, -4, 6, 0, 12.5, 4, 0, 12.5, 4, 0, 24.5, 24.5, 0, 24.5, -24.5, 0, 12.5, -24.5, 0, 24.5)
@@ -142,6 +143,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.862402, 1.6081209, -22.88
 
 [node name="Enemy" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("4_ye8wr")]
 transform = Transform3D(-0.17333883, 0, 0.98486227, 0, 1, 0, -0.98486227, 0, -0.17333883, -16.515705, 0, -10.04835)
+visible = false
 patrol_points = [NodePath("../PatrolPoints/Point1"), NodePath("../PatrolPoints/Point2"), NodePath("../PatrolPoints/Point3")]
 
 [node name="PatrolPoints" type="Node3D" parent="."]
@@ -154,3 +156,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.195756, 0, -17.798832)
 
 [node name="Point3" type="Marker3D" parent="PatrolPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.619736, 0, 7.422923)
+
+[node name="Bild_BUNNY" parent="." instance=ExtResource("5_ye8wr")]
+transform = Transform3D(0.7786923, 0, -0.627406, 0, 1, 0, 0.627406, 0, 0.7786923, 1.4569492, 0.7495096, 0.4243965)

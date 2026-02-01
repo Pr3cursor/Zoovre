@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://cycynplmva5pp"]
+
+[ext_resource type="Script" uid="uid://diay8u2w36dxf" path="res://scripts/game_over.gd" id="1_xeevv"]
+[ext_resource type="Texture2D" uid="uid://djamrglsat2gb" path="res://2D_art/2D_retrybutton_normal.png" id="2_7m3ot"]
+[ext_resource type="Texture2D" uid="uid://rawbrwyngaa7" path="res://2D_art/2D_retrybutton_hovered.png" id="3_v3hpu"]
+[ext_resource type="Texture2D" uid="uid://cp7nh2vvteuc3" path="res://2D_art/2D_quitbutton_normal.png" id="4_irg28"]
+[ext_resource type="Texture2D" uid="uid://bv07u6qgw6hwr" path="res://2D_art/2D_quitbutton_hovered.png" id="5_2jtsn"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xeevv")
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 0
+offset_left = 835.0
+offset_top = 462.0
+offset_right = 1085.0
+offset_bottom = 618.0
+alignment = 1
+vertical = true
+
+[node name="Retry" type="TextureButton" parent="BoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_7m3ot")
+texture_hover = ExtResource("3_v3hpu")
+
+[node name="Quit" type="TextureButton" parent="BoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_irg28")
+texture_hover = ExtResource("5_2jtsn")
+
+[connection signal="pressed" from="BoxContainer/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="BoxContainer/Quit" to="." method="_on_quit_pressed"]

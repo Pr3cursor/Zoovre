@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://76si1uhxvvjc"]
+
+[ext_resource type="PackedScene" uid="uid://dvea1gbieiosw" path="res://blender/security.glb" id="1_225ps"]
+
+[node name="security" instance=ExtResource("1_225ps")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="2"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 8, 0)
+light_color = Color(1, 0, 0, 1)

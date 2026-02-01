@@ -1,10 +1,16 @@
-[gd_resource type="MeshLibrary" load_steps=58 format=4 uid="uid://cgjx22n5axdyn"]
+[gd_resource type="MeshLibrary" load_steps=60 format=4 uid="uid://cgjx22n5axdyn"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1g8qg"]
-albedo_color = Color(0, 0, 1, 1)
+[ext_resource type="Texture2D" uid="uid://b4lvpn84fanul" path="res://blender/DECKE_Wood.png" id="1_nft3r"]
+[ext_resource type="Texture2D" uid="uid://bwgbcjkdwsk8t" path="res://blender/FLOOR_Wood.png" id="2_7ujws"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sx41e"]
+resource_name = "Wood_2"
+cull_mode = 2
+albedo_texture = ExtResource("1_nft3r")
+roughness = 0.5
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_n68rm"]
-material = SubResource("StandardMaterial3D_1g8qg")
+material = SubResource("StandardMaterial3D_sx41e")
 
 [sub_resource type="Image" id="Image_n68rm"]
 data = {
@@ -40,11 +46,14 @@ image = SubResource("Image_lrxpi")
 [sub_resource type="BoxShape3D" id="BoxShape3D_jhpg2"]
 size = Vector3(2, 2, 2)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jhpg2"]
-albedo_color = Color(1, 1, 0, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nrxa1"]
+resource_name = "Wood_2"
+cull_mode = 2
+albedo_texture = ExtResource("2_7ujws")
+roughness = 0.5
 
 [sub_resource type="BoxMesh" id="BoxMesh_7pf1u"]
-material = SubResource("StandardMaterial3D_jhpg2")
+material = SubResource("StandardMaterial3D_nrxa1")
 size = Vector3(2, 1, 2)
 
 [sub_resource type="Image" id="Image_nft3r"]
@@ -666,7 +675,7 @@ item/1/navigation_layers = 1
 item/1/preview = SubResource("ImageTexture_nrxa1")
 item/2/name = "halfWall"
 item/2/mesh = SubResource("BoxMesh_7pf1u")
-item/2/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/2/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 item/2/mesh_cast_shadow = 1
 item/2/shapes = [SubResource("BoxShape3D_i3m0d"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
 item/2/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

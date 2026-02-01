@@ -9,7 +9,7 @@ func _ready() -> void:
 	if camera_id == 1:
 		camera.make_current()
 		Gamemanager.cur_cam_node = self
-		print(Gamemanager.cur_cam_node)
+		#print(Gamemanager.cur_cam_node)
 	#camera_area3d.sig_change_camera.connect(change_camera)
 	#if camera_id == 1:
 		#camera.current = true

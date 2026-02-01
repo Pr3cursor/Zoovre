@@ -33,17 +33,21 @@ func _physics_process(delta: float) -> void:
 	look_at(global_position + move_direction, Vector3.UP)
 	velocity = velocity.move_toward(move_direction*move_speed,acceleration * delta)
 	move_and_slide()
-	
-	if velocity.length() > 0 and !anim.assigned_animation == "barrel_roll":
+	var walking = true
+	if anim.assigned_animation == "barrel_roll" or anim.assigned_animation == "caught":
+		walking = false
+		if anim.is_playing() == false:
+			walking = true
+	if velocity.length() > 0 and walking:
 		get_node("raccoon/AnimationPlayer").play("walk_animation")
-	elif velocity.length() <= 0 or anim.assigned_animation == "barrel_roll":
+	elif velocity.length() <= 0 or !walking:
 		get_node("raccoon/AnimationPlayer").clear_queue()
-	
+		print(anim.assigned_animation)
 	
 func _input(event):
 	if event.is_action_pressed("barrel_roll"):
 		barrel_roll()
-	
+
 func game_over():
 		#print("End")
 		get_tree().change_scene_to_file("res://scenes/game_over.tscn")

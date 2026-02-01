@@ -1,6 +1,5 @@
 extends CharacterBody3D
 
-@onready var anim = $AnimationPlayer
 @onready var agent = $NavigationAgent3D
 @onready var vision_ray = $RayCast3D
 
@@ -11,6 +10,8 @@ extends CharacterBody3D
 @export var investigate_wait_time: float = 4.0 
 @export var patrol_wait_time: float = 3.0
 @export var update_interval: float = 0.2
+
+@onready var anim = $security.get_node("AnimationPlayer")
 
 const UPDATE_TIME = 0.2
 const SPEED = 150
@@ -70,6 +71,7 @@ func _move_towards(next_pos: Vector3, speed: float) -> void:
 	look_at(global_transform.origin + new_dir, Vector3.UP)
 	velocity.x = dir.x * speed
 	velocity.z = dir.z * speed
+	anim.play("walking")
 	
 func _stop_and_idle() -> void:
 	velocity = Vector3.ZERO

@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dukw52yx3pibx"]
+[gd_scene load_steps=7 format=3 uid="uid://dukw52yx3pibx"]
 
 [ext_resource type="Script" uid="uid://dk11j3cqf4ogo" path="res://scripts/enemy.gd" id="1_7p1mj"]
+[ext_resource type="PackedScene" uid="uid://dvea1gbieiosw" path="res://blender/security.glb" id="2_md0e3"]
 
 [sub_resource type="Environment" id="Environment_7p1mj"]
 background_mode = 1
@@ -49,5 +50,13 @@ shape = SubResource("CylinderShape3D_7p1mj")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="security" parent="." instance=ExtResource("2_md0e3")]
+transform = Transform3D(-0.45, 0, -3.934025e-08, 0, 0.45, 0, 3.934025e-08, 0, -0.45, 0, 0, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5355902, 0.0061154366)
+light_color = Color(1, 0, 0, 1)
+light_energy = 18.4
 
 [connection signal="body_entered" from="RayCast3D/Area3D" to="." method="_on_area_3d_body_entered"]

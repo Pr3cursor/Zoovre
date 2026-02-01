@@ -11,6 +11,7 @@ var cam_input_direction := Vector2.ZERO
 func _ready() -> void:
 	Gamemanager.player = self
 	update_camera()
+	#self.sig_caught.connect(_game_over)
 	
 func update_camera():
 	if Gamemanager.cur_cam_node:
@@ -27,9 +28,14 @@ func _physics_process(delta: float) -> void:
 	move_direction.y = 0.0
 	move_direction = move_direction.normalized()
 	look_at(move_direction)
+
 	velocity = velocity.move_toward(move_direction*move_speed,acceleration * delta)
 	move_and_slide()
 	if velocity.length() > 0:
 		get_node("raccoon/AnimationPlayer").play("walk_animation")
 	elif velocity.length() <= 0:
 		get_node("raccoon/AnimationPlayer").clear_queue()
+	
+func game_over():
+		print("End")
+		Gamemanager.reload_level()

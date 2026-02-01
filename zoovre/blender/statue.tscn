@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bh8pxe7jsf868"]
+
+[ext_resource type="PackedScene" uid="uid://dmjpigagoh7ms" path="res://blender/STATUE.glb" id="1_4nt3u"]
+
+[node name="STATUE" instance=ExtResource("1_4nt3u")]
+
+[node name="Plane" parent="." index="1"]
+transform = Transform3D(-1.6292068e-07, 1, 0, -1, -1.6292068e-07, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="AnimationPlayer" parent="." index="2"]
+autoplay = "PlaneAction"

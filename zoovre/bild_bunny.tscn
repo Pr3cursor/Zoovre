@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bq441h38ccukm" path="res://scripts/pick_up.gd" id="2_8fvnm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8fvnm"]
-size = Vector3(1, 2.5, 2)
+size = Vector3(1, 5, 2)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_8fvnm"]
 viewport_path = NodePath("Area3D/Node3D/SubViewport")

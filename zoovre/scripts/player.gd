@@ -45,8 +45,8 @@ func _input(event):
 		barrel_roll()
 	
 func game_over():
-		print("End")
-		Gamemanager.reload_level()
+		#print("End")
+		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 		
 func barrel_roll():
 	anim.play("barrel_roll")

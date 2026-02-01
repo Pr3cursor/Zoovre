@@ -1,10 +1,10 @@
 [gd_scene load_steps=15 format=3 uid="uid://b5035vc5tyhn8"]
 
 [ext_resource type="PackedScene" uid="uid://silg85rygq6a" path="res://blender/cone.glb" id="1_1g8qg"]
-[ext_resource type="PackedScene" uid="uid://dpumrfve27ri2" path="res://blender/grade_wand.glb" id="2_ddpu7"]
-[ext_resource type="PackedScene" uid="uid://c77d3a7oshmlf" path="res://blender/kurve_wand.glb" id="3_exfrf"]
-[ext_resource type="PackedScene" uid="uid://de7e4ijmjy4vw" path="res://blender/Menschenmassenkontrolle.glb" id="4_c1tb5"]
-[ext_resource type="PackedScene" uid="uid://bgvugfp0moiiv" path="res://blender/spitze_wand.glb" id="5_o3lnv"]
+[ext_resource type="PackedScene" uid="uid://jq5j78jvvlop" path="res://blender/bank.glb" id="2_ddpu7"]
+[ext_resource type="PackedScene" uid="uid://kv8wn11c6bbg" path="res://blender/ECKE_wand.glb" id="3_exfrf"]
+[ext_resource type="PackedScene" uid="uid://dplll0b7jfux3" path="res://blender/Menschenmassenkontrolle.glb" id="4_c1tb5"]
+[ext_resource type="PackedScene" uid="uid://ba785vji04hxh" path="res://blender/pillar.glb" id="5_c1tb5"]
 [ext_resource type="PackedScene" uid="uid://nxb4faukh4hv" path="res://blender/wand.glb" id="6_1tng7"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_2j40u"]
@@ -62,12 +62,12 @@ shape = SubResource("BoxShape3D_i3m0d")
 
 [node name="cone" parent="." instance=ExtResource("1_1g8qg")]
 
-[node name="grade_wand" parent="." instance=ExtResource("2_ddpu7")]
+[node name="bank2" parent="." instance=ExtResource("2_ddpu7")]
 
-[node name="kurve_wand" parent="." instance=ExtResource("3_exfrf")]
+[node name="ECKE_wand" parent="." instance=ExtResource("3_exfrf")]
 
 [node name="Menschenmassenkontrolle2" parent="." instance=ExtResource("4_c1tb5")]
 
-[node name="spitze_wand" parent="." instance=ExtResource("5_o3lnv")]
+[node name="pillar" parent="." instance=ExtResource("5_c1tb5")]
 
 [node name="wand" parent="." instance=ExtResource("6_1tng7")]

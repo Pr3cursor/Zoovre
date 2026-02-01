@@ -153,3 +153,8 @@ func _state_chase(delta: float) -> void:
 		_enter_state(State.RETURN)
 		return
 	_walk_to(agent.get_next_path_position(), speed_run)
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		Gamemanager.player.game_over()

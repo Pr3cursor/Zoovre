@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://jrlnlu70aect"]
+[gd_scene load_steps=5 format=3 uid="uid://jrlnlu70aect"]
 
 [ext_resource type="PackedScene" uid="uid://dukw52yx3pibx" path="res://scenes/enemy.tscn" id="1_7nokh"]
-[ext_resource type="PackedScene" uid="uid://be8djbhs0vga5" path="res://scenes/player.tscn" id="2_nn51t"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_vudd3"]
 vertices = PackedVector3Array(-24.5, 0.5, -24.5, -24.5, 0.5, 24.5, 24.5, 0.5, 24.5, 24.5, 0.5, -24.5)
@@ -29,12 +28,8 @@ skeleton = NodePath("../../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/StaticBody3D"]
 shape = SubResource("BoxShape3D_xcan6")
 
-[node name="player" parent="." instance=ExtResource("2_nn51t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.502287, 4.756441)
-
-[node name="Enemy" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("1_7nokh")]
+[node name="Enemy" parent="." instance=ExtResource("1_7nokh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8908641, 0)
-patrol_points = [NodePath("../PatrolPoints/Point1"), NodePath("../PatrolPoints/Point2"), NodePath("../PatrolPoints/Point3")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.86602545, 0, -0.86602545, 0.49999997, 0, 15, 14)

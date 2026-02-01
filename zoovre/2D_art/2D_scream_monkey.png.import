@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsxtf0ldrxr7"
-path="res://.godot/imported/Bilderrahmen.png-394d897fdb2de0f6d7d71831dc4012a6.ctex"
+uid="uid://bimgmptg630cl"
+path="res://.godot/imported/2D_scream_monkey.png-164550fa0a7e9248b7ee6fca7923bcb5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://2D_art/Bilderrahmen.png"
-dest_files=["res://.godot/imported/Bilderrahmen.png-394d897fdb2de0f6d7d71831dc4012a6.ctex"]
+source_file="res://2D_art/2D_scream_monkey.png"
+dest_files=["res://.godot/imported/2D_scream_monkey.png-164550fa0a7e9248b7ee6fca7923bcb5.ctex"]
 
 [params]
 

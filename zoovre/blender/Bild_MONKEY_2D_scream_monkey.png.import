@@ -2,20 +2,24 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bv6fyrifvc13e"
-path="res://.godot/imported/gemaelde_clownmaus.png-78bf8a3296a6fc607382c073c043b75b.ctex"
+uid="uid://cjvk1s238neum"
+path.s3tc="res://.godot/imported/Bild_MONKEY_2D_scream_monkey.png-b306c3833426057469b97dc1f647267b.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "d82b18d4a8eb9aa44e5607641c3a523f"
 }
 
 [deps]
 
-source_file="res://2D_art/gemaelde_clownmaus.png"
-dest_files=["res://.godot/imported/gemaelde_clownmaus.png-78bf8a3296a6fc607382c073c043b75b.ctex"]
+source_file="res://blender/Bild_MONKEY_2D_scream_monkey.png"
+dest_files=["res://.godot/imported/Bild_MONKEY_2D_scream_monkey.png-b306c3833426057469b97dc1f647267b.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -23,7 +27,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -37,4 +41,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

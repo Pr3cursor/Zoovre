@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://k0gpaw56hccd"]
+
+[ext_resource type="Script" uid="uid://ltmg1oj837yu" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://cfd3yhwcgmcek" path="res://2D_art/2D_title-screen.png" id="2_wu84c"]
+[ext_resource type="Texture2D" uid="uid://caf1kp4gtjn2r" path="res://2D_art/2D_startbutton_normal.png" id="3_8ln24"]
+[ext_resource type="Texture2D" uid="uid://beb1gcofesrak" path="res://2D_art/2D_startbutton_hovered.png" id="4_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://d3xjgjgc8a2h3" path="res://2D_art/2D_creditsbutton_normal.png" id="5_tbmy8"]
+[ext_resource type="Texture2D" uid="uid://b2qjwutnikuwg" path="res://2D_art/2D_creditsbutton_hovered.png" id="6_jk1qb"]
+[ext_resource type="Texture2D" uid="uid://cp7nh2vvteuc3" path="res://2D_art/2D_quitbutton_normal.png" id="7_5dd4i"]
+[ext_resource type="Texture2D" uid="uid://bv07u6qgw6hwr" path="res://2D_art/2D_quitbutton_hovered.png" id="8_lgwnu"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l6cm7")
+
+[node name="2dTitleScreen" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("2_wu84c")
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -400.0
+offset_right = 250.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+vertical = true
+
+[node name="Start" type="TextureButton" parent="BoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_8ln24")
+texture_hover = ExtResource("4_rtw2f")
+stretch_mode = 3
+
+[node name="Credits" type="TextureButton" parent="BoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_tbmy8")
+texture_hover = ExtResource("6_jk1qb")
+stretch_mode = 3
+
+[node name="Quit" type="TextureButton" parent="BoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("7_5dd4i")
+texture_hover = ExtResource("8_lgwnu")
+stretch_mode = 3
+
+[connection signal="pressed" from="BoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="BoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="BoxContainer/Quit" to="." method="_on_quit_pressed"]

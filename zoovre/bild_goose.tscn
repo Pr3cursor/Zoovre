@@ -1,27 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://st3kosr2fs4u"]
+[gd_scene load_steps=5 format=3 uid="uid://bcec0rn4tyggt"]
 
-[ext_resource type="PackedScene" uid="uid://dj0hjm7t4vnjf" path="res://blender/Bild_BUNNY.glb" id="1_ml4i7"]
-[ext_resource type="Script" uid="uid://bq441h38ccukm" path="res://scripts/pick_up.gd" id="2_8fvnm"]
+[ext_resource type="PackedScene" uid="uid://mxde262o52px" path="res://blender/Bild_Goose.glb" id="1_814b7"]
+[ext_resource type="Script" uid="uid://bq441h38ccukm" path="res://scripts/pick_up.gd" id="2_gonb8"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_8fvnm"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_3bsp6"]
 size = Vector3(1, 2.5, 2)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_8fvnm"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_814b7"]
 viewport_path = NodePath("Area3D/Node3D/SubViewport")
 
-[node name="Bild_BUNNY" instance=ExtResource("1_ml4i7")]
+[node name="Bild_Goose" instance=ExtResource("1_814b7")]
 
 [node name="Area3D" type="Area3D" parent="." index="1"]
-script = ExtResource("2_8fvnm")
+script = ExtResource("2_gonb8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
-shape = SubResource("BoxShape3D_8fvnm")
+shape = SubResource("BoxShape3D_3bsp6")
 
 [node name="Node3D" type="Sprite3D" parent="Area3D" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.51849055, -0.63512564, 0)
 billboard = 2
-texture = SubResource("ViewportTexture_8fvnm")
+texture = SubResource("ViewportTexture_814b7")
 
 [node name="SubViewport" type="SubViewport" parent="Area3D/Node3D" index="0"]
 disable_3d = true

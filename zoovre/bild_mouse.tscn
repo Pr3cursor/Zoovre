@@ -1,27 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://st3kosr2fs4u"]
+[gd_scene load_steps=5 format=3 uid="uid://cyfwdls5p3a6d"]
 
-[ext_resource type="PackedScene" uid="uid://dj0hjm7t4vnjf" path="res://blender/Bild_BUNNY.glb" id="1_ml4i7"]
-[ext_resource type="Script" uid="uid://bq441h38ccukm" path="res://scripts/pick_up.gd" id="2_8fvnm"]
+[ext_resource type="PackedScene" uid="uid://bkfwgjcmujief" path="res://blender/Bild_MOUSE.glb" id="1_kxxkh"]
+[ext_resource type="Script" uid="uid://bq441h38ccukm" path="res://scripts/pick_up.gd" id="2_hhr7s"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_8fvnm"]
-size = Vector3(1, 2.5, 2)
+[sub_resource type="BoxShape3D" id="BoxShape3D_kxxkh"]
+size = Vector3(1, 2.4141846, 4)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_8fvnm"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_hhr7s"]
 viewport_path = NodePath("Area3D/Node3D/SubViewport")
 
-[node name="Bild_BUNNY" instance=ExtResource("1_ml4i7")]
+[node name="Bild_MOUSE" instance=ExtResource("1_kxxkh")]
 
 [node name="Area3D" type="Area3D" parent="." index="1"]
-script = ExtResource("2_8fvnm")
+script = ExtResource("2_hhr7s")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
-shape = SubResource("BoxShape3D_8fvnm")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2067464, 0.2865287, 0)
+shape = SubResource("BoxShape3D_kxxkh")
 
 [node name="Node3D" type="Sprite3D" parent="Area3D" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.51849055, -0.63512564, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.51849055, 0.04086244, 0)
 billboard = 2
-texture = SubResource("ViewportTexture_8fvnm")
+texture = SubResource("ViewportTexture_hhr7s")
 
 [node name="SubViewport" type="SubViewport" parent="Area3D/Node3D" index="0"]
 disable_3d = true

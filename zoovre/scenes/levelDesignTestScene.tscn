@@ -4,14 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://be8djbhs0vga5" path="res://scenes/player.tscn" id="2_fpkyo"]
 [ext_resource type="PackedScene" uid="uid://c18mavfwhh5gd" path="res://scenes/camera.tscn" id="3_fpkyo"]
 [ext_resource type="PackedScene" uid="uid://ku4eka4g3ovj" path="res://scenes/camerachange.tscn" id="4_q8cw5"]
-[ext_resource type="PackedScene" uid="uid://dj0hjm7t4vnjf" path="res://blender/Bild_BUNNY.glb" id="5_0kxq1"]
-[ext_resource type="PackedScene" uid="uid://cpnlfojbebgw1" path="res://blender/Bild_CAT.glb" id="6_ewwbp"]
-[ext_resource type="PackedScene" uid="uid://bi44rdmxlt6ax" path="res://blender/Bild_GOAT.glb" id="7_52iff"]
-[ext_resource type="PackedScene" uid="uid://mxde262o52px" path="res://blender/Bild_Goose.glb" id="8_qyr5k"]
-[ext_resource type="PackedScene" uid="uid://c5y2kr337resj" path="res://blender/Bild_MONKEY.glb" id="9_6btqf"]
-[ext_resource type="PackedScene" uid="uid://bkfwgjcmujief" path="res://blender/Bild_MOUSE.glb" id="10_ct4y6"]
+[ext_resource type="PackedScene" uid="uid://c78xqipy6y8el" path="res://bild_cat.tscn" id="8_6btqf"]
+[ext_resource type="PackedScene" uid="uid://dl85oq1k8ou54" path="res://bild_goat.tscn" id="9_ct4y6"]
+[ext_resource type="PackedScene" uid="uid://dg3wnmnii6ec" path="res://bild_monkey.tscn" id="10_tkken"]
+[ext_resource type="PackedScene" uid="uid://cyfwdls5p3a6d" path="res://bild_mouse.tscn" id="11_5sa7o"]
+[ext_resource type="PackedScene" uid="uid://st3kosr2fs4u" path="res://bild_bunny.tscn" id="11_52iff"]
 [ext_resource type="PackedScene" uid="uid://bh8pxe7jsf868" path="res://blender/statue.tscn" id="11_ewwbp"]
 [ext_resource type="PackedScene" uid="uid://dukw52yx3pibx" path="res://scenes/enemy.tscn" id="12_52iff"]
+[ext_resource type="PackedScene" uid="uid://bcec0rn4tyggt" path="res://bild_goose.tscn" id="12_ixwrs"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_pissr"]
 
@@ -333,26 +333,26 @@ next_cam = NodePath("../../Cameras/camera8")
 
 [node name="Art" type="Node3D" parent="."]
 
-[node name="Bild_BUNNY" parent="Art" instance=ExtResource("5_0kxq1")]
-transform = Transform3D(-2, 0, -3.019916e-07, 0, 2, 0, 3.019916e-07, 0, -2, -136.88783, 4.2643275, 12.034245)
-
-[node name="Bild_CAT" parent="Art" instance=ExtResource("6_ewwbp")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -147.50452, 4.2744823, 1.9001606)
-
-[node name="Bild_GOAT" parent="Art" instance=ExtResource("7_52iff")]
-transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, -123.18387, 3.9637945, -17.318348)
-
-[node name="Bild_Goose" parent="Art" instance=ExtResource("8_qyr5k")]
-transform = Transform3D(-1.09278474e-07, 0, -2.5, 0, 2.5, 0, 2.5, 0, -1.09278474e-07, -73.97573, 4.2346344, -3.008151)
-
-[node name="Bild_MONKEY" parent="Art" instance=ExtResource("9_6btqf")]
-transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -99.496925, 4.662092, -25.51439)
-
-[node name="Bild_MOUSE" parent="Art" instance=ExtResource("10_ct4y6")]
-transform = Transform3D(2.6226832e-07, 0, 2, 0, 2, 0, -2, 0, 2.6226832e-07, -74.67162, 3.826674, -7.2645283)
-
 [node name="STATUE2" parent="Art" instance=ExtResource("11_ewwbp")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -143.48154, 0.23729151, -21.165253)
+
+[node name="Bild_BUNNY2" parent="Art" instance=ExtResource("11_52iff")]
+transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, -136.88783, 4.2643275, 12.034245)
+
+[node name="Bild_CAT2" parent="Art" instance=ExtResource("8_6btqf")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -147.50452, 4.2744823, 1.9001606)
+
+[node name="Bild_GOAT2" parent="Art" instance=ExtResource("9_ct4y6")]
+transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, -123.18387, 3.9637945, -17.318348)
+
+[node name="Bild_MONKEY2" parent="Art" instance=ExtResource("10_tkken")]
+transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -99.496925, 4.662092, -25.51439)
+
+[node name="Bild_MOUSE2" parent="Art" instance=ExtResource("11_5sa7o")]
+transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, -74.67162, 3.826674, -7.2645283)
+
+[node name="Bild_Goose2" parent="Art" instance=ExtResource("12_ixwrs")]
+transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -73.97573, 4.2346344, -3.008151)
 
 [node name="PatrolPoints" type="Node3D" parent="."]
 

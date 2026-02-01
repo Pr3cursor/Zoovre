@@ -42,11 +42,12 @@ func _physics_process(delta: float) -> void:
 		get_node("raccoon/AnimationPlayer").play("walk_animation")
 	elif velocity.length() <= 0 or !walking:
 		get_node("raccoon/AnimationPlayer").clear_queue()
-		print(anim.assigned_animation)
 	
 func _input(event):
 	if event.is_action_pressed("barrel_roll"):
 		barrel_roll()
+	if event.is_action_pressed("reset"):
+		reset()
 
 func game_over():
 		#print("End")
@@ -57,3 +58,9 @@ func barrel_roll():
 	move_speed = 50
 	await get_tree().create_timer(0.5).timeout
 	move_speed = 5.0
+	
+func reset():
+	self.position = Vector3(-157.159,0,32.693)
+	Gamemanager.cur_cam_node = Gamemanager.reset_cam
+	Gamemanager.reset_cam.reset_make_current()
+	print(Gamemanager.cur_cam_node, Gamemanager.reset_cam)

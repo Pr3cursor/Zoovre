@@ -9,6 +9,7 @@ func _ready() -> void:
 	if camera_id == 1:
 		camera.make_current()
 		Gamemanager.cur_cam_node = self
+		Gamemanager.reset_cam = self
 		#print(Gamemanager.cur_cam_node)
 	#camera_area3d.sig_change_camera.connect(change_camera)
 	#if camera_id == 1:
@@ -16,6 +17,10 @@ func _ready() -> void:
 		#Gamemanager.auto_cur_cam_id = 1
 		#Gamemanager.cur_cam_node = self
 		#is_on = true
+		
+func reset_make_current():
+	camera.make_current()
+	print(camera)
 		
 	
 func _process(delta: float) -> void:

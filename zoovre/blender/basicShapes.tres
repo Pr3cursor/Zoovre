@@ -1,7 +1,7 @@
 [gd_resource type="MeshLibrary" load_steps=60 format=4 uid="uid://cgjx22n5axdyn"]
 
 [ext_resource type="Texture2D" uid="uid://b4lvpn84fanul" path="res://blender/DECKE_Wood.png" id="1_nft3r"]
-[ext_resource type="Texture2D" uid="uid://bwgbcjkdwsk8t" path="res://blender/FLOOR_Wood.png" id="2_7ujws"]
+[ext_resource type="Texture2D" uid="uid://8ea7e46wincu" path="res://blender/Marble.png" id="2_nft3r"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sx41e"]
 resource_name = "Wood_2"
@@ -49,7 +49,7 @@ size = Vector3(2, 2, 2)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nrxa1"]
 resource_name = "Wood_2"
 cull_mode = 2
-albedo_texture = ExtResource("2_7ujws")
+albedo_texture = ExtResource("2_nft3r")
 roughness = 0.5
 
 [sub_resource type="BoxMesh" id="BoxMesh_7pf1u"]

@@ -5,9 +5,9 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e3o75"]
 shader = ExtResource("1_v6ixi")
-shader_parameter/wiggle = 0.00999999977648
-shader_parameter/wiggle_speed = 6.0
-shader_parameter/smear = 0.2010000095475
+shader_parameter/wiggle = 0.0
+shader_parameter/wiggle_speed = 0.0
+shader_parameter/smear = 0.0
 shader_parameter/blur_samples = 3
 
 [node name="crt" type="CanvasLayer"]

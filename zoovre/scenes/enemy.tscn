@@ -1,14 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dukw52yx3pibx"]
+[gd_scene load_steps=5 format=3 uid="uid://dukw52yx3pibx"]
 
 [ext_resource type="Script" uid="uid://dk11j3cqf4ogo" path="res://scripts/enemy.gd" id="1_7p1mj"]
 [ext_resource type="PackedScene" uid="uid://dvea1gbieiosw" path="res://blender/security.glb" id="2_md0e3"]
 
-[sub_resource type="Environment" id="Environment_7p1mj"]
-background_mode = 1
-
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8tegq"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_7p1mj"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7p1mj"]
 height = 3.8847656
@@ -17,16 +12,9 @@ radius = 3.0
 [node name="Enemy" type="CharacterBody3D" groups=["enemy"]]
 script = ExtResource("1_7p1mj")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_7p1mj")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_8tegq")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_7p1mj")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.758307, 0)

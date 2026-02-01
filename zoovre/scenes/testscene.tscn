@@ -141,7 +141,7 @@ next_cam = NodePath("../camera3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.862402, 1.6081209, -22.883558)
 
 [node name="Enemy" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("4_ye8wr")]
-transform = Transform3D(-0.17333883, 0, 0.98486227, 0, 1, 0, -0.98486227, 0, -0.17333883, -21.468464, 0, -3.253645)
+transform = Transform3D(-0.17333883, 0, 0.98486227, 0, 1, 0, -0.98486227, 0, -0.17333883, -16.515705, 0, -10.04835)
 patrol_points = [NodePath("../PatrolPoints/Point1"), NodePath("../PatrolPoints/Point2"), NodePath("../PatrolPoints/Point3")]
 
 [node name="PatrolPoints" type="Node3D" parent="."]

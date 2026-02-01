@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://4bkc820hj1q8"]
+
+[ext_resource type="Texture2D" uid="uid://duqpv3m3ka3rm" path="res://2D_art/2D_Bilderrahmen.png" id="1_0bpdh"]
+[ext_resource type="Script" uid="uid://ddj5udp04o630" path="res://scripts/credits.gd" id="1_8gwij"]
+[ext_resource type="Texture2D" uid="uid://h2nxearxuw2p" path="res://2D_art/2D_credits.png" id="2_2fbfq"]
+[ext_resource type="Texture2D" uid="uid://xb6lkkkdpw8s" path="res://2D_art/2D_backbutton_normal.png" id="3_8gwij"]
+[ext_resource type="Texture2D" uid="uid://ba820mhr5kwkk" path="res://2D_art/2D_backbutton_hovered.png" id="4_mah5v"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8gwij")
+
+[node name="2dBilderrahmen" type="Sprite2D" parent="."]
+position = Vector2(959.99994, 540)
+scale = Vector2(0.74505234, 0.5273437)
+texture = ExtResource("1_0bpdh")
+
+[node name="2dCredits" type="Sprite2D" parent="."]
+position = Vector2(967.5, 540)
+scale = Vector2(1.8576645, 1.5103579)
+texture = ExtResource("2_2fbfq")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1421.0
+offset_top = 167.0
+offset_right = 1671.0
+offset_bottom = 273.0
+texture_normal = ExtResource("3_8gwij")
+texture_hover = ExtResource("4_mah5v")
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

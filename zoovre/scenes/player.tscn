@@ -11,7 +11,7 @@
 script = ExtResource("1_3vyb7")
 
 [node name="raccoon" parent="." instance=ExtResource("2_g2els")]
-transform = Transform3D(2.315, 0, 0, 0, 2.315, 0, 0, 0, 2.315, 0, 1.1757966, 0)
+transform = Transform3D(-2.315, 0, -2.0238373e-07, 0, 2.315, 0, 2.0238373e-07, 0, -2.315, 0, 1.1757966, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

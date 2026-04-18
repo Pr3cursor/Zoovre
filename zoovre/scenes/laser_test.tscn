@@ -34,11 +34,12 @@ mesh = SubResource("PlaneMesh_c3md7")
 [node name="LaserBox" parent="." instance=ExtResource("1_i2vpt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3163998, 0.25, 0)
 
-[node name="LaserBox2" parent="." instance=ExtResource("1_i2vpt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.25, 0)
+[node name="LaserBox2" parent="LaserBox" instance=ExtResource("1_i2vpt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3163998, 0, 0)
+skeleton = NodePath("../..")
 
-[node name="Laser" parent="." instance=ExtResource("2_2j2a2")]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -1, 0.25, 0)
+[node name="Laser" parent="LaserBox" instance=ExtResource("2_2j2a2")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.3163998, 0, 0)
 target_position = Vector3(0, -10, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]

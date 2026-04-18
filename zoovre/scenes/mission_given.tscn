@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://cvnxds7dkg8ge"]
+
+[ext_resource type="Texture2D" uid="uid://dd8kdaqjf4hrm" path="res://2D_art/UI Elemente/UI_Background.png" id="1_3r2mi"]
+[ext_resource type="Script" uid="uid://tk8ioa0u244p" path="res://scenes/mission_given.gd" id="1_mbx8a"]
+[ext_resource type="Texture2D" uid="uid://kg3n4wtyq0mx" path="res://2D_art/UI Elemente/current_mission_text_bigger.png" id="2_3r2mi"]
+[ext_resource type="Texture2D" uid="uid://3hw46r2pu2xk" path="res://2D_art/UI Elemente/continue_light.jpg" id="4_77qh7"]
+[ext_resource type="Texture2D" uid="uid://dbr6vr01rvajt" path="res://2D_art/UI Elemente/continue_dark.jpg" id="5_4kug7"]
+[ext_resource type="Texture2D" uid="uid://dsssxo8oxvdbr" path="res://2D_art/UI Elemente/quit_light.jpg" id="6_bwluo"]
+[ext_resource type="Texture2D" uid="uid://bbcymo6me6np1" path="res://2D_art/UI Elemente/quit_dark.jpg" id="7_2fkr2"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_mbx8a")
+
+[node name="UiBackground" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.3764706)
+position = Vector2(960, 540)
+texture = ExtResource("1_3r2mi")
+
+[node name="CurrentMissionTextBigger" type="Sprite2D" parent="."]
+position = Vector2(983, 482)
+texture = ExtResource("2_3r2mi")
+
+[node name="BoxContainer" type="BoxContainer" parent="CurrentMissionTextBigger"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -743.5
+offset_top = -637.0
+offset_right = -243.5
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+vertical = true
+
+[node name="Continue" type="TextureButton" parent="CurrentMissionTextBigger/BoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_77qh7")
+texture_hover = ExtResource("5_4kug7")
+stretch_mode = 3
+
+[node name="Quit" type="TextureButton" parent="CurrentMissionTextBigger/BoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_bwluo")
+texture_hover = ExtResource("7_2fkr2")
+stretch_mode = 3
+
+[connection signal="pressed" from="CurrentMissionTextBigger/BoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="CurrentMissionTextBigger/BoxContainer/Quit" to="." method="_on_quit_pressed"]

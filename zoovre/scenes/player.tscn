@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://be8djbhs0vga5"]
+[gd_scene load_steps=6 format=3 uid="uid://be8djbhs0vga5"]
 
 [ext_resource type="Script" uid="uid://baqxhsge75e1b" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="PackedScene" uid="uid://0nq2m7sjtrr" path="res://blender/raccoon_walking.tscn" id="2_g2els"]
+[ext_resource type="PackedScene" uid="uid://cuojsi0hgen1v" path="res://blender/raccoon.glb" id="3_qhqgy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
 
@@ -12,6 +13,10 @@ script = ExtResource("1_3vyb7")
 
 [node name="raccoon" parent="." instance=ExtResource("2_g2els")]
 transform = Transform3D(-2.315, 0, -2.0238373e-07, 0, 2.315, 0, 2.0238373e-07, 0, -2.315, 0, 1.1757966, 0)
+
+[node name="raccoon2" parent="." instance=ExtResource("3_qhqgy")]
+transform = Transform3D(-2.315, 0, -2.0238373e-07, 0, 2.315, 0, 2.0238373e-07, 0, -2.315, 0, 1.176, 0)
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

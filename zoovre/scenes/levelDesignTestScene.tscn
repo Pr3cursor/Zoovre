@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://docdlplf0ur5n"]
+[gd_scene load_steps=15 format=3 uid="uid://docdlplf0ur5n"]
 
 [ext_resource type="MeshLibrary" uid="uid://cgjx22n5axdyn" path="res://blender/basicShapes.tres" id="1_0qqjg"]
 [ext_resource type="PackedScene" uid="uid://be8djbhs0vga5" path="res://scenes/player.tscn" id="2_fpkyo"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://bh8pxe7jsf868" path="res://blender/statue.tscn" id="11_ewwbp"]
 [ext_resource type="PackedScene" uid="uid://dukw52yx3pibx" path="res://scenes/enemy.tscn" id="12_52iff"]
 [ext_resource type="PackedScene" uid="uid://bcec0rn4tyggt" path="res://bild_goose.tscn" id="12_ixwrs"]
-[ext_resource type="PackedScene" uid="uid://b5jgo3502ag5o" path="res://scenes/normies.tscn" id="13_qyr5k"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_pissr"]
 
@@ -414,9 +413,3 @@ patrol_points = [NodePath("../../PatrolPoints/Point10"), NodePath("../../PatrolP
 [node name="Enemy5" parent="Enemies" node_paths=PackedStringArray("patrol_points") instance=ExtResource("12_52iff")]
 transform = Transform3D(2.7818132e-08, 0, 1, 0, 1, 0, -1, 0, 2.7818132e-08, -4.0336885, 1.2609823, -24.151665)
 patrol_points = [NodePath("../../PatrolPoints/Point12"), NodePath("../../PatrolPoints/Point11")]
-
-[node name="Normies" parent="." instance=ExtResource("13_qyr5k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -142.81046, 2.103809, 29.04133)
-
-[node name="Normies2" parent="." instance=ExtResource("13_qyr5k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -145.05856, 1.6868925, 27.60015)

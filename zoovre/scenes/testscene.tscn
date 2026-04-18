@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://cfssv4obp5n6l"]
+[gd_scene load_steps=17 format=3 uid="uid://cfssv4obp5n6l"]
 
 [ext_resource type="PackedScene" uid="uid://c18mavfwhh5gd" path="res://scenes/camera.tscn" id="1_7y2xs"]
+[ext_resource type="Script" uid="uid://dx2g74wnq1tfa" path="res://scenes/progress_bar.gd" id="1_i7xxu"]
 [ext_resource type="PackedScene" uid="uid://ku4eka4g3ovj" path="res://scenes/camerachange.tscn" id="3_65iv0"]
 [ext_resource type="PackedScene" uid="uid://be8djbhs0vga5" path="res://scenes/player.tscn" id="4_l2n4a"]
 [ext_resource type="PackedScene" uid="uid://dukw52yx3pibx" path="res://scenes/enemy.tscn" id="4_ye8wr"]
@@ -28,6 +29,28 @@ size = Vector3(50, 1, 50)
 size = Vector3(50, 1, 50)
 
 [node name="testscene" type="Node3D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+custom_minimum_size = Vector2(100, 20)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -40.0
+offset_right = 50.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+max_value = 6.0
+step = 1.0
+show_percentage = false
+script = ExtResource("1_i7xxu")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 53.36435, 0)

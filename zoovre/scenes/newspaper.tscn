@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://bfhuhte2l81tn"]
+
+[ext_resource type="Script" uid="uid://xn4jp2skvcab" path="res://scenes/newspaper.gd" id="1_ktsvs"]
+[ext_resource type="Texture2D" uid="uid://dd8kdaqjf4hrm" path="res://2D_art/UI Elemente/UI_Background.png" id="1_orewu"]
+[ext_resource type="Texture2D" uid="uid://cv0vyp8mwjyc3" path="res://2D_art/newspaper.png" id="2_o430b"]
+[ext_resource type="Texture2D" uid="uid://b2xaw08c7j8ck" path="res://2D_art/UI Elemente/newspaper_new.png" id="3_0ko4l"]
+[ext_resource type="Texture2D" uid="uid://3hw46r2pu2xk" path="res://2D_art/UI Elemente/continue_light.jpg" id="3_tbpqn"]
+[ext_resource type="Texture2D" uid="uid://dbr6vr01rvajt" path="res://2D_art/UI Elemente/continue_dark.jpg" id="4_0ko4l"]
+[ext_resource type="Texture2D" uid="uid://dsssxo8oxvdbr" path="res://2D_art/UI Elemente/quit_light.jpg" id="5_ktsvs"]
+[ext_resource type="Texture2D" uid="uid://bbcymo6me6np1" path="res://2D_art/UI Elemente/quit_dark.jpg" id="6_vfiy7"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_ktsvs")
+
+[node name="UiBackground" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.3764706)
+position = Vector2(960, 540)
+texture = ExtResource("1_orewu")
+
+[node name="Newspaper" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(958, 1384)
+texture = ExtResource("2_o430b")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_left = 132.0
+offset_top = 57.0
+offset_right = 1793.0
+offset_bottom = 1718.0
+scale = Vector2(0.633255, 0.6158741)
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer"]
+layout_mode = 2
+texture = ExtResource("3_0ko4l")
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 1297.0
+offset_top = 80.0
+offset_right = 1797.0
+offset_bottom = 691.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+vertical = true
+
+[node name="Continue" type="TextureButton" parent="BoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_tbpqn")
+texture_hover = ExtResource("4_0ko4l")
+stretch_mode = 3
+
+[node name="Quit" type="TextureButton" parent="BoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_ktsvs")
+texture_hover = ExtResource("6_vfiy7")
+stretch_mode = 3
+
+[connection signal="pressed" from="BoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="BoxContainer/Quit" to="." method="_on_quit_pressed"]

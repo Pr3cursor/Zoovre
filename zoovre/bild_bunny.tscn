@@ -9,7 +9,7 @@ size = Vector3(1, 5, 2)
 [sub_resource type="ViewportTexture" id="ViewportTexture_8fvnm"]
 viewport_path = NodePath("Area3D/Node3D/SubViewport")
 
-[node name="Bild_BUNNY" instance=ExtResource("1_ml4i7")]
+[node name="Bild_BUNNY" groups=["picture"] instance=ExtResource("1_ml4i7")]
 
 [node name="Area3D" type="Area3D" parent="." index="1"]
 script = ExtResource("2_8fvnm")

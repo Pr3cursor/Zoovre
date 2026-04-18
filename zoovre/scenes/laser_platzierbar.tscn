@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq8mmqkcvpg52"]
+
+[ext_resource type="PackedScene" uid="uid://faiehtditgyd" path="res://scenes/laser_box.tscn" id="1_2ap42"]
+[ext_resource type="PackedScene" uid="uid://qor2le16l1f1" path="res://scenes/laser.tscn" id="2_05yip"]
+
+[node name="LaserPlatzierbar" type="Node3D"]
+
+[node name="LaserBox" parent="." instance=ExtResource("1_2ap42")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.25, 0)
+
+[node name="LaserBox2" parent="." instance=ExtResource("1_2ap42")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0.25, 0)
+
+[node name="Laser" parent="." instance=ExtResource("2_05yip")]
+transform = Transform3D(-1.3113416e-07, -3, 0, 3, -1.3113416e-07, 0, 0, 0, 3, -2.5, 0.25, 0)
+target_position = Vector3(0, -10, 0)

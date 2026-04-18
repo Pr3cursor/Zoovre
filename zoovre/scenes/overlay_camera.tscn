@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dj37kgak32mif"]
+[gd_scene load_steps=33 format=3 uid="uid://dj37kgak32mif"]
 
 [ext_resource type="Texture2D" uid="uid://cfurstww3lryn" path="res://2D_art/camera-stuff/20260418_112624957_iOS.png" id="1_i4r65"]
 [ext_resource type="Texture2D" uid="uid://dleu2uqjxofey" path="res://2D_art/camera-stuff/20260418_112727815_iOS.png" id="2_lorn7"]
@@ -30,6 +30,9 @@
 [ext_resource type="Texture2D" uid="uid://bkbj5b2elsojl" path="res://2D_art/camera-stuff/Streifen2/frame_10 1.png" id="27_vtkdu"]
 [ext_resource type="Texture2D" uid="uid://huyimsojmnsn" path="res://2D_art/camera-stuff/Streifen2/frame_11 1.png" id="28_15lai"]
 [ext_resource type="Texture2D" uid="uid://cxaa4ejg5c5bk" path="res://2D_art/camera-stuff/Streifen2/frame_12 1.png" id="29_xuvyw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x1a6y"]
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vofog"]
 animations = [{
@@ -157,8 +160,22 @@ offset_left = 135.0
 offset_top = 845.0
 offset_right = 730.0
 offset_bottom = 925.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_x1a6y")
 max_value = 6.0
 step = 1.0
+value = 6.0
+show_percentage = false
+
+[node name="ProgressLabel" type="Label" parent="CanvasLayer"]
+offset_left = 134.0
+offset_top = 810.0
+offset_right = 729.0
+offset_bottom = 956.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 80
+text = "1/6"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="REC" type="Sprite2D" parent="."]
 z_index = 1

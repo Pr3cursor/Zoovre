@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://ltmg1oj837yu" path="res://scripts/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="Texture2D" uid="uid://cfd3yhwcgmcek" path="res://2D_art/2D_title-screen.png" id="2_wu84c"]
-[ext_resource type="Texture2D" uid="uid://cytdhhebv1wpw" path="res://2D_art/UI Elemente/button_start_light.jpg" id="3_tbmy8"]
-[ext_resource type="Texture2D" uid="uid://c74qr3pk754rh" path="res://2D_art/UI Elemente/button_start_dark.jpg" id="4_jk1qb"]
-[ext_resource type="Texture2D" uid="uid://dk2dbay3bwi85" path="res://2D_art/UI Elemente/button_credit_light.jpg" id="5_5dd4i"]
-[ext_resource type="Texture2D" uid="uid://dwqleyaojmy5e" path="res://2D_art/UI Elemente/button_credits_dark.jpg" id="6_lgwnu"]
-[ext_resource type="Texture2D" uid="uid://ctp6snj1svfpg" path="res://2D_art/UI Elemente/button_quit_light.jpg" id="7_flqon"]
-[ext_resource type="Texture2D" uid="uid://o7i5kg5d82oy" path="res://2D_art/UI Elemente/button_quit_dark.jpg" id="8_rcqid"]
+[ext_resource type="Texture2D" uid="uid://ussu3ufojqka" path="res://2D_art/UI Elemente/start_light.jpg" id="3_tbmy8"]
+[ext_resource type="Texture2D" uid="uid://dnn7147bcg55n" path="res://2D_art/UI Elemente/start_dark.jpg" id="4_jk1qb"]
+[ext_resource type="Texture2D" uid="uid://1wdgjpe7y75f" path="res://2D_art/UI Elemente/credit_light.jpg" id="5_5dd4i"]
+[ext_resource type="Texture2D" uid="uid://cth7linf211sc" path="res://2D_art/UI Elemente/credits_dark.jpg" id="6_lgwnu"]
+[ext_resource type="Texture2D" uid="uid://dsssxo8oxvdbr" path="res://2D_art/UI Elemente/quit_light.jpg" id="7_flqon"]
+[ext_resource type="Texture2D" uid="uid://bbcymo6me6np1" path="res://2D_art/UI Elemente/quit_dark.jpg" id="8_rcqid"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -30,8 +30,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -250.0
-offset_top = -611.0
+offset_top = -511.0
 offset_right = 250.0
+offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 0
 alignment = 1

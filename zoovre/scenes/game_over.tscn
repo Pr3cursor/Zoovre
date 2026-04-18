@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://cycynplmva5pp"]
 
 [ext_resource type="Script" uid="uid://diay8u2w36dxf" path="res://scripts/game_over.gd" id="1_xeevv"]
-[ext_resource type="Texture2D" uid="uid://djamrglsat2gb" path="res://2D_art/2D_retrybutton_normal.png" id="2_7m3ot"]
 [ext_resource type="Texture2D" uid="uid://c1k0n3ibkvmrj" path="res://2D_art/caught.png" id="2_v3hpu"]
-[ext_resource type="Texture2D" uid="uid://rawbrwyngaa7" path="res://2D_art/2D_retrybutton_hovered.png" id="3_v3hpu"]
-[ext_resource type="Texture2D" uid="uid://cp7nh2vvteuc3" path="res://2D_art/2D_quitbutton_normal.png" id="4_irg28"]
-[ext_resource type="Texture2D" uid="uid://bv07u6qgw6hwr" path="res://2D_art/2D_quitbutton_hovered.png" id="5_2jtsn"]
+[ext_resource type="Texture2D" uid="uid://ck5myabfgudxq" path="res://2D_art/UI Elemente/retry_light.jpg" id="3_v3hpu"]
+[ext_resource type="Texture2D" uid="uid://olpyt0k1w0vo" path="res://2D_art/UI Elemente/retry_dark.jpg" id="4_irg28"]
+[ext_resource type="Texture2D" uid="uid://dsssxo8oxvdbr" path="res://2D_art/UI Elemente/quit_light.jpg" id="5_2jtsn"]
+[ext_resource type="Texture2D" uid="uid://bbcymo6me6np1" path="res://2D_art/UI Elemente/quit_dark.jpg" id="6_8bugq"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -32,13 +32,13 @@ vertical = true
 
 [node name="Retry" type="TextureButton" parent="BoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("2_7m3ot")
-texture_hover = ExtResource("3_v3hpu")
+texture_normal = ExtResource("3_v3hpu")
+texture_hover = ExtResource("4_irg28")
 
 [node name="Quit" type="TextureButton" parent="BoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("4_irg28")
-texture_hover = ExtResource("5_2jtsn")
+texture_normal = ExtResource("5_2jtsn")
+texture_hover = ExtResource("6_8bugq")
 
 [connection signal="pressed" from="BoxContainer/Retry" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="BoxContainer/Quit" to="." method="_on_quit_pressed"]

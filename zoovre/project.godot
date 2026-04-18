@@ -37,10 +37,6 @@ folder_colors={
 
 import/blender/enabled=false
 
-[global_group]
-
-picture=""
-
 [input]
 
 move_left={

@@ -8,6 +8,8 @@ extends CanvasLayer
 
 var time_passed := 0.0
 
+#func _ready() -> void:
+	#progress_update.connect()
 
 func _process(delta):
 	time_passed += delta
@@ -20,4 +22,5 @@ func _process(delta):
 	label.text = "%02d:%02d:%02d:%02d" % [hours, minutes, seconds, milliseconds]
 	
 	cam_label.text = "CAM " + str(Gamemanager.auto_cur_cam_id)
+	
 	

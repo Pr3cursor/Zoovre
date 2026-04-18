@@ -3,19 +3,20 @@ extends CharacterBody3D
 
 @export var move_speed = 5.0
 @export var acceleration = 20.0
+@onready var animation_tree: AnimationTree = $AnimationTree
 
 @onready var anim : AnimationPlayer = $raccoon.get_node("AnimationPlayer")
 
 const JUMP_VELOCITY = 4.5
 var cam: Camera3D
 var cam_input_direction := Vector2.ZERO
-
+const EPSILON = 0.01
 
 func _ready() -> void:
 	Gamemanager.player = self
 	update_camera()
-	#self.sig_caught.connect(_game_over)
-	
+	animation_tree.active = true
+
 func update_camera():
 	if Gamemanager.cur_cam_node:
 		cam = Gamemanager.cur_cam_node.get_node("Camera3D") as Camera3D
@@ -33,32 +34,51 @@ func _physics_process(delta: float) -> void:
 	look_at(global_position + move_direction, Vector3.UP)
 	velocity = velocity.move_toward(move_direction*move_speed,acceleration * delta)
 	move_and_slide()
-	var walking = true
-	if anim.assigned_animation == "barrel_roll" or anim.assigned_animation == "caught":
-		walking = false
-		if anim.is_playing() == false:
-			walking = true
-	if velocity.length() > 0 and walking:
-		get_node("raccoon/AnimationPlayer").play("walk_animation")
-	elif velocity.length() <= 0 or !walking:
-		get_node("raccoon/AnimationPlayer").clear_queue()
+	update_animation_paramters()
+	#var walking = true
+	#if anim.assigned_animation == "barrel_roll" or anim.assigned_animation == "caught":
+		#walking = false
+		#if anim.is_playing() == false:
+			#walking = true
+	#if velocity.length() > 0 and walking:
+		#get_node("raccoon/AnimationPlayer").play("walk_animation")
+	#elif velocity.length() <= 0 or !walking:
+		#get_node("raccoon/AnimationPlayer").clear_queue()
+		
+func update_animation_paramters():
+	if (velocity == Vector3.ZERO):
+		#animation_tree["parameters/conditions/idle"] = true
+		animation_tree["parameters/conditions/is_moving"] = false
+	else:
+		#animation_tree["parameters/conditions/idle"] = false
+		animation_tree["parameters/conditions/is_moving"] = true
+	if (Input.is_action_just_pressed("barrel_roll")):
+		animation_tree["parameters/conditions/roll"] = true
+	else:
+		animation_tree["parameters/conditions/roll"] = false
 	
+
 func _input(event):
 	if event.is_action_pressed("barrel_roll"):
 		barrel_roll()
 	if event.is_action_pressed("reset"):
 		reset()
 
-func game_over():
-		#print("End")
+func game_won():
 		if Gamemanager.prog_bar_nmb >= 6:
-			print("over")
-			get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+			get_tree().change_scene_to_file("res://scenes/mission_accomplished.tscn")
 		else:
 			print(Gamemanager.prog_bar_nmb)
 
+func game_over():
+	print("over")
+	animation_tree["parameters/conditions/is_caught"] = true
+	await get_tree().create_timer(3).timeout
+	get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+	print(Gamemanager.prog_bar_nmb)
+
 func barrel_roll():
-	anim.play("barrel_roll")
+	#anim.play("barrel_roll")
 	move_speed = 50
 	await get_tree().create_timer(0.5).timeout
 	move_speed = 5.0

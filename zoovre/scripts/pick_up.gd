@@ -17,7 +17,7 @@ func pick_up():
 	owner.queue_free()
 	Gamemanager.prog_bar_nmb += 1
 	#progress_update.emit()
-	Gamemanager.player.game_over()
+	Gamemanager.player.game_won()
 
 	
 	

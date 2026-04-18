@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c18mavfwhh5gd"]
+[gd_scene load_steps=7 format=3 uid="uid://c18mavfwhh5gd"]
 
 [ext_resource type="Script" uid="uid://jiu037xjlsnl" path="res://scripts/camera.gd" id="1_cvpoc"]
 [ext_resource type="PackedScene" uid="uid://cair02s85u6t3" path="res://scenes/crt_overlay.tscn" id="2_gtx3x"]
 [ext_resource type="PackedScene" uid="uid://chxqf6fs2i1h6" path="res://scenes/cone.tscn" id="2_kod1s"]
 [ext_resource type="Script" uid="uid://ki2dgep0fgwk" path="res://scripts/cone.gd" id="3_tmlye"]
+[ext_resource type="PackedScene" uid="uid://dj37kgak32mif" path="res://scenes/overlay_camera.tscn" id="5_b05li"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_tmlye"]
 size = Vector3(20, 0, 20)
@@ -24,3 +25,5 @@ script = ExtResource("3_tmlye")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 visible = false
 mesh = SubResource("BoxMesh_tmlye")
+
+[node name="Node2D" parent="." instance=ExtResource("5_b05li")]

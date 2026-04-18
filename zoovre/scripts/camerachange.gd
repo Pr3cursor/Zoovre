@@ -17,12 +17,16 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		if switch:
 			next_cam.camera.make_current()
+			
 			prev_cam.camera.current = false
 			Gamemanager.cur_cam_node = next_cam
+			Gamemanager.auto_cur_cam_id = next_cam.camera_id
 		else:
 			prev_cam.camera.make_current()
 			next_cam.camera.current = false
 			Gamemanager.cur_cam_node = prev_cam
+			Gamemanager.auto_cur_cam_id = prev_cam.camera_id
+
 		
 		switch = !switch
 

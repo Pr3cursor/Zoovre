@@ -46,4 +46,4 @@ func move_to_agent(delta: float, speed: float = SPEED):
 	
 	velocity = velocity.lerp(dir * speed, SMOOTHING_FACTOR)
 	move_and_slide()
-	
+	$Character_2_1/AnimationPlayer.play("walk")

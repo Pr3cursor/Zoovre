@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cfssv4obp5n6l"]
+[gd_scene load_steps=28 format=3 uid="uid://cfssv4obp5n6l"]
 
 [ext_resource type="PackedScene" uid="uid://c18mavfwhh5gd" path="res://scenes/camera.tscn" id="1_7y2xs"]
 [ext_resource type="PackedScene" uid="uid://ku4eka4g3ovj" path="res://scenes/camerachange.tscn" id="3_65iv0"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cyfwdls5p3a6d" path="res://bild_mouse.tscn" id="10_tob6u"]
 [ext_resource type="PackedScene" uid="uid://cq8mmqkcvpg52" path="res://scenes/laser_platzierbar.tscn" id="11_i7xxu"]
 [ext_resource type="PackedScene" uid="uid://dq41flq3s77gi" path="res://scenes/bin.tscn" id="12_26oro"]
+[ext_resource type="PackedScene" uid="uid://b5jgo3502ag5o" path="res://scenes/normies.tscn" id="13_dasqb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_i7xxu"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -241,7 +242,7 @@ transform = Transform3D(0.3701035, 0, -0.92899054, 0, 1, 0, 0.92899054, 0, 0.370
 transform = Transform3D(0.49278814, 0, -0.8701493, 0, 1, 0, 0.8701493, 0, 0.49278814, 2.3538423, 0.5444578, -6.4270916)
 
 [node name="LaserPlatzierbar" parent="." instance=ExtResource("11_i7xxu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7357082, 0.5676327, -1.4400778)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7357082, -0.23233366, -1.4400778)
 
 [node name="EndParticles" parent="LaserPlatzierbar/Laser" index="1"]
 process_material = SubResource("ParticleProcessMaterial_jjj73")
@@ -256,8 +257,11 @@ wait_time = 3.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3032246, -0.5000005, 2.8322194)
 
 [node name="Enemy2" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("4_ye8wr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.388708, 3.066519, -6.2488317)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.388708, 3.066519, -47.762093)
 patrol_points = [NodePath("../PatrolPoints/Point4")]
+
+[node name="Normies" parent="." instance=ExtResource("13_dasqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.73476124, -0.49836302, -2.1796513)
 
 [editable path="LaserPlatzierbar"]
 [editable path="LaserPlatzierbar/Laser"]

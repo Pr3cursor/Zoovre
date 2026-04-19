@@ -1,6 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://bsdsuqckvmwcm"]
+[gd_scene load_steps=26 format=3 uid="uid://bsdsuqckvmwcm"]
 
 [ext_resource type="MeshLibrary" uid="uid://cgjx22n5axdyn" path="res://blender/basicShapes.tres" id="1_3aekd"]
+[ext_resource type="AudioStream" uid="uid://kyukrwji6dxv" path="res://sound/WeAreZoovre.mp3" id="1_khw7m"]
 [ext_resource type="PackedScene" uid="uid://be8djbhs0vga5" path="res://scenes/player.tscn" id="2_khw7m"]
 [ext_resource type="PackedScene" uid="uid://c18mavfwhh5gd" path="res://scenes/camera.tscn" id="3_wd6ad"]
 [ext_resource type="PackedScene" uid="uid://ku4eka4g3ovj" path="res://scenes/camerachange.tscn" id="4_cd1f0"]
@@ -51,6 +52,12 @@ size = Vector3(0.6, 10, 10)
 size = Vector3(1, 10, 18)
 
 [node name="Level" type="Node3D"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_khw7m")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3aekd")
@@ -280,23 +287,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0540714, 0.2982278, -24.35
 [node name="Enemies" type="Node3D" parent="."]
 
 [node name="Enemy" parent="Enemies" node_paths=PackedStringArray("patrol_points") instance=ExtResource("12_h35wg")]
-transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, -139.90276, 3.0164764, -7.5533605)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -139.90276, 3.0164764, -7.5533605)
 patrol_points = [NodePath("../../PatrolPoints/Point2"), NodePath("../../PatrolPoints/Point1")]
 
 [node name="Enemy2" parent="Enemies" node_paths=PackedStringArray("patrol_points") instance=ExtResource("12_h35wg")]
-transform = Transform3D(-8.940697e-08, 0, 1, 0, 1, 0, -1, 0, -8.940697e-08, -88.21806, 3.0164764, 29.715002)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.21806, 3.0164764, 29.715002)
 patrol_points = [NodePath("../../PatrolPoints/Point4"), NodePath("../../PatrolPoints/Point3")]
 
 [node name="Enemy3" parent="Enemies" node_paths=PackedStringArray("patrol_points") instance=ExtResource("12_h35wg")]
-transform = Transform3D(1.9841906e-09, 0, -1, 0, 1, 0, 1, 0, 1.9841906e-09, -82.805695, 2.0346735, 3.0653887)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82.805695, 2.0346735, 3.0653887)
 patrol_points = [NodePath("../../PatrolPoints/Point8"), NodePath("../../PatrolPoints/Point7"), NodePath("../../PatrolPoints/Point6"), NodePath("../../PatrolPoints/Point5")]
 
 [node name="Enemy4" parent="Enemies" node_paths=PackedStringArray("patrol_points") instance=ExtResource("12_h35wg")]
-transform = Transform3D(5.9604645e-08, 0, -1, 0, 1, 0, 1, 0, 5.9604645e-08, -127.8361, 1.2609823, -23.642464)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -127.8361, 1.2609823, -23.642464)
 patrol_points = [NodePath("../../PatrolPoints/Point10"), NodePath("../../PatrolPoints/Point9")]
 
 [node name="Enemy5" parent="Enemies" node_paths=PackedStringArray("patrol_points") instance=ExtResource("12_h35wg")]
-transform = Transform3D(2.7818132e-08, 0, 1, 0, 1, 0, -1, 0, 2.7818132e-08, -4.0336885, 1.2609823, -24.151665)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0336885, 1.2609823, -24.151665)
 patrol_points = [NodePath("../../PatrolPoints/Point12"), NodePath("../../PatrolPoints/Point11")]
 
 [node name="Collider" type="Node3D" parent="."]

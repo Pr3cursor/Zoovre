@@ -1,6 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://docdlplf0ur5n"]
+[gd_scene load_steps=25 format=3 uid="uid://docdlplf0ur5n"]
 
 [ext_resource type="MeshLibrary" uid="uid://cgjx22n5axdyn" path="res://blender/basicShapes.tres" id="1_0qqjg"]
+[ext_resource type="PackedScene" uid="uid://ds8x6f1yg75oy" path="res://scenes/soundshi_1.tscn" id="1_2meft"]
 [ext_resource type="PackedScene" uid="uid://be8djbhs0vga5" path="res://scenes/player.tscn" id="2_fpkyo"]
 [ext_resource type="PackedScene" uid="uid://c18mavfwhh5gd" path="res://scenes/camera.tscn" id="3_fpkyo"]
 [ext_resource type="PackedScene" uid="uid://ku4eka4g3ovj" path="res://scenes/camerachange.tscn" id="4_q8cw5"]
@@ -47,6 +48,8 @@ size = Vector3(0.6, 10, 10)
 size = Vector3(1, 10, 18)
 
 [node name="Level" type="Node3D"]
+
+[node name="Soundshi1" parent="." instance=ExtResource("1_2meft")]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
@@ -329,7 +332,7 @@ prev_cam = NodePath("../../Cameras/camera4")
 next_cam = NodePath("../../Cameras/camera6")
 
 [node name="camerachange5" parent="CameraChanges" node_paths=PackedStringArray("prev_cam", "next_cam") instance=ExtResource("4_q8cw5")]
-transform = Transform3D(-1.1560523e-07, 0, -1, 0, 1, 0, 2.6447394, 0, -4.371139e-08, -111.34216, 0.039100647, -21.53439)
+transform = Transform3D(-1.15605225e-07, 0, -0.31610894, 0, 1, 0, 2.6447392, 0, -1.381756e-08, -111.34216, 0.039100647, -21.53439)
 prev_cam = NodePath("../../Cameras/camera6")
 next_cam = NodePath("../../Cameras/camera7")
 

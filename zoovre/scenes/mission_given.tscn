@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvnxds7dkg8ge"]
+[gd_scene load_steps=8 format=3 uid="uid://bb02rliy2u1hx"]
 
 [ext_resource type="Texture2D" uid="uid://dd8kdaqjf4hrm" path="res://2D_art/UI Elemente/UI_Background.png" id="1_3r2mi"]
 [ext_resource type="Script" uid="uid://tk8ioa0u244p" path="res://scenes/mission_given.gd" id="1_mbx8a"]

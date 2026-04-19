@@ -1,7 +1,6 @@
-[gd_scene load_steps=25 format=3 uid="uid://docdlplf0ur5n"]
+[gd_scene load_steps=24 format=3 uid="uid://docdlplf0ur5n"]
 
 [ext_resource type="MeshLibrary" uid="uid://cgjx22n5axdyn" path="res://blender/basicShapes.tres" id="1_0qqjg"]
-[ext_resource type="AudioStream" uid="uid://cflrdfocqx5pt" path="res://sound/Maestro-Forte-op.-1.mp3" id="1_2meft"]
 [ext_resource type="PackedScene" uid="uid://be8djbhs0vga5" path="res://scenes/player.tscn" id="2_fpkyo"]
 [ext_resource type="PackedScene" uid="uid://c18mavfwhh5gd" path="res://scenes/camera.tscn" id="3_fpkyo"]
 [ext_resource type="PackedScene" uid="uid://ku4eka4g3ovj" path="res://scenes/camerachange.tscn" id="4_q8cw5"]
@@ -48,11 +47,6 @@ size = Vector3(0.6, 10, 10)
 size = Vector3(1, 10, 18)
 
 [node name="Level" type="Node3D"]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("1_2meft")
-autoplay = true
-parameters/looping = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 

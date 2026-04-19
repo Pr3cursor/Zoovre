@@ -183,7 +183,7 @@ transform = Transform3D(-0.70862305, 0, -0.7055872, 0, 1, 0, 0.7055872, 0, -0.70
 camera_id = 2
 
 [node name="camera2" parent="." instance=ExtResource("1_7y2xs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34139752, 0.8191204, 10.606827)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8180249, 4.1912317, 10.606827)
 camera_id = 1
 
 [node name="camera3" parent="." instance=ExtResource("1_7y2xs")]
@@ -204,7 +204,7 @@ next_cam = NodePath("../camera3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.862402, 1.6081209, -22.883558)
 
 [node name="Enemy" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("4_ye8wr")]
-transform = Transform3D(-0.17333883, 0, 0.98486227, 0, 1, 0, -0.98486227, 0, -0.17333883, -38.27867, 0, -10.04835)
+transform = Transform3D(0.99933606, 0, 0.036434457, 0, 1, 0, -0.036434457, 0, 0.99933606, 4.5659513, 0, 0.43493176)
 patrol_points = [NodePath("../PatrolPoints/Point1"), NodePath("../PatrolPoints/Point2"), NodePath("../PatrolPoints/Point3")]
 
 [node name="PatrolPoints" type="Node3D" parent="."]
@@ -220,24 +220,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.619736, 0, 7.422923)
 
 [node name="Bild_BUNNY" parent="." instance=ExtResource("5_ye8wr")]
 transform = Transform3D(0.7786923, 0, -0.627406, 0, 1, 0, 0.627406, 0, 0.7786923, 1.4569492, 0.7495096, 0.4243965)
+visible = false
 
 [node name="Bild_CAT" parent="." groups=["picture"] instance=ExtResource("6_ckmbu")]
 transform = Transform3D(0.50265783, 0, -0.86448544, 0, 1, 0, 0.86448544, 0, 0.50265783, 5.175486, 0.74950945, -2.1873708)
+visible = false
 
 [node name="Bild_GOAT" parent="." groups=["picture"] instance=ExtResource("7_p7smk")]
 transform = Transform3D(0.9904012, 0, -0.13822244, 0, 1, 0, 0.13822244, 0, 0.9904012, 0.3781557, 0.5758476, 4.1425934)
+visible = false
 
 [node name="Bild_Goose" parent="." instance=ExtResource("8_acxp7")]
 transform = Transform3D(0.45542055, 0, -0.89027643, 0, 1, 0, 0.89027643, 0, 0.45542055, 7.1042347, 0.7495092, -4.135975)
+visible = false
 
 [node name="Bild_MONKEY" parent="." groups=["picture"] instance=ExtResource("9_3ahxw")]
 transform = Transform3D(0.3701035, 0, -0.92899054, 0, 1, 0, 0.92899054, 0, 0.3701035, 10.672645, 0.8440621, -5.8133726)
+visible = false
 
 [node name="Bild_MOUSE" parent="." groups=["picture"] instance=ExtResource("10_tob6u")]
 transform = Transform3D(0.69751537, 0, 0.71656984, 0, 1, 0, -0.71656984, 0, 0.69751537, 2.8008351, 0.5444578, 8.181403)
+visible = false
 
 [node name="LaserPlatzierbar" parent="." instance=ExtResource("11_i7xxu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7357082, 0.5676327, -1.4400778)
+visible = false
 
 [node name="EndParticles" parent="LaserPlatzierbar/Laser" index="1"]
 process_material = SubResource("ParticleProcessMaterial_jjj73")
@@ -247,6 +254,9 @@ process_material = SubResource("ParticleProcessMaterial_412cd")
 
 [node name="Timer" parent="LaserPlatzierbar/Laser" index="4"]
 wait_time = 3.0
+
+[node name="Enemy2" parent="." instance=ExtResource("4_ye8wr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.540762, 0.1421349, -18.121181)
 
 [editable path="LaserPlatzierbar"]
 [editable path="LaserPlatzierbar/Laser"]

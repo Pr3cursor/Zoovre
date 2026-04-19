@@ -30,7 +30,8 @@ folder_colors={
 "res://2d/": "red",
 "res://blender/": "orange",
 "res://scenes/": "yellow",
-"res://scripts/": "green"
+"res://scripts/": "green",
+"res://sound/": "purple"
 }
 
 [filesystem]

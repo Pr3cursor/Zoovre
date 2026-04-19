@@ -12,6 +12,9 @@ var cam: Camera3D
 var cam_input_direction := Vector2.ZERO
 const EPSILON = 0.01
 
+var can_move: bool = true
+var is_in_bin: bool = false
+
 func _ready() -> void:
 	Gamemanager.player = self
 	update_camera()
@@ -23,18 +26,19 @@ func update_camera():
 
 func _physics_process(delta: float) -> void:
 	update_camera()
-	cam_input_direction = Vector2.ZERO
-	var raw_input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	var forward := cam.global_transform.basis.z
-	var right := cam.global_basis.x
-	
-	var move_direction := forward*raw_input.y + right * raw_input.x
-	move_direction.y = 0.0
-	move_direction = move_direction.normalized()
-	look_at(global_position + move_direction, Vector3.UP)
-	velocity = velocity.move_toward(move_direction*move_speed,acceleration * delta)
-	move_and_slide()
-	update_animation_paramters()
+	if can_move:
+		cam_input_direction = Vector2.ZERO
+		var raw_input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+		var forward := cam.global_transform.basis.z
+		var right := cam.global_basis.x
+		
+		var move_direction := forward*raw_input.y + right * raw_input.x
+		move_direction.y = 0.0
+		move_direction = move_direction.normalized()
+		look_at(global_position + move_direction, Vector3.UP)
+		velocity = velocity.move_toward(move_direction*move_speed,acceleration * delta)
+		move_and_slide()
+		update_animation_paramters()
 	#var walking = true
 	#if anim.assigned_animation == "barrel_roll" or anim.assigned_animation == "caught":
 		#walking = false

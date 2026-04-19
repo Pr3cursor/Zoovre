@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dukw52yx3pibx"]
+[gd_scene load_steps=10 format=3 uid="uid://dukw52yx3pibx"]
 
 [ext_resource type="Script" uid="uid://dk11j3cqf4ogo" path="res://scripts/enemy.gd" id="1_7p1mj"]
 [ext_resource type="PackedScene" uid="uid://dvea1gbieiosw" path="res://blender/security.glb" id="2_md0e3"]
+[ext_resource type="AudioStream" uid="uid://4lvgmattwykw" path="res://sound/freesound_community-murmullos-7133.mp3" id="3_4ra3w"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8tegq"]
 radius = 1.0
@@ -97,6 +98,12 @@ light_energy = 18.4
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WeakSpot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5308628, 0.9296349)
 shape = SubResource("BoxShape3D_md0e3")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_4ra3w")
+volume_db = -24.763
+autoplay = true
+parameters/looping = true
 
 [connection signal="body_entered" from="RayCast3D/Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="WeakSpot" to="." method="_on_weak_spot_body_entered"]

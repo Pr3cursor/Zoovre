@@ -344,7 +344,7 @@ prev_cam = NodePath("../../Cameras/camera8")
 next_cam = NodePath("../../Cameras/camera11")
 
 [node name="camerachange8" parent="CameraChanges" node_paths=PackedStringArray("prev_cam", "next_cam") instance=ExtResource("4_q8cw5")]
-transform = Transform3D(-1.1560523e-07, 0, -1, 0, 1, 0, 2.6447394, 0, -4.371139e-08, -135.57314, 0.5266042, 33.260544)
+transform = Transform3D(-1.15605225e-07, 0, -0.23621446, 0, 1, 0, 2.6447392, 0, -1.03252615e-08, -136.96336, 0.5266042, 33.260544)
 prev_cam = NodePath("../../Cameras/camera")
 next_cam = NodePath("../../Cameras/camera9")
 
@@ -422,23 +422,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0540714, 0.2982278, -24.35
 [node name="Enemies" type="Node3D" parent="."]
 
 [node name="Enemy" parent="Enemies" node_paths=PackedStringArray("patrol_points") instance=ExtResource("12_52iff")]
-transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, -139.90276, 3.0164764, -7.5533605)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -139.90276, 3.0164764, -7.5533605)
 patrol_points = [NodePath("../../PatrolPoints/Point2"), NodePath("../../PatrolPoints/Point1")]
 
 [node name="Enemy2" parent="Enemies" node_paths=PackedStringArray("patrol_points") instance=ExtResource("12_52iff")]
-transform = Transform3D(-8.940697e-08, 0, 1, 0, 1, 0, -1, 0, -8.940697e-08, -88.21806, 3.0164764, 29.715002)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.21806, 3.0164764, 29.715002)
 patrol_points = [NodePath("../../PatrolPoints/Point4"), NodePath("../../PatrolPoints/Point3")]
 
 [node name="Enemy3" parent="Enemies" node_paths=PackedStringArray("patrol_points") instance=ExtResource("12_52iff")]
-transform = Transform3D(1.9841906e-09, 0, -1, 0, 1, 0, 1, 0, 1.9841906e-09, -82.805695, 2.0346735, 3.0653887)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82.805695, 2.0346735, 3.0653887)
 patrol_points = [NodePath("../../PatrolPoints/Point8"), NodePath("../../PatrolPoints/Point7"), NodePath("../../PatrolPoints/Point6"), NodePath("../../PatrolPoints/Point5")]
 
 [node name="Enemy4" parent="Enemies" node_paths=PackedStringArray("patrol_points") instance=ExtResource("12_52iff")]
-transform = Transform3D(5.9604645e-08, 0, -1, 0, 1, 0, 1, 0, 5.9604645e-08, -127.8361, 1.2609823, -23.642464)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -127.8361, 1.2609823, -23.642464)
 patrol_points = [NodePath("../../PatrolPoints/Point10"), NodePath("../../PatrolPoints/Point9")]
 
 [node name="Enemy5" parent="Enemies" node_paths=PackedStringArray("patrol_points") instance=ExtResource("12_52iff")]
-transform = Transform3D(2.7818132e-08, 0, 1, 0, 1, 0, -1, 0, 2.7818132e-08, -4.0336885, 1.2609823, -24.151665)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0336885, 1.2609823, -24.151665)
 patrol_points = [NodePath("../../PatrolPoints/Point12"), NodePath("../../PatrolPoints/Point11")]
 
 [node name="Collider" type="Node3D" parent="."]

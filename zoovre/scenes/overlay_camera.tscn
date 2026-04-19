@@ -1,11 +1,14 @@
-[gd_scene load_steps=33 format=3 uid="uid://dj37kgak32mif"]
+[gd_scene load_steps=35 format=3 uid="uid://dj37kgak32mif"]
 
 [ext_resource type="Texture2D" uid="uid://cfurstww3lryn" path="res://2D_art/camera-stuff/20260418_112624957_iOS.png" id="1_i4r65"]
 [ext_resource type="Texture2D" uid="uid://dleu2uqjxofey" path="res://2D_art/camera-stuff/20260418_112727815_iOS.png" id="2_lorn7"]
 [ext_resource type="Script" uid="uid://gmnp3yujqylb" path="res://scripts/UI.gd" id="3_rju0t"]
+[ext_resource type="Texture2D" uid="uid://htlqbob6empq" path="res://2D_art/UI Elemente/progress-bar_under.jpg" id="4_gxm3b"]
 [ext_resource type="Texture2D" uid="uid://cprlbn4corh1p" path="res://2D_art/camera-stuff/20260418_120004951_iOS.png" id="4_lorn7"]
 [ext_resource type="Texture2D" uid="uid://cbpgdoops4r2d" path="res://2D_art/camera-stuff/20260418_120016158_iOS.png" id="5_1o2no"]
+[ext_resource type="Texture2D" uid="uid://dvawovffsvd6w" path="res://2D_art/UI Elemente/progress-bar_over.png" id="5_eq2l7"]
 [ext_resource type="Texture2D" uid="uid://c1xmlypmqavko" path="res://2D_art/camera-stuff/Streifen/frame_01.png" id="6_1o2no"]
+[ext_resource type="Texture2D" uid="uid://bkattuq7htghs" path="res://2D_art/UI Elemente/progress-bar_progress.jpg" id="6_gwvfb"]
 [ext_resource type="Texture2D" uid="uid://dhtkp1vopxrjo" path="res://2D_art/camera-stuff/Streifen/frame_02.png" id="6_rbsrd"]
 [ext_resource type="Texture2D" uid="uid://bwtm58cmrrlf2" path="res://2D_art/camera-stuff/Streifen/frame_03.png" id="8_y4rg2"]
 [ext_resource type="Texture2D" uid="uid://cdvcol65h2qb7" path="res://2D_art/camera-stuff/Streifen/frame_04.png" id="9_t4cwy"]
@@ -30,9 +33,6 @@
 [ext_resource type="Texture2D" uid="uid://bkbj5b2elsojl" path="res://2D_art/camera-stuff/Streifen2/frame_10 1.png" id="27_vtkdu"]
 [ext_resource type="Texture2D" uid="uid://huyimsojmnsn" path="res://2D_art/camera-stuff/Streifen2/frame_11 1.png" id="28_15lai"]
 [ext_resource type="Texture2D" uid="uid://cxaa4ejg5c5bk" path="res://2D_art/camera-stuff/Streifen2/frame_12 1.png" id="29_xuvyw"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x1a6y"]
-bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vofog"]
 animations = [{
@@ -155,24 +155,24 @@ offset_bottom = 219.0
 theme_override_font_sizes/font_size = 80
 text = "CAM X"
 
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
 offset_left = 135.0
 offset_top = 845.0
-offset_right = 730.0
+offset_right = 735.0
 offset_bottom = 925.0
-theme_override_styles/fill = SubResource("StyleBoxFlat_x1a6y")
 max_value = 6.0
-step = 1.0
 value = 6.0
-show_percentage = false
+texture_under = ExtResource("4_gxm3b")
+texture_over = ExtResource("5_eq2l7")
+texture_progress = ExtResource("6_gwvfb")
 
 [node name="ProgressLabel" type="Label" parent="CanvasLayer"]
 offset_left = 134.0
 offset_top = 810.0
-offset_right = 729.0
+offset_right = 290.0
 offset_bottom = 956.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 80
+theme_override_font_sizes/font_size = 65
 text = "1/6"
 horizontal_alignment = 1
 vertical_alignment = 1

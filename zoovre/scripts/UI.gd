@@ -3,7 +3,7 @@ extends CanvasLayer
 
 @onready var label: Label = $TimeLabel
 @onready var cam_label: Label = $CamLabel
-@onready var progress_bar: ProgressBar = $ProgressBar
+@onready var progress_bar: TextureProgressBar = $TextureProgressBar
 @onready var progress_label: Label = $ProgressLabel
 
 

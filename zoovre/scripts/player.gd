@@ -14,6 +14,7 @@ const EPSILON = 0.01
 
 var can_move: bool = true
 var is_in_bin: bool = false
+var exited_bin: bool = false
 
 func _ready() -> void:
 	Gamemanager.player = self
@@ -38,7 +39,10 @@ func _physics_process(delta: float) -> void:
 		look_at(global_position + move_direction, Vector3.UP)
 		velocity = velocity.move_toward(move_direction*move_speed,acceleration * delta)
 		move_and_slide()
-		update_animation_paramters()
+	else:
+		velocity = Vector3.ZERO
+	update_animation_paramters()
+
 	#var walking = true
 	#if anim.assigned_animation == "barrel_roll" or anim.assigned_animation == "caught":
 		#walking = false
@@ -51,15 +55,27 @@ func _physics_process(delta: float) -> void:
 	
 func update_animation_paramters():
 	if (velocity == Vector3.ZERO):
-		#animation_tree["parameters/conditions/idle"] = true
+		animation_tree["parameters/conditions/is_idle"] = true
 		animation_tree["parameters/conditions/is_moving"] = false
 	else:
-		#animation_tree["parameters/conditions/idle"] = false
+		animation_tree["parameters/conditions/is_idle"] = false
 		animation_tree["parameters/conditions/is_moving"] = true
+		exited_bin = false
 	if (Input.is_action_just_pressed("barrel_roll")):
 		animation_tree["parameters/conditions/roll"] = true
 	else:
 		animation_tree["parameters/conditions/roll"] = false
+	if is_in_bin:
+		animation_tree["parameters/conditions/is_jumped"] = true
+	if exited_bin:
+		animation_tree["parameters/conditions/is_jumped"] = false
+		animation_tree["parameters/conditions/is_jumped_out"] = true
+	if exited_bin and animation_tree["parameters/conditions/is_moving"]:
+		animation_tree["parameters/conditions/is_jumped_out"] = false
+
+		
+		
+		
 func _input(event):
 	if event.is_action_pressed("barrel_roll"):
 		barrel_roll()

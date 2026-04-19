@@ -87,4 +87,4 @@ func deactivate(time: float):
 func _on_death_area_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player") and laser_active:
 		print("entered")
-		Gamemanager.player.game_won()
+		Gamemanager.player.game_over()

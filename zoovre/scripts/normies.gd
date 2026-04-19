@@ -4,7 +4,7 @@ extends CharacterBody3D
 @onready var agent = $NavigationAgent3D
 
 const UPDATE_TIME = 0.2
-const SPEED = 5.0
+const SPEED = 4.0
 const SMOOTHING_FACTOR = 0.1
 const WANDER_RANGE = 20.0
 

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bee5ddoojnx5" path="res://blender/bin1.glb" id="1_yq3hu"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_yq3hu"]
-height = 3.23
+height = 5.0
 radius = 2.5
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_688sc"]
@@ -45,7 +45,7 @@ text = "press e to hide"
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3436023, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.97161, 0)
 shape = SubResource("CylinderShape3D_yq3hu")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

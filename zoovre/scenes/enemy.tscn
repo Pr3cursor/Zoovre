@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://dvea1gbieiosw" path="res://blender/security.glb" id="2_md0e3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8tegq"]
-radius = 1.6513672
-height = 4.0
+radius = 1.0
+height = 5.0
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7p1mj"]
 height = 3.8847656
@@ -55,7 +55,7 @@ collision_layer = 3
 script = ExtResource("1_7p1mj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2771907, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2771907, -0.2946787)
 shape = SubResource("CapsuleShape3D_8tegq")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]

@@ -13,6 +13,7 @@ var cam_input_direction := Vector2.ZERO
 const EPSILON = 0.01
 
 var can_move: bool = true
+var is_in_bin: bool = false
 
 func _ready() -> void:
 	Gamemanager.player = self

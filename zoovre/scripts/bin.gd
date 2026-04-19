@@ -23,8 +23,10 @@ func _input(event: InputEvent) -> void:
 		player_inside = false
 		label.text = "press e to get out"
 		animation_player.play("expand")
+		Gamemanager.player.is_in_bin = true
 		
 	elif event.is_action_pressed("interact") and !player_inside and !Gamemanager.player.can_move:
 		Gamemanager.player.scale *= 10
 		Gamemanager.player.can_move = true
 		label.text = "press e to hide"
+		Gamemanager.player.is_in_bin = false

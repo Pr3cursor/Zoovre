@@ -30,16 +30,13 @@ folder_colors={
 "res://2d/": "red",
 "res://blender/": "orange",
 "res://scenes/": "yellow",
-"res://scripts/": "green"
+"res://scripts/": "green",
+"res://sound/": "purple"
 }
 
 [filesystem]
 
 import/blender/enabled=false
-
-[global_group]
-
-picture=""
 
 [input]
 
@@ -76,5 +73,10 @@ interact={
 reset={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":80,"key_label":0,"unicode":112,"location":0,"echo":false,"script":null)
+]
+}
+knock={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":81,"key_label":0,"unicode":113,"location":0,"echo":false,"script":null)
 ]
 }

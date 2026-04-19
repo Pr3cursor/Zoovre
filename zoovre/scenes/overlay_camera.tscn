@@ -1,11 +1,14 @@
-[gd_scene load_steps=32 format=3 uid="uid://dj37kgak32mif"]
+[gd_scene load_steps=35 format=3 uid="uid://dj37kgak32mif"]
 
 [ext_resource type="Texture2D" uid="uid://cfurstww3lryn" path="res://2D_art/camera-stuff/20260418_112624957_iOS.png" id="1_i4r65"]
 [ext_resource type="Texture2D" uid="uid://dleu2uqjxofey" path="res://2D_art/camera-stuff/20260418_112727815_iOS.png" id="2_lorn7"]
-[ext_resource type="Script" uid="uid://cjnoxba7u3e7u" path="res://label.gd" id="4_6dpjn"]
+[ext_resource type="Script" uid="uid://gmnp3yujqylb" path="res://scripts/UI.gd" id="3_rju0t"]
+[ext_resource type="Texture2D" uid="uid://htlqbob6empq" path="res://2D_art/UI Elemente/progress-bar_under.jpg" id="4_gxm3b"]
 [ext_resource type="Texture2D" uid="uid://cprlbn4corh1p" path="res://2D_art/camera-stuff/20260418_120004951_iOS.png" id="4_lorn7"]
 [ext_resource type="Texture2D" uid="uid://cbpgdoops4r2d" path="res://2D_art/camera-stuff/20260418_120016158_iOS.png" id="5_1o2no"]
+[ext_resource type="Texture2D" uid="uid://dvawovffsvd6w" path="res://2D_art/UI Elemente/progress-bar_over.png" id="5_eq2l7"]
 [ext_resource type="Texture2D" uid="uid://c1xmlypmqavko" path="res://2D_art/camera-stuff/Streifen/frame_01.png" id="6_1o2no"]
+[ext_resource type="Texture2D" uid="uid://bkattuq7htghs" path="res://2D_art/UI Elemente/progress-bar_progress.jpg" id="6_gwvfb"]
 [ext_resource type="Texture2D" uid="uid://dhtkp1vopxrjo" path="res://2D_art/camera-stuff/Streifen/frame_02.png" id="6_rbsrd"]
 [ext_resource type="Texture2D" uid="uid://bwtm58cmrrlf2" path="res://2D_art/camera-stuff/Streifen/frame_03.png" id="8_y4rg2"]
 [ext_resource type="Texture2D" uid="uid://cdvcol65h2qb7" path="res://2D_art/camera-stuff/Streifen/frame_04.png" id="9_t4cwy"]
@@ -18,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://cqc5c11r6rp0s" path="res://2D_art/camera-stuff/Streifen/frame_11.png" id="16_invvc"]
 [ext_resource type="Texture2D" uid="uid://cy6dniq07q1j2" path="res://2D_art/camera-stuff/Streifen/frame_12.png" id="17_ji13w"]
 [ext_resource type="Texture2D" uid="uid://0fjbsqnsq44f" path="res://2D_art/camera-stuff/Streifen2/frame_01 1.png" id="18_x1a6y"]
-[ext_resource type="Script" uid="uid://dbhy6qi4hk8a5" path="res://scenes/animated_sprite_2d.gd" id="18_y4rg2"]
+[ext_resource type="Script" path="res://scenes/animated_sprite_2d.gd" id="18_y4rg2"]
 [ext_resource type="Texture2D" uid="uid://7h27ylqgv3m7" path="res://2D_art/camera-stuff/Streifen2/frame_02 1.png" id="19_rju0t"]
 [ext_resource type="Texture2D" uid="uid://du6m18mioxbuv" path="res://2D_art/camera-stuff/Streifen2/frame_03 1.png" id="20_0j8uo"]
 [ext_resource type="Texture2D" uid="uid://cl2d4fo7l538h" path="res://2D_art/camera-stuff/Streifen2/frame_04 1.png" id="21_gxm3b"]
@@ -135,6 +138,7 @@ position = Vector2(969, 534)
 texture = ExtResource("2_lorn7")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("3_rju0t")
 
 [node name="TimeLabel" type="Label" parent="CanvasLayer"]
 offset_left = 881.00006
@@ -142,7 +146,36 @@ offset_top = 916.0
 offset_right = 921.00006
 offset_bottom = 939.0
 scale = Vector2(1.8041292, 2.1649551)
-script = ExtResource("4_6dpjn")
+
+[node name="CamLabel" type="Label" parent="CanvasLayer"]
+offset_left = 147.0
+offset_top = 109.0
+offset_right = 525.0
+offset_bottom = 219.0
+theme_override_font_sizes/font_size = 80
+text = "CAM X"
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
+offset_left = 135.0
+offset_top = 845.0
+offset_right = 735.0
+offset_bottom = 925.0
+max_value = 6.0
+value = 6.0
+texture_under = ExtResource("4_gxm3b")
+texture_over = ExtResource("5_eq2l7")
+texture_progress = ExtResource("6_gwvfb")
+
+[node name="ProgressLabel" type="Label" parent="CanvasLayer"]
+offset_left = 134.0
+offset_top = 810.0
+offset_right = 290.0
+offset_bottom = 956.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 65
+text = "1/6"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="REC" type="Sprite2D" parent="."]
 z_index = 1

@@ -10,17 +10,17 @@ extends CharacterBody3D
 @export var investigate_wait_time: float = 4.0 
 @export var patrol_wait_time: float = 3.0
 @export var update_interval: float = 0.2
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-@onready var anim = $security.get_node("AnimationPlayer")
 
 const UPDATE_TIME = 0.2
 const SPEED = 150
 const SMOOTHING_FACTOR = 0.1
 const VIEW_ANGLE: float = 190.0
 
-enum State {IDLE, PATROL, INVESTIGATE, CHASE, ATTACK, RETURN}
+enum State {IDLE, PATROL, INVESTIGATE, CHASE, ATTACK, RETURN, KNOCKED}
 var state: State = State.IDLE
-
+var weak_spot: bool = false
 var target: Node3D
 var patrol_index := 0
 var patrol_timer := 0.0
@@ -39,7 +39,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if Input.is_action_just_pressed("barrel_roll"):
+		_state_knocked(1)
 	
 func _physics_process(delta: float) -> void:
 	_update_path(delta)
@@ -71,7 +72,7 @@ func _move_towards(next_pos: Vector3, speed: float) -> void:
 	look_at(global_transform.origin + new_dir, Vector3.UP)
 	velocity.x = dir.x * speed
 	velocity.z = dir.z * speed
-	anim.play("walking")
+	animation_player.play("walking")
 	
 func _stop_and_idle() -> void:
 	velocity = Vector3.ZERO
@@ -156,7 +157,28 @@ func _state_chase(delta: float) -> void:
 		return
 	_walk_to(agent.get_next_path_position(), speed_run)
 
+func _state_knocked(delta: float):
+	if weak_spot == true:
+		if state == State.KNOCKED:
+			pass
+		else: 
+			$RayCast3D/Area3D.queue_free()
+			animation_player.play("knock")
+			velocity = Vector3(0,0,0)
+			state = State.KNOCKED
+	else:
+		print("no target")
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		Gamemanager.player.game_over()
+
+
+func _on_weak_spot_body_entered(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		weak_spot = true
+
+
+func _on_weak_spot_body_exited(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		weak_spot = false

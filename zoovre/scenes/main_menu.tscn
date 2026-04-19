@@ -40,31 +40,40 @@ grow_vertical = 0
 alignment = 1
 vertical = true
 
-[node name="Start" type="TextureButton" parent="BoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 389.0
+offset_top = 883.0
+offset_right = 1498.0
+offset_bottom = 976.0
+theme_override_constants/separation = 47
+alignment = 1
+
+[node name="Start" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("3_tbmy8")
 texture_hover = ExtResource("4_jk1qb")
 stretch_mode = 3
 
-[node name="Controls" type="TextureButton" parent="BoxContainer"]
+[node name="Controls" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("5_lgwnu")
 texture_hover = ExtResource("6_flqon")
 stretch_mode = 3
 
-[node name="Credits" type="TextureButton" parent="BoxContainer"]
+[node name="Credits" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("5_5dd4i")
 texture_hover = ExtResource("6_lgwnu")
 stretch_mode = 3
 
-[node name="Quit" type="TextureButton" parent="BoxContainer"]
+[node name="Quit" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("7_flqon")
 texture_hover = ExtResource("8_rcqid")
 stretch_mode = 3
 
-[connection signal="pressed" from="BoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="BoxContainer/Controls" to="." method="_on_controls_pressed"]
-[connection signal="pressed" from="BoxContainer/Credits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="BoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="HBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="HBoxContainer/Controls" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="HBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="HBoxContainer/Quit" to="." method="_on_quit_pressed"]

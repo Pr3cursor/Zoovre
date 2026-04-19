@@ -44,7 +44,7 @@ func _physics_process(delta: float) -> void:
 		#get_node("raccoon/AnimationPlayer").play("walk_animation")
 	#elif velocity.length() <= 0 or !walking:
 		#get_node("raccoon/AnimationPlayer").clear_queue()
-
+	
 func update_animation_paramters():
 	if (velocity == Vector3.ZERO):
 		#animation_tree["parameters/conditions/idle"] = true
@@ -56,7 +56,6 @@ func update_animation_paramters():
 		animation_tree["parameters/conditions/roll"] = true
 	else:
 		animation_tree["parameters/conditions/roll"] = false
-
 func _input(event):
 	if event.is_action_pressed("barrel_roll"):
 		barrel_roll()

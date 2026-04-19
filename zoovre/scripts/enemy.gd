@@ -172,6 +172,7 @@ func _state_knocked(delta: float):
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		Gamemanager.player.game_over()
+		print("in raycast")
 
 
 func _on_weak_spot_body_entered(body: Node3D) -> void:

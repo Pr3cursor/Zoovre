@@ -5,7 +5,7 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_yq3hu"]
 height = 3.23
-radius = 1.5
+radius = 2.5
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_688sc"]
 viewport_path = NodePath("Area3D/Node3D/SubViewport")
@@ -40,6 +40,13 @@ theme_override_font_sizes/font_size = 32
 text = "press e to hide"
 
 [node name="Marker3D" type="Marker3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3436023, 0)
+shape = SubResource("CylinderShape3D_yq3hu")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

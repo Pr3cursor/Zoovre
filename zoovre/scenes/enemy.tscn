@@ -11,21 +11,6 @@ height = 4.0
 height = 3.8847656
 radius = 3.0
 
-[sub_resource type="Animation" id="Animation_md0e3"]
-resource_name = "knock"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-0.34906584, 0, 0), Vector3(-0.6981317, 0, 0), Vector3(-1.0471976, 0, 0), Vector3(-1.3962634, 0, 0), Vector3(-1.5707964, 0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_4ra3w"]
 length = 0.001
 tracks/0/type = "value"
@@ -41,6 +26,21 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_md0e3"]
+resource_name = "knock"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.34906584, 0, 0), Vector3(-0.6981317, 0, 0), Vector3(-1.0471976, 0, 0), Vector3(-1.3962634, 0, 0), Vector3(-1.5707964, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5uy6h"]
 _data = {
 &"RESET": SubResource("Animation_4ra3w"),
@@ -51,6 +51,7 @@ _data = {
 size = Vector3(1, 2.9278564, 1.7084961)
 
 [node name="Enemy" type="CharacterBody3D" groups=["enemy"]]
+collision_layer = 3
 script = ExtResource("1_7p1mj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

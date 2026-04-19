@@ -184,7 +184,7 @@ transform = Transform3D(-0.70862305, 0, -0.7055872, 0, 1, 0, 0.7055872, 0, -0.70
 camera_id = 2
 
 [node name="camera2" parent="." instance=ExtResource("1_7y2xs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34139752, 0.8191204, 10.606827)
+transform = Transform3D(1, 0, 0, 0, 0.9649524, 0.26242498, 0, -0.26242498, 0.9649524, 1.2299979, 5.420368, 10.606827)
 camera_id = 1
 
 [node name="camera3" parent="." instance=ExtResource("1_7y2xs")]

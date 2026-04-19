@@ -8,7 +8,7 @@ radius = 1.0
 height = 5.0
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7p1mj"]
-height = 3.8847656
+height = 2.5
 radius = 3.0
 
 [sub_resource type="Animation" id="Animation_4ra3w"]
@@ -74,7 +74,7 @@ spot_attenuation = -1.19
 spot_angle = 28.973145
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RayCast3D/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 0.99999875, 2.0861626e-07, 0, -2.0861626e-07, 0.99999875, 0.0142502785, 4.283803, -0.17918599)
+transform = Transform3D(1, 0, 0, 0, 0.99999875, 2.0861626e-07, 0, -2.0861626e-07, 0.99999875, 0.0142502785, 2.052658, -0.030874372)
 shape = SubResource("CylinderShape3D_7p1mj")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

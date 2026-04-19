@@ -30,3 +30,4 @@ func _input(event: InputEvent) -> void:
 		Gamemanager.player.can_move = true
 		label.text = "press e to hide"
 		Gamemanager.player.is_in_bin = false
+		animation_player.play("expand")

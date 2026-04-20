@@ -10,7 +10,7 @@ radius = 2.5
 [sub_resource type="ViewportTexture" id="ViewportTexture_688sc"]
 viewport_path = NodePath("Area3D/Node3D/SubViewport")
 
-[node name="bin" type="Node3D"]
+[node name="bin" type="Node3D" groups=["bin"]]
 script = ExtResource("1_688sc")
 
 [node name="bin1" parent="." instance=ExtResource("1_yq3hu")]
@@ -40,6 +40,7 @@ theme_override_font_sizes/font_size = 32
 text = "press e to hide"
 
 [node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9043698, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 collision_layer = 2

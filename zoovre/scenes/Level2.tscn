@@ -1,6 +1,7 @@
 [gd_scene load_steps=25 format=3 uid="uid://bsdsuqckvmwcm"]
 
 [ext_resource type="MeshLibrary" uid="uid://cgjx22n5axdyn" path="res://blender/basicShapes.tres" id="1_3aekd"]
+[ext_resource type="AudioStream" uid="uid://kyukrwji6dxv" path="res://sound/WeAreZoovre.mp3" id="1_khw7m"]
 [ext_resource type="PackedScene" uid="uid://be8djbhs0vga5" path="res://scenes/player.tscn" id="2_khw7m"]
 [ext_resource type="PackedScene" uid="uid://c18mavfwhh5gd" path="res://scenes/camera.tscn" id="3_wd6ad"]
 [ext_resource type="PackedScene" uid="uid://ku4eka4g3ovj" path="res://scenes/camerachange.tscn" id="4_cd1f0"]
@@ -11,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://dg3wnmnii6ec" path="res://bild_monkey.tscn" id="9_0roy1"]
 [ext_resource type="PackedScene" uid="uid://cyfwdls5p3a6d" path="res://bild_mouse.tscn" id="10_epefj"]
 [ext_resource type="PackedScene" uid="uid://bcec0rn4tyggt" path="res://bild_goose.tscn" id="11_24quv"]
-[ext_resource type="PackedScene" uid="uid://dukw52yx3pibx" path="res://scenes/enemy.tscn" id="12_h35wg"]
 
 [sub_resource type="Environment" id="Environment_3aekd"]
 background_mode = 1
@@ -51,6 +51,12 @@ size = Vector3(0.6, 10, 10)
 size = Vector3(1, 10, 18)
 
 [node name="Level" type="Node3D"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_khw7m")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3aekd")
@@ -124,45 +130,78 @@ spot_range = 10.154628
 transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, -142.91353, 6.0376363, 39.396355)
 camera_id = 1
 
+[node name="cone" parent="Cameras/camera" index="2"]
+visible = false
+
 [node name="camera2" parent="Cameras" instance=ExtResource("3_wd6ad")]
 transform = Transform3D(2.7788642e-08, 0.49999997, -0.86602527, -1.1438699e-08, 0.86602545, 0.49999997, 1, 1.4901161e-08, -4.4703484e-08, -149.438, 6.0376363, 11.969706)
 camera_id = 2
+
+[node name="cone" parent="Cameras/camera2" index="2"]
+visible = false
 
 [node name="camera3" parent="Cameras" instance=ExtResource("3_wd6ad")]
 transform = Transform3D(5.963413e-08, -0.5, 0.86602527, -1.14387e-08, 0.86602545, 0.5, -1, -5.861255e-08, 1.2041382e-07, -136.63864, 6.0376363, 2.0216348)
 camera_id = 3
 
+[node name="cone" parent="Cameras/camera3" index="2"]
+visible = false
+
 [node name="camera4" parent="Cameras" instance=ExtResource("3_wd6ad")]
 transform = Transform3D(-4.371139e-08, 0.258819, -0.96592593, 4.440892e-15, 0.96592605, 0.2588191, 1.0000001, 1.13133325e-08, -4.2221945e-08, -153.28232, 6.037622, -21.101065)
 camera_id = 4
+
+[node name="cone" parent="Cameras/camera4" index="2"]
+visible = false
 
 [node name="camera5" parent="Cameras" instance=ExtResource("3_wd6ad")]
 transform = Transform3D(-1, -2.2626672e-08, 8.444391e-08, 4.4408917e-15, 0.965926, 0.25881907, -8.742278e-08, 0.258819, -0.96592593, -142.79718, 6.037622, -31.146942)
 camera_id = 5
 
+[node name="cone" parent="Cameras/camera5" index="2"]
+visible = false
+
 [node name="camera6" parent="Cameras" instance=ExtResource("3_wd6ad")]
 transform = Transform3D(-1, -3.6756852e-08, 8.255865e-08, -1.14387e-08, 0.86602545, 0.5, -1.5922746e-08, 0.5, -0.86602527, -122.06024, 6.0376363, -27.339672)
 camera_id = 6
+
+[node name="cone" parent="Cameras/camera6" index="2"]
+visible = false
 
 [node name="camera7" parent="Cameras" instance=ExtResource("3_wd6ad")]
 transform = Transform3D(1.0000001, -1.4901161e-08, 1.4901161e-08, 1.0668126e-08, 0.86602557, 0.50000006, -5.9604645e-08, -0.50000006, 0.8660253, -99.759636, 6.0376363, -14.7455635)
 camera_id = 7
 
+[node name="cone" parent="Cameras/camera7" index="2"]
+visible = false
+
 [node name="camera8" parent="Cameras" instance=ExtResource("3_wd6ad")]
 transform = Transform3D(-1, -2.2626672e-08, 8.444391e-08, 4.4408917e-15, 0.965926, 0.25881907, -8.742278e-08, 0.258819, -0.96592593, -73.90871, 6.037622, -31.146942)
 camera_id = 8
+
+[node name="cone" parent="Cameras/camera8" index="2"]
+visible = false
 
 [node name="camera9" parent="Cameras" instance=ExtResource("3_wd6ad")]
 transform = Transform3D(-4.371139e-08, -0.25881904, 0.9659258, 0, 0.96592593, 0.25881907, -1.0000001, 1.13133405e-08, -4.2221963e-08, -59.9045, 6.0376363, 33.235325)
 camera_id = 9
 
+[node name="cone" parent="Cameras/camera9" index="2"]
+visible = false
+
 [node name="camera10" parent="Cameras" instance=ExtResource("3_wd6ad")]
 transform = Transform3D(1, -1.4901161e-08, 5.9604645e-08, 1.1053412e-08, 0.9659259, 0.25881904, 0, -0.25881904, 0.96592575, -73.93402, 6.0376363, 39.222435)
 camera_id = 10
 
+[node name="cone" parent="Cameras/camera10" index="2"]
+visible = false
+
 [node name="camera11" parent="Cameras" instance=ExtResource("3_wd6ad")]
 transform = Transform3D(-5.9604645e-08, 0.25881904, -0.96592593, 4.440892e-15, 0.965926, 0.25881907, 0.99999994, 5.9604645e-08, -8.940697e-08, -58.738396, 6.809099, -20.933035)
 camera_id = 11
+
+[node name="cone" parent="Cameras/camera11" index="2"]
+visible = false
 
 [node name="CameraChanges" type="Node3D" parent="."]
 
@@ -238,66 +277,6 @@ transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, -74.
 
 [node name="Bild_Goose2" parent="Art" instance=ExtResource("11_24quv")]
 transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -73.97573, 4.2346344, -3.008151)
-
-[node name="PatrolPoints" type="Node3D" parent="."]
-
-[node name="Point1" type="Marker3D" parent="PatrolPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -139.7379, 0.22165704, 21.245584)
-
-[node name="Point2" type="Marker3D" parent="PatrolPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -139.46512, 0, -7.4361415)
-
-[node name="Point3" type="Marker3D" parent="PatrolPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128.49745, 0.25036, 28.500694)
-
-[node name="Point4" type="Marker3D" parent="PatrolPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.96347, 2.3841858e-07, 29.350166)
-
-[node name="Point5" type="Marker3D" parent="PatrolPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.68942, 2.3841858e-07, 1.7661202)
-
-[node name="Point6" type="Marker3D" parent="PatrolPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.68942, 2.3841858e-07, 20.372398)
-
-[node name="Point7" type="Marker3D" parent="PatrolPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -85.224915, 2.3841858e-07, 20.372398)
-
-[node name="Point8" type="Marker3D" parent="PatrolPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -85.224915, 2.3841858e-07, 0.2301445)
-
-[node name="Point9" type="Marker3D" parent="PatrolPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.65452, 2.3841858e-07, -24.149508)
-
-[node name="Point10" type="Marker3D" parent="PatrolPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -129.4635, 2.3841858e-07, -24.359028)
-
-[node name="Point11" type="Marker3D" parent="PatrolPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.427723, 0.2982278, -24.359028)
-
-[node name="Point12" type="Marker3D" parent="PatrolPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0540714, 0.2982278, -24.359028)
-
-[node name="Enemies" type="Node3D" parent="."]
-
-[node name="Enemy" parent="Enemies" node_paths=PackedStringArray("patrol_points") instance=ExtResource("12_h35wg")]
-transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, -139.90276, 3.0164764, -7.5533605)
-patrol_points = [NodePath("../../PatrolPoints/Point2"), NodePath("../../PatrolPoints/Point1")]
-
-[node name="Enemy2" parent="Enemies" node_paths=PackedStringArray("patrol_points") instance=ExtResource("12_h35wg")]
-transform = Transform3D(-8.940697e-08, 0, 1, 0, 1, 0, -1, 0, -8.940697e-08, -88.21806, 3.0164764, 29.715002)
-patrol_points = [NodePath("../../PatrolPoints/Point4"), NodePath("../../PatrolPoints/Point3")]
-
-[node name="Enemy3" parent="Enemies" node_paths=PackedStringArray("patrol_points") instance=ExtResource("12_h35wg")]
-transform = Transform3D(1.9841906e-09, 0, -1, 0, 1, 0, 1, 0, 1.9841906e-09, -82.805695, 2.0346735, 3.0653887)
-patrol_points = [NodePath("../../PatrolPoints/Point8"), NodePath("../../PatrolPoints/Point7"), NodePath("../../PatrolPoints/Point6"), NodePath("../../PatrolPoints/Point5")]
-
-[node name="Enemy4" parent="Enemies" node_paths=PackedStringArray("patrol_points") instance=ExtResource("12_h35wg")]
-transform = Transform3D(5.9604645e-08, 0, -1, 0, 1, 0, 1, 0, 5.9604645e-08, -127.8361, 1.2609823, -23.642464)
-patrol_points = [NodePath("../../PatrolPoints/Point10"), NodePath("../../PatrolPoints/Point9")]
-
-[node name="Enemy5" parent="Enemies" node_paths=PackedStringArray("patrol_points") instance=ExtResource("12_h35wg")]
-transform = Transform3D(2.7818132e-08, 0, 1, 0, 1, 0, -1, 0, 2.7818132e-08, -4.0336885, 1.2609823, -24.151665)
-patrol_points = [NodePath("../../PatrolPoints/Point12"), NodePath("../../PatrolPoints/Point11")]
 
 [node name="Collider" type="Node3D" parent="."]
 
@@ -728,3 +707,15 @@ transform = Transform3D(-2.1855695e-07, 0, -1, 0, 1, 0, 1, 0, -2.1855695e-07, -7
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Collider/StaticBody3D63"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20752382, 0, -0.3631668)
 shape = SubResource("BoxShape3D_lv1sl")
+
+[editable path="Cameras/camera"]
+[editable path="Cameras/camera2"]
+[editable path="Cameras/camera3"]
+[editable path="Cameras/camera4"]
+[editable path="Cameras/camera5"]
+[editable path="Cameras/camera6"]
+[editable path="Cameras/camera7"]
+[editable path="Cameras/camera8"]
+[editable path="Cameras/camera9"]
+[editable path="Cameras/camera10"]
+[editable path="Cameras/camera11"]

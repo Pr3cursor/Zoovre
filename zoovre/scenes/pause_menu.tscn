@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwrplsr008yoi"]
+[gd_scene load_steps=7 format=3 uid="uid://bwrplsr008yoi"]
 
 [ext_resource type="Texture2D" uid="uid://dd8kdaqjf4hrm" path="res://2D_art/UI Elemente/UI_Background.png" id="1_kukqi"]
+[ext_resource type="Script" uid="uid://c53cti1v8geuj" path="res://scripts/pause_menu.gd" id="1_v4r4p"]
 [ext_resource type="Texture2D" uid="uid://c4qv1k3wo0t" path="res://2D_art/UI Elemente/other info.png" id="2_5d2l8"]
 [ext_resource type="Texture2D" uid="uid://kg3n4wtyq0mx" path="res://2D_art/UI Elemente/current_mission_text_bigger.png" id="3_7l7mv"]
+[ext_resource type="Texture2D" uid="uid://bmu86kjbuk18x" path="res://2D_art/UI Elemente/backToMenu_light.jpg" id="4_7l7mv"]
+[ext_resource type="Texture2D" uid="uid://cude4aqjfbsvx" path="res://2D_art/UI Elemente/backToMenu_dark.jpg" id="5_v4r4p"]
 
 [node name="pause_menu" type="Node2D"]
+script = ExtResource("1_v4r4p")
 
 [node name="UiBackground" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.3764706)
@@ -12,11 +16,29 @@ position = Vector2(960, 540)
 texture = ExtResource("1_kukqi")
 
 [node name="OtherInfo" type="Sprite2D" parent="."]
-position = Vector2(450.76962, 791.75)
-scale = Vector2(0.779, 0.779)
+position = Vector2(944, 538.00006)
+scale = Vector2(1.2559136, 1.2559136)
 texture = ExtResource("2_5d2l8")
 
 [node name="CurrentMissionTextBigger" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(465.76968, 347.75)
 scale = Vector2(0.77859056, 0.77859044)
 texture = ExtResource("3_7l7mv")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 781.0
+offset_top = 913.0
+offset_right = 821.0
+offset_bottom = 953.0
+
+[node name="back_to_menu" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("4_7l7mv")
+texture_hover = ExtResource("5_v4r4p")
+
+[connection signal="pressed" from="Control/back_to_menu" to="." method="_on_back_to_menu_pressed"]

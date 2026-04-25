@@ -173,7 +173,8 @@ func _state_knocked(delta: float):
 			velocity = Vector3(0,0,0)
 			state = State.KNOCKED
 	else:
-		print("no target")
+		#print("no target")
+		return
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player") and !Gamemanager.player.is_in_bin:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dq41flq3s77gi"]
+[gd_scene load_steps=6 format=3 uid="uid://dq41flq3s77gi"]
 
 [ext_resource type="Script" uid="uid://bnopi4qovkixf" path="res://scripts/bin.gd" id="1_688sc"]
 [ext_resource type="PackedScene" uid="uid://bee5ddoojnx5" path="res://blender/bin1.glb" id="1_yq3hu"]
@@ -9,6 +9,9 @@ radius = 2.5
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_688sc"]
 viewport_path = NodePath("Area3D/Node3D/SubViewport")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_688sc"]
+height = 9.143
 
 [node name="bin" type="Node3D" groups=["bin"]]
 script = ExtResource("1_688sc")
@@ -39,8 +42,13 @@ theme_override_colors/font_color = Color(1, 1, 1, 0.78431374)
 theme_override_font_sizes/font_size = 32
 text = "press e to hide"
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.965965, 0.20593858, 0)
+mesh = SubResource("CylinderMesh_688sc")
+skeleton = NodePath("../Marker3D")
+
 [node name="Marker3D" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9043698, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.20593858, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 collision_layer = 2

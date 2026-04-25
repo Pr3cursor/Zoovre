@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://be8djbhs0vga5"]
+[gd_scene load_steps=38 format=3 uid="uid://be8djbhs0vga5"]
 
 [ext_resource type="Script" uid="uid://baqxhsge75e1b" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="AudioStream" uid="uid://cflrdfocqx5pt" path="res://sound/Maestro-Forte-op.-1.mp3" id="2_dqkch"]
@@ -20,7 +20,7 @@ animation = &"barrel_roll"
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_ur7pv"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_y4r1p"]
-graph_offset = Vector2(-228.04285, 63.432755)
+graph_offset = Vector2(-31.998291, 39.161255)
 nodes/output/position = Vector2(980, 160)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_ur7pv")
 nodes/TimeScale/position = Vector2(740, 160)
@@ -130,16 +130,20 @@ switch_mode = 2
 advance_mode = 2
 advance_condition = &"idle"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4r5pv"]
+advance_mode = 2
+advance_condition = &"roll"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_qhqgy"]
 states/Start/position = Vector2(-89, 131.79425)
 states/add_painting_1/node = SubResource("AnimationNodeAnimation_qhqgy")
 states/add_painting_1/position = Vector2(381, 19)
 states/barrel_roll/node = SubResource("AnimationNodeBlendTree_y4r1p")
-states/barrel_roll/position = Vector2(582, 131.79425)
+states/barrel_roll/position = Vector2(744, 125.79425)
 states/caught/node = SubResource("AnimationNodeBlendTree_fjrip")
 states/caught/position = Vector2(294, 229.79425)
 states/idle/node = SubResource("AnimationNodeAnimation_fjrip")
-states/idle/position = Vector2(46, 116.79425)
+states/idle/position = Vector2(34, 149.79425)
 states/jump_001/node = SubResource("AnimationNodeAnimation_ur7pv")
 states/jump_001/position = Vector2(446, 229.79425)
 states/jump_out/node = SubResource("AnimationNodeAnimation_y4r1p")
@@ -148,7 +152,7 @@ states/remove_painting_1/node = SubResource("AnimationNodeAnimation_tuyoq")
 states/remove_painting_1/position = Vector2(141, 19)
 states/walk/node = SubResource("AnimationNodeBlendTree_tuyoq")
 states/walk/position = Vector2(294, 85)
-transitions = ["barrel_roll", "walk", SubResource("AnimationNodeStateMachineTransition_smehm"), "walk", "add_painting_1", SubResource("AnimationNodeStateMachineTransition_dqkch"), "walk", "remove_painting_1", SubResource("AnimationNodeStateMachineTransition_qlg0r"), "remove_painting_1", "walk", SubResource("AnimationNodeStateMachineTransition_tuyoq"), "add_painting_1", "walk", SubResource("AnimationNodeStateMachineTransition_y4r1p"), "walk", "caught", SubResource("AnimationNodeStateMachineTransition_d2wvv"), "walk", "jump_001", SubResource("AnimationNodeStateMachineTransition_3v2ag"), "jump_001", "jump_out", SubResource("AnimationNodeStateMachineTransition_jej6c"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_f1ej7"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_oprun"), "jump_out", "idle", SubResource("AnimationNodeStateMachineTransition_a8ls1"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_ur7pv"), "idle", "jump_001", SubResource("AnimationNodeStateMachineTransition_qfm1y"), "idle", "barrel_roll", SubResource("AnimationNodeStateMachineTransition_fjrip"), "barrel_roll", "idle", SubResource("AnimationNodeStateMachineTransition_fulsm")]
+transitions = ["barrel_roll", "walk", SubResource("AnimationNodeStateMachineTransition_smehm"), "walk", "add_painting_1", SubResource("AnimationNodeStateMachineTransition_dqkch"), "walk", "remove_painting_1", SubResource("AnimationNodeStateMachineTransition_qlg0r"), "remove_painting_1", "walk", SubResource("AnimationNodeStateMachineTransition_tuyoq"), "add_painting_1", "walk", SubResource("AnimationNodeStateMachineTransition_y4r1p"), "walk", "caught", SubResource("AnimationNodeStateMachineTransition_d2wvv"), "walk", "jump_001", SubResource("AnimationNodeStateMachineTransition_3v2ag"), "jump_001", "jump_out", SubResource("AnimationNodeStateMachineTransition_jej6c"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_f1ej7"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_oprun"), "jump_out", "idle", SubResource("AnimationNodeStateMachineTransition_a8ls1"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_ur7pv"), "idle", "jump_001", SubResource("AnimationNodeStateMachineTransition_qfm1y"), "idle", "barrel_roll", SubResource("AnimationNodeStateMachineTransition_fjrip"), "barrel_roll", "idle", SubResource("AnimationNodeStateMachineTransition_fulsm"), "walk", "barrel_roll", SubResource("AnimationNodeStateMachineTransition_4r5pv")]
 graph_offset = Vector2(-261, -0.20574951)
 
 [node name="player" type="CharacterBody3D" groups=["player"]]

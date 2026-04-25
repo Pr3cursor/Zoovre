@@ -90,7 +90,8 @@ func _on_player_in_bin():
 		_enter_state(State.MOVE_IN_BIN)
 
 func _input(event):
-	if event.is_action_pressed("barrel_roll"):
+	if event.is_action_pressed("barrel_roll") and state != 6:
+		print(state)
 		barrel_roll()
 	if event.is_action_pressed("reset"):
 		reset()
@@ -105,7 +106,8 @@ func game_over():
 
 func barrel_roll():
 	_enter_state(State.ROLL)
-	move_speed = 50
+	move_speed = 20
+	print(state)
 	
 func reset():
 	self.position = Vector3(-157.159,0,32.693)
@@ -123,5 +125,7 @@ func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 		_enter_state(State.IDLE)
 	if anim_name == "barrel_roll":
 		animation_tree["parameters/conditions/roll"] = false
+		animation_tree["parameters/conditions/idle"] = true
 		move_speed = 5.0
-		print("roll end")
+		velocity = Vector3.ZERO
+		_enter_state(State.IDLE)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c78xqipy6y8el"]
+[gd_scene load_steps=6 format=3 uid="uid://c78xqipy6y8el"]
 
 [ext_resource type="PackedScene" uid="uid://cpnlfojbebgw1" path="res://blender/Bild_CAT.glb" id="1_klpgf"]
+[ext_resource type="PackedScene" uid="uid://ccwmtmn3g2lwb" path="res://blender/AI_cat.glb" id="2_3bsp6"]
 [ext_resource type="Script" uid="uid://bq441h38ccukm" path="res://scripts/pick_up.gd" id="2_kl5m4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3bsp6"]
@@ -11,9 +12,16 @@ viewport_path = NodePath("Area3D/Node3D/SubViewport")
 
 [node name="Bild_CAT" instance=ExtResource("1_klpgf")]
 
-[node name="Area3D" type="Area3D" parent="." index="1"]
+[node name="Bilderrahmen_katze" parent="." index="0"]
+visible = false
+
+[node name="AI_cat" parent="." index="1" instance=ExtResource("2_3bsp6")]
+
+[node name="Area3D" type="Area3D" parent="." index="2" node_paths=PackedStringArray("ai_image", "drawn_image")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.77473795, 0, 0)
 script = ExtResource("2_kl5m4")
+ai_image = NodePath("../AI_cat")
+drawn_image = NodePath("../Bilderrahmen_katze")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)

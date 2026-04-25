@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dl85oq1k8ou54"]
+[gd_scene load_steps=6 format=3 uid="uid://dl85oq1k8ou54"]
 
 [ext_resource type="PackedScene" uid="uid://bi44rdmxlt6ax" path="res://blender/Bild_GOAT.glb" id="1_gccce"]
 [ext_resource type="Script" uid="uid://bq441h38ccukm" path="res://scripts/pick_up.gd" id="2_4lme3"]
+[ext_resource type="PackedScene" uid="uid://cqltf7r5rbn1a" path="res://blender/AI_GOAT.glb" id="2_ylhs2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gccce"]
 size = Vector3(1, 5, 4)
@@ -11,9 +12,17 @@ viewport_path = NodePath("Area3D/Node3D/SubViewport")
 
 [node name="Bild_GOAT" instance=ExtResource("1_gccce")]
 
-[node name="Area3D" type="Area3D" parent="." index="1"]
+[node name="AI_GOAT" parent="." index="0" instance=ExtResource("2_ylhs2")]
+transform = Transform3D(0.73, 0, 0, 0, 0.73, 0, 0, 0, 0.73, -1.018834, 0, 0)
+
+[node name="Bilderrahmen_GOAT" parent="." index="1"]
+visible = false
+
+[node name="Area3D" type="Area3D" parent="." index="2" node_paths=PackedStringArray("ai_image", "drawn_image")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.334832, 0, 0.52434397)
 script = ExtResource("2_4lme3")
+ai_image = NodePath("../AI_GOAT")
+drawn_image = NodePath("../Bilderrahmen_GOAT")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
 shape = SubResource("BoxShape3D_gccce")

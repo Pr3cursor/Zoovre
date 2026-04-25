@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://ds8x6f1yg75oy"]
+
+[ext_resource type="AudioStream" uid="uid://cflrdfocqx5pt" path="res://sound/Maestro-Forte-op.-1.mp3" id="1_ajgtk"]
+[ext_resource type="Script" uid="uid://b681i6xk2cgdc" path="res://scenes/sound.gd" id="1_xcdpn"]
+
+[node name="Soundshi1" type="Node"]
+script = ExtResource("1_xcdpn")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_ajgtk")
+autoplay = true
+parameters/looping = true

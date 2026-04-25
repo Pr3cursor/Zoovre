@@ -1,7 +1,6 @@
 [gd_scene load_steps=38 format=3 uid="uid://be8djbhs0vga5"]
 
 [ext_resource type="Script" uid="uid://baqxhsge75e1b" path="res://scripts/player.gd" id="1_3vyb7"]
-[ext_resource type="AudioStream" uid="uid://cflrdfocqx5pt" path="res://sound/Maestro-Forte-op.-1.mp3" id="2_dqkch"]
 [ext_resource type="PackedScene" uid="uid://0nq2m7sjtrr" path="res://blender/raccoon_walking.tscn" id="2_g2els"]
 [ext_resource type="PackedScene" uid="uid://glm5unb7sgmy" path="res://blender/raccoon_3.glb" id="4_dqkch"]
 
@@ -157,11 +156,6 @@ graph_offset = Vector2(-261, -0.20574951)
 
 [node name="player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_3vyb7")
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("2_dqkch")
-autoplay = true
-parameters/looping = true
 
 [node name="raccoon" parent="." instance=ExtResource("2_g2els")]
 transform = Transform3D(-2.315, 0, -2.0238373e-07, 0, 2.315, 0, 2.0238373e-07, 0, -2.315, 0, 1.1757966, 0)

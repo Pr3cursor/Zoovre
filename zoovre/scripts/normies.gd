@@ -4,7 +4,7 @@ extends CharacterBody3D
 @onready var agent = $NavigationAgent3D
 
 const UPDATE_TIME = 0.2
-const SPEED = 5.0
+const SPEED = 4.0
 const SMOOTHING_FACTOR = 0.1
 const WANDER_RANGE = 20.0
 
@@ -46,4 +46,4 @@ func move_to_agent(delta: float, speed: float = SPEED):
 	
 	velocity = velocity.lerp(dir * speed, SMOOTHING_FACTOR)
 	move_and_slide()
-	
+	$Character_2_1/AnimationPlayer.play("walk")

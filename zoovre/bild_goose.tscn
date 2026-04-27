@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bcec0rn4tyggt"]
+[gd_scene load_steps=7 format=3 uid="uid://bcec0rn4tyggt"]
 
 [ext_resource type="PackedScene" uid="uid://mxde262o52px" path="res://blender/Bild_Goose.glb" id="1_814b7"]
 [ext_resource type="PackedScene" uid="uid://bkkc7fey6qx5b" path="res://blender/AI_goose.glb" id="2_aw6i5"]
 [ext_resource type="Script" uid="uid://bq441h38ccukm" path="res://scripts/pick_up.gd" id="2_gonb8"]
+[ext_resource type="PackedScene" uid="uid://cdpciy47d3okj" path="res://blender/Rahmen/goose_rahmenglb.glb" id="2_pqg21"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3bsp6"]
 size = Vector3(1, 5, 2)
@@ -12,16 +13,20 @@ viewport_path = NodePath("Area3D/Node3D/SubViewport")
 
 [node name="Bild_Goose" groups=["picture"] instance=ExtResource("1_814b7")]
 
-[node name="AI_goose" parent="." index="0" instance=ExtResource("2_aw6i5")]
-transform = Transform3D(0.63, 0, 0, 0, 0.63, 0, 0, 0, 0.63, 0, 0, -0.052656174)
-
-[node name="2D_gemaelde_monalisa-gans" parent="." index="1"]
+[node name="goose_rahmenglb" parent="." index="0" instance=ExtResource("2_pqg21")]
 visible = false
 
-[node name="Area3D" type="Area3D" parent="." index="2" node_paths=PackedStringArray("ai_image", "drawn_image")]
+[node name="AI_goose" parent="." index="1" instance=ExtResource("2_aw6i5")]
+transform = Transform3D(0.63, 0, 0, 0, 0.63, 0, 0, 0, 0.63, 0, 0, -0.052656174)
+
+[node name="2D_gemaelde_monalisa-gans" parent="." index="2"]
+visible = false
+
+[node name="Area3D" type="Area3D" parent="." index="3" node_paths=PackedStringArray("ai_image", "drawn_image", "frame")]
 script = ExtResource("2_gonb8")
 ai_image = NodePath("../AI_goose")
 drawn_image = NodePath("../2D_gemaelde_monalisa-gans")
+frame = NodePath("../goose_rahmenglb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)

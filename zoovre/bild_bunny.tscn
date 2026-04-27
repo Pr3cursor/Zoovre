@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://st3kosr2fs4u"]
+[gd_scene load_steps=7 format=3 uid="uid://st3kosr2fs4u"]
 
 [ext_resource type="PackedScene" uid="uid://dj0hjm7t4vnjf" path="res://blender/Bild_BUNNY.glb" id="1_ml4i7"]
 [ext_resource type="Script" uid="uid://bq441h38ccukm" path="res://scripts/pick_up.gd" id="2_8fvnm"]
 [ext_resource type="PackedScene" uid="uid://bkkc7fey6qx5b" path="res://blender/AI_goose.glb" id="2_spfn1"]
+[ext_resource type="PackedScene" uid="uid://cn0r8yc2nlskr" path="res://blender/Rahmen/rabbit_rahmenglb.glb" id="3_y8odx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8fvnm"]
 size = Vector3(1.245, 2.64, 1.82)
@@ -18,11 +19,15 @@ visible = false
 [node name="AI_goose" parent="." index="1" instance=ExtResource("2_spfn1")]
 transform = Transform3D(0.585, 0, 0, 0, 0.585, 0, 0, 0, 0.585, 0.107820034, 0, 0)
 
-[node name="Area3D" type="Area3D" parent="." index="2" node_paths=PackedStringArray("ai_image", "drawn_image")]
+[node name="rabbit_rahmenglb" parent="." index="2" instance=ExtResource("3_y8odx")]
+visible = false
+
+[node name="Area3D" type="Area3D" parent="." index="3" node_paths=PackedStringArray("ai_image", "drawn_image", "frame")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5947864, 0.7405307, 0.026373416)
 script = ExtResource("2_8fvnm")
 ai_image = NodePath("../AI_goose")
 drawn_image = NodePath("../2D_gemaelde_hase-ohrring")
+frame = NodePath("../rabbit_rahmenglb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.71069634, -0.53302634, 0)

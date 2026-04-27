@@ -158,7 +158,7 @@ func _state_chase(delta: float) -> void:
 	if not target:
 		_enter_state(State.RETURN)
 		return
-	if target.is_in_bin:
+	if target.state == 3:
 		_enter_state(State.RETURN)
 		return
 	_walk_to(agent.get_next_path_position(), speed_run)
@@ -175,7 +175,7 @@ func _state_knocked(delta: float):
 		return
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body.is_in_group("player") and !Gamemanager.player.is_in_bin:
+	if body.is_in_group("player") and !Gamemanager.player.state == 3:
 		Gamemanager.player.game_over()
 		print("in raycast")
 

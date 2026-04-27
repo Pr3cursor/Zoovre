@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dl85oq1k8ou54"]
+[gd_scene load_steps=7 format=3 uid="uid://dl85oq1k8ou54"]
 
 [ext_resource type="PackedScene" uid="uid://bi44rdmxlt6ax" path="res://blender/Bild_GOAT.glb" id="1_gccce"]
 [ext_resource type="Script" uid="uid://bq441h38ccukm" path="res://scripts/pick_up.gd" id="2_4lme3"]
 [ext_resource type="PackedScene" uid="uid://cqltf7r5rbn1a" path="res://blender/AI_GOAT.glb" id="2_ylhs2"]
+[ext_resource type="PackedScene" uid="uid://coiedjiltgkfe" path="res://blender/Rahmen/goat_rahmenglb.glb" id="4_ylhs2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gccce"]
 size = Vector3(1.56, 5, 4.505)
@@ -18,11 +19,12 @@ transform = Transform3D(0.73, 0, 0, 0, 0.73, 0, 0, 0, 0.73, -1.018834, 0, 0)
 [node name="Bilderrahmen_GOAT" parent="." index="1"]
 visible = false
 
-[node name="Area3D" type="Area3D" parent="." index="2" node_paths=PackedStringArray("ai_image", "drawn_image")]
+[node name="Area3D" type="Area3D" parent="." index="2" node_paths=PackedStringArray("ai_image", "drawn_image", "frame")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.334832, 0, 0.52434397)
 script = ExtResource("2_4lme3")
 ai_image = NodePath("../AI_GOAT")
 drawn_image = NodePath("../Bilderrahmen_GOAT")
+frame = NodePath("../goat_rahmenglb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.582932, 0, -0.4890011)
@@ -44,5 +46,8 @@ offset_bottom = 23.0
 theme_override_colors/font_color = Color(1, 1, 1, 0.78431374)
 theme_override_font_sizes/font_size = 32
 text = "press e to collect"
+
+[node name="goat_rahmenglb" parent="." index="3" instance=ExtResource("4_ylhs2")]
+visible = false
 
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dg3wnmnii6ec"]
+[gd_scene load_steps=7 format=3 uid="uid://dg3wnmnii6ec"]
 
 [ext_resource type="PackedScene" uid="uid://c5y2kr337resj" path="res://blender/Bild_MONKEY.glb" id="1_c1u8y"]
 [ext_resource type="PackedScene" uid="uid://vcqf76m5pp28" path="res://blender/AI_monkey.glb" id="2_ayr0b"]
+[ext_resource type="PackedScene" uid="uid://nwcbeeqlqvr" path="res://blender/Rahmen/monkey_rahmenglb.glb" id="2_htbrs"]
 [ext_resource type="Script" uid="uid://bq441h38ccukm" path="res://scripts/pick_up.gd" id="2_sc80r"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3bsp6"]
@@ -12,17 +13,21 @@ viewport_path = NodePath("Area3D/Node3D/SubViewport")
 
 [node name="Bild_MONKEY" instance=ExtResource("1_c1u8y")]
 
-[node name="AI_monkey" parent="." index="0" instance=ExtResource("2_ayr0b")]
-transform = Transform3D(0.51, 0, 0, 0, 0.51, 0, 0, 0, 0.51, -0.68725836, 0, 0)
-
-[node name="Bilderrahmen_AFFE" parent="." index="1"]
+[node name="monkey_rahmenglb" parent="." index="0" instance=ExtResource("2_htbrs")]
 visible = false
 
-[node name="Area3D" type="Area3D" parent="." index="2" node_paths=PackedStringArray("ai_image", "drawn_image")]
+[node name="AI_monkey" parent="." index="1" instance=ExtResource("2_ayr0b")]
+transform = Transform3D(0.51, 0, 0, 0, 0.51, 0, 0, 0, 0.51, -0.68725836, 0, 0)
+
+[node name="Bilderrahmen_AFFE" parent="." index="2"]
+visible = false
+
+[node name="Area3D" type="Area3D" parent="." index="3" node_paths=PackedStringArray("ai_image", "drawn_image", "frame")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.73954326, 0, 0)
 script = ExtResource("2_sc80r")
 ai_image = NodePath("../AI_monkey")
 drawn_image = NodePath("../Bilderrahmen_AFFE")
+frame = NodePath("../monkey_rahmenglb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)

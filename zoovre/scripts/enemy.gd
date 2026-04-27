@@ -165,9 +165,7 @@ func _state_chase(delta: float) -> void:
 
 func _state_knocked(delta: float):
 	if weak_spot == true:
-		if state == State.KNOCKED:
-			pass
-		else: 
+		if state != 6:
 			$RayCast3D/Area3D.queue_free()
 			animation_player.play("knock")
 			velocity = Vector3(0,0,0)

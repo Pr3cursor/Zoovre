@@ -1,6 +1,5 @@
 extends CharacterBody3D
-
-@onready var anim = $Character_2_1/AnimationPlayer
+@onready var anim = $character_monkey/AnimationPlayer
 @onready var agent = $NavigationAgent3D
 
 

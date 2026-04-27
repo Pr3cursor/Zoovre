@@ -9,7 +9,6 @@ const SMOOTHING_FACTOR = 0.1
 const WANDER_RANGE = 20.0
 const WAIT_AT_TARGET = 2.0
 
-var update_timer := 0.0
 var calibrating: bool = false
 
 func _ready():

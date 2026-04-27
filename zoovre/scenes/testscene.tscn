@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://cq8mmqkcvpg52" path="res://scenes/laser_platzierbar.tscn" id="11_i7xxu"]
 [ext_resource type="PackedScene" uid="uid://dq41flq3s77gi" path="res://scenes/bin.tscn" id="12_26oro"]
 [ext_resource type="PackedScene" uid="uid://cp82748tldljf" path="res://scenes/normies/normie_2.tscn" id="14_omjqa"]
+[ext_resource type="PackedScene" uid="uid://cxissfvmdohs2" path="res://scenes/normies/normie_3.tscn" id="15_oj1r6"]
+[ext_resource type="PackedScene" uid="uid://qnsj4jrugae8" path="res://scenes/normies/normie_4.tscn" id="16_5msii"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_i7xxu"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -284,6 +286,12 @@ script = null
 
 [node name="normie_2" parent="." instance=ExtResource("14_omjqa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9902706, -0.036617756, -5.960506)
+
+[node name="Normie_3" parent="." instance=ExtResource("15_oj1r6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -10)
+
+[node name="Normie_4" parent="." instance=ExtResource("16_5msii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.852787, -0.49811685, -12.809746)
 
 [editable path="LaserPlatzierbar"]
 [editable path="LaserPlatzierbar/Laser"]

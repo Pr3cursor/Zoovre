@@ -78,9 +78,6 @@ func _update_agent_target() -> void:
 			animation_tree["parameters/conditions/remove_painting"] = false
 			animation_tree["parameters/conditions/add_painting"] = true
 			can_move = false
-			#print("PUT_PAINTING: ", state)
-		State.IN_BIN:
-			print("in bin")
 
 func update_camera():
 	if Gamemanager.cur_cam_node:
@@ -120,7 +117,6 @@ func _on_player_in_bin():
 
 func _input(event):
 	if event.is_action_pressed("barrel_roll") and state != 6:
-		print(state)
 		barrel_roll()
 	if event.is_action_pressed("reset"):
 		reset()
@@ -136,7 +132,6 @@ func game_over():
 func barrel_roll():
 	_enter_state(State.ROLL)
 	move_speed = 20
-	print(state)
 	
 func reset():
 	self.position = Vector3(-157.159,0,32.693)
@@ -147,7 +142,6 @@ func reset():
 
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "jump_001":
-		print("anim endet jump")
 		_enter_state(State.IN_BIN)
 	if anim_name == "jump_out":
 		animation_tree["parameters/conditions/is_jumped_out"] = false

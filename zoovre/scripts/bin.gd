@@ -7,6 +7,7 @@ extends Node3D
 #@export var marker_3d: Marker3D
 var player_inside: bool = false
 var out_pos: Vector3
+var in_bin: bool = false
 
 signal player_bin_change
 
@@ -22,7 +23,7 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 		player_inside = false
 #
 func _input(event: InputEvent) -> void:
-	if Gamemanager.player.state != 3 and player_inside and event.is_action_pressed("interact"):
+	if Gamemanager.player.state != 3 and !in_bin and player_inside and event.is_action_pressed("interact"):
 		label.text = "press e to get out"
 		Gamemanager.player.look_at(self.position)
 		out_pos = Gamemanager.player.global_position
@@ -31,15 +32,17 @@ func _input(event: InputEvent) -> void:
 		animation_player.play("expand")
 		Gamemanager.player.visible = false
 		print("jumped inside")
+		in_bin = true
+## Known bug: bei 'interact' button spam wird er invis bis man öfters wieder 'interact' drückt 
 
-
-	elif Gamemanager.player.state == 3 and event.is_action_pressed("interact"):
+	elif in_bin and Gamemanager.player.state == 3 and event.is_action_pressed("interact"):
 		print("want out")
 		emit_signal("player_bin_change")
 		Gamemanager.player.look_at(out_pos)
 		await get_tree().create_timer(0.5).timeout
 		Gamemanager.player.visible = true
 		print("invis ", Gamemanager.player.visible)
-		await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(0.2).timeout
 		label.text = "press e to hide"
 		animation_player.play("expand")
+		in_bin = false

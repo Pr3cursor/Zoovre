@@ -147,7 +147,7 @@ func _state_patrol(delta: float) -> void:
 		else:
 			patrol_timer -= delta
 			if patrol_timer <= 0.0:
-				_go_to_next_patrol_point()
+				_go_to_next_patrol_point()										
 	else:
 		_walk_to(agent.get_next_path_position(), speed_walk)
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cfssv4obp5n6l"]
+[gd_scene load_steps=30 format=3 uid="uid://cfssv4obp5n6l"]
 
 [ext_resource type="PackedScene" uid="uid://c18mavfwhh5gd" path="res://scenes/camera.tscn" id="1_7y2xs"]
 [ext_resource type="PackedScene" uid="uid://ku4eka4g3ovj" path="res://scenes/camerachange.tscn" id="3_65iv0"]
@@ -270,19 +270,6 @@ transform = Transform3D(0.3701035, 0, -0.92899054, 0, 1, 0, 0.92899054, 0, 0.370
 
 [node name="Bild_MOUSE" parent="Art" groups=["picture"] instance=ExtResource("10_tob6u")]
 transform = Transform3D(0.49278814, 0, -0.8701493, 0, 1, 0, 0.8701493, 0, 0.49278814, 2.3538423, 0.5444578, -9.760139)
-
-[node name="Normies" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.0296135, -0.49672604, -12.71767)
-script = null
 
 [node name="normie_2" parent="." instance=ExtResource("14_omjqa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9902706, -0.036617756, -5.960506)

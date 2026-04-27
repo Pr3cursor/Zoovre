@@ -158,7 +158,7 @@ func _state_chase(delta: float) -> void:
 	if not target:
 		_enter_state(State.RETURN)
 		return
-	if target.state == 3:
+	if target.state == 2 or target.state == 3 or target.state == 4:
 		_enter_state(State.RETURN)
 		return
 	_walk_to(agent.get_next_path_position(), speed_run)

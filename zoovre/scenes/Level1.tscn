@@ -426,7 +426,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0540714, 0.2982278, -24.35
 [node name="Enemies" type="Node3D" parent="."]
 
 [node name="Enemy" parent="Enemies" node_paths=PackedStringArray("patrol_points") instance=ExtResource("12_52iff")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -139.90276, 3.0164764, -7.5533605)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -139.90276, 11.654781, -7.5533605)
 patrol_points = [NodePath("../../PatrolPoints/Point2"), NodePath("../../PatrolPoints/Point1")]
 
 [node name="Enemy2" parent="Enemies" node_paths=PackedStringArray("patrol_points") instance=ExtResource("12_52iff")]
@@ -446,7 +446,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0336885, 1.2609823, -24.15
 patrol_points = [NodePath("../../PatrolPoints/Point12"), NodePath("../../PatrolPoints/Point11")]
 
 [node name="Collider" type="Node3D" parent="."]
-visible = false
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Collider"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -158.165, 4, 26.251757)

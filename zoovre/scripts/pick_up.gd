@@ -12,10 +12,13 @@ var picked_up = false
 var changed_image = false
 var current_image = false 
 var current_image_pos: Vector3 
+var level2: bool = false
 
 func change_to_drawn():
 	ai_image.visible = false
 	drawn_image.visible = true
+	level2 = true
+	label.text = ""
 
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
@@ -36,17 +39,17 @@ func pick_up():
 	Gamemanager.player.game_won()
 
 func _input(event):
-	if event.is_action_pressed("interact") and player_in_range and !picked_up:
+	if event.is_action_pressed("interact") and player_in_range and !picked_up and !level2:
 		Gamemanager.player.state = 7
 
-	if event.is_action_pressed("interact") and player_in_range and picked_up and !changed_image:
+	if event.is_action_pressed("interact") and player_in_range and picked_up and !changed_image and !level2:
 		Gamemanager.player.state = 8
 		changed_image = true
 
 
 func _on_image_picked_up():
 	if current_image and picked_up:
-		Gamemanager.player.look_at(current_image_pos)
+		Gamemanager.player.look_at(self.position)
 		await get_tree().create_timer(1).timeout
 		frame.hide()
 		drawn_image.visible = true
@@ -54,7 +57,7 @@ func _on_image_picked_up():
 		
 func _on_image_removed():
 	if current_image and !picked_up:
-		Gamemanager.player.look_at(current_image_pos)
+		Gamemanager.player.look_at(self.position)
 		await get_tree().create_timer(1).timeout
 		ai_image.hide()
 		frame.visible = true

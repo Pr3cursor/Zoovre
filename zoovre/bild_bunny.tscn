@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cn0r8yc2nlskr" path="res://blender/Rahmen/rabbit_rahmenglb.glb" id="3_y8odx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8fvnm"]
-size = Vector3(1.245, 2.64, 1.82)
+size = Vector3(1.245, 4.905, 1.82)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_8fvnm"]
 viewport_path = NodePath("Area3D/Node3D/SubViewport")

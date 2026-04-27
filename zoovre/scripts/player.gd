@@ -54,11 +54,13 @@ func _update_agent_target() -> void:
 			animation_tree["parameters/conditions/is_idle"] = false
 			animation_tree["parameters/conditions/is_moving"] = false
 			can_move = false
+			#print("entered state move_in_bin")
 		State.MOVE_OUT_BIN:
 			animation_tree["parameters/conditions/is_jumped_out"] = true
 			animation_tree["parameters/conditions/is_jumped"] = false
 			animation_tree["parameters/conditions/is_idle"] = false
 			animation_tree["parameters/conditions/is_moving"] = false
+			#print("entered state move_out_bin")
 		State.ROLL:
 			animation_tree["parameters/conditions/is_idle"] = false
 			animation_tree["parameters/conditions/is_moving"] = false
@@ -77,7 +79,8 @@ func _update_agent_target() -> void:
 			animation_tree["parameters/conditions/add_painting"] = true
 			can_move = false
 			#print("PUT_PAINTING: ", state)
-
+		State.IN_BIN:
+			print("in bin")
 
 func update_camera():
 	if Gamemanager.cur_cam_node:
@@ -110,7 +113,7 @@ func state_idle():
 		_enter_state(State.MOVE)
 
 func _on_player_in_bin():
-	if state == State.IN_BIN:
+	if state == 3:
 		_enter_state(State.MOVE_OUT_BIN)
 	else:
 		_enter_state(State.MOVE_IN_BIN)
@@ -144,6 +147,7 @@ func reset():
 
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "jump_001":
+		print("anim endet jump")
 		_enter_state(State.IN_BIN)
 	if anim_name == "jump_out":
 		animation_tree["parameters/conditions/is_jumped_out"] = false

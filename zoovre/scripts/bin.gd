@@ -22,7 +22,7 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 		player_inside = false
 #
 func _input(event: InputEvent) -> void:
-	if player_inside and event.is_action_pressed("interact"):
+	if Gamemanager.player.state != 3 and player_inside and event.is_action_pressed("interact"):
 		label.text = "press e to get out"
 		Gamemanager.player.look_at(self.position)
 		out_pos = Gamemanager.player.global_position
@@ -30,10 +30,11 @@ func _input(event: InputEvent) -> void:
 		await get_tree().create_timer(2).timeout
 		animation_player.play("expand")
 		Gamemanager.player.visible = false
-		player_inside = false
+		print("jumped inside")
 
 
 	elif Gamemanager.player.state == 3 and event.is_action_pressed("interact"):
+		print("want out")
 		emit_signal("player_bin_change")
 		Gamemanager.player.look_at(out_pos)
 		await get_tree().create_timer(0.5).timeout

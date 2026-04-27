@@ -179,8 +179,6 @@ shape = SubResource("BoxShape3D_7y2xs")
 
 [node name="player" parent="." instance=ExtResource("4_l2n4a")]
 transform = Transform3D(0.068015315, 0, 0.9976843, 0, 1, 0, -0.9976843, 0, 0.068015315, 6.8189163, -0.5, 4.1122108)
-move_speed = 5.0
-acceleration = 20.0
 
 [node name="camera" parent="." instance=ExtResource("1_7y2xs")]
 transform = Transform3D(-0.70862305, 0, -0.7055872, 0, 1, 0, 0.7055872, 0, -0.70862305, -23.071896, 4.9245825, -2.8847008)
@@ -244,24 +242,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3032246, -0.5000005, -4.806
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.977325, 3.066519, -6.2488317)
 patrol_points = [NodePath("../PatrolPoints/Point4")]
 
-[node name="Node" type="Node" parent="."]
+[node name="Art" type="Node" parent="."]
 
-[node name="Bild_BUNNY" parent="Node" instance=ExtResource("5_ye8wr")]
-transform = Transform3D(0.7786923, 0, -0.627406, 0, 1, 0, 0.627406, 0, 0.7786923, 6.873667, 0.7495096, -0.060672283)
+[node name="Bild_BUNNY" parent="Art" instance=ExtResource("5_ye8wr")]
+transform = Transform3D(-0.026578218, 0, -0.9996467, 0, 1, 0, 0.9996467, 0, -0.026578218, 9.39477, 0.7495096, 1.0116534)
 
-[node name="Bild_CAT" parent="Node" groups=["picture"] instance=ExtResource("6_ckmbu")]
-transform = Transform3D(0.50265783, 0, -0.86448544, 0, 1, 0, 0.86448544, 0, 0.50265783, 10.457655, 0.74950945, -2.1873708)
+[node name="Bild_CAT" parent="Art" groups=["picture"] instance=ExtResource("6_ckmbu")]
+transform = Transform3D(-0.2466608, 0, -0.9691019, 0, 1, 0, 0.9691019, 0, -0.2466608, 13.59955, 0.74950945, 0.8481648)
 
-[node name="Bild_GOAT" parent="Node" groups=["picture"] instance=ExtResource("7_p7smk")]
+[node name="Bild_GOAT" parent="Art" groups=["picture"] instance=ExtResource("7_p7smk")]
 transform = Transform3D(0.9904012, 0, -0.13822244, 0, 1, 0, 0.13822244, 0, 0.9904012, 0.3781557, 0.5758476, 4.1425934)
 
-[node name="Bild_Goose" parent="Node" instance=ExtResource("8_acxp7")]
+[node name="Bild_Goose" parent="Art" instance=ExtResource("8_acxp7")]
 transform = Transform3D(0.45542055, 0, -0.89027643, 0, 1, 0, 0.89027643, 0, 0.45542055, 9.7068, 0.7495092, -4.135975)
 
-[node name="Bild_MONKEY" parent="Node" groups=["picture"] instance=ExtResource("9_3ahxw")]
+[node name="Bild_MONKEY" parent="Art" groups=["picture"] instance=ExtResource("9_3ahxw")]
 transform = Transform3D(0.3701035, 0, -0.92899054, 0, 1, 0, 0.92899054, 0, 0.3701035, 10.672645, 0.8440621, -5.8133726)
 
-[node name="Bild_MOUSE" parent="Node" groups=["picture"] instance=ExtResource("10_tob6u")]
+[node name="Bild_MOUSE" parent="Art" groups=["picture"] instance=ExtResource("10_tob6u")]
 transform = Transform3D(0.49278814, 0, -0.8701493, 0, 1, 0, 0.8701493, 0, 0.49278814, 2.3538423, 0.5444578, -6.4270916)
 
 [editable path="LaserPlatzierbar"]

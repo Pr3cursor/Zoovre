@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cqltf7r5rbn1a" path="res://blender/AI_GOAT.glb" id="2_ylhs2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gccce"]
-size = Vector3(1, 5, 4)
+size = Vector3(1.56, 5, 4.505)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_gccce"]
 viewport_path = NodePath("Area3D/Node3D/SubViewport")
@@ -25,6 +25,7 @@ ai_image = NodePath("../AI_GOAT")
 drawn_image = NodePath("../Bilderrahmen_GOAT")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.582932, 0, -0.4890011)
 shape = SubResource("BoxShape3D_gccce")
 
 [node name="Node3D" type="Sprite3D" parent="Area3D" index="1"]

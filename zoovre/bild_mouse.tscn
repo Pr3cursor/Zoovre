@@ -24,7 +24,7 @@ ai_image = NodePath("../AI_rat")
 drawn_image = NodePath("../Bilderrahmen_KMAUS")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2067464, 0.2865287, 0.2929144)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7918363, 0.2865287, 0.54593337)
 shape = SubResource("BoxShape3D_kxxkh")
 
 [node name="Node3D" type="Sprite3D" parent="Area3D" index="1"]

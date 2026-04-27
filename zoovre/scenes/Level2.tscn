@@ -1,7 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://bsdsuqckvmwcm"]
+[gd_scene load_steps=27 format=3 uid="uid://bsdsuqckvmwcm"]
 
 [ext_resource type="MeshLibrary" uid="uid://cgjx22n5axdyn" path="res://blender/basicShapes.tres" id="1_3aekd"]
 [ext_resource type="AudioStream" uid="uid://kyukrwji6dxv" path="res://sound/WeAreZoovre.mp3" id="1_khw7m"]
+[ext_resource type="Script" uid="uid://ccte56co7gwyn" path="res://scripts/level_2.gd" id="1_wd6ad"]
 [ext_resource type="PackedScene" uid="uid://be8djbhs0vga5" path="res://scenes/player.tscn" id="2_khw7m"]
 [ext_resource type="PackedScene" uid="uid://c18mavfwhh5gd" path="res://scenes/camera.tscn" id="3_wd6ad"]
 [ext_resource type="PackedScene" uid="uid://ku4eka4g3ovj" path="res://scenes/camerachange.tscn" id="4_cd1f0"]
@@ -52,6 +53,7 @@ size = Vector3(0.6, 10, 10)
 size = Vector3(1, 10, 18)
 
 [node name="Level" type="Node3D"]
+script = ExtResource("1_wd6ad")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_khw7m")
@@ -256,10 +258,10 @@ transform = Transform3D(5.4165993, 0, 0, 0, 1, 0, 0, 0, 1, -74.71816, 0.5266042,
 prev_cam = NodePath("../../Cameras/camera10")
 next_cam = NodePath("../../Cameras/camera8")
 
-[node name="Art" type="Node3D" parent="."]
-
-[node name="STATUE2" parent="Art" instance=ExtResource("5_k83s3")]
+[node name="STATUE2" parent="." instance=ExtResource("5_k83s3")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -143.48154, 0.23729151, -21.165253)
+
+[node name="Art" type="Node3D" parent="."]
 
 [node name="Bild_BUNNY2" parent="Art" instance=ExtResource("6_2jdof")]
 transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, -136.88783, 4.2643275, 12.034245)

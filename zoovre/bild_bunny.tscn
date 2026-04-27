@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bkkc7fey6qx5b" path="res://blender/AI_goose.glb" id="2_spfn1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8fvnm"]
-size = Vector3(1, 5, 2)
+size = Vector3(1.245, 2.64, 1.82)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_8fvnm"]
 viewport_path = NodePath("Area3D/Node3D/SubViewport")
@@ -25,7 +25,7 @@ ai_image = NodePath("../AI_goose")
 drawn_image = NodePath("../2D_gemaelde_hase-ohrring")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.71069634, -0.53302634, 0)
 shape = SubResource("BoxShape3D_8fvnm")
 
 [node name="Node3D" type="Sprite3D" parent="Area3D" index="1"]

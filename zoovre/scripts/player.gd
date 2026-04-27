@@ -9,7 +9,7 @@ extends CharacterBody3D
 
 signal added_painting
 signal removed_painting
-@onready var painting_folder = $"../Node"
+@onready var painting_folder = $"../Art"
 
 const JUMP_VELOCITY = 4.5
 var cam: Camera3D
@@ -32,7 +32,7 @@ func _ready() -> void:
 		if area and area.has_method("_on_image_picked_up"):
 			added_painting.connect(area._on_image_picked_up)
 		if area and area.has_method("_on_image_removed"):
-			added_painting.connect(area._on_image_removed)
+			removed_painting.connect(area._on_image_removed)
 
 func _enter_state(new_state: State) -> void:
 	state = new_state
@@ -68,10 +68,16 @@ func _update_agent_target() -> void:
 			animation_tree["parameters/conditions/is_moving"] = false
 			animation_tree["parameters/conditions/remove_painting"] = true
 			can_move = false
+			#print("TAKE_PAINTING: ", state)
+
 		State.PUT_PAINTING:
 			animation_tree["parameters/conditions/is_idle"] = false
 			animation_tree["parameters/conditions/is_moving"] = false
+			animation_tree["parameters/conditions/remove_painting"] = false
 			animation_tree["parameters/conditions/add_painting"] = true
+			can_move = false
+			#print("PUT_PAINTING: ", state)
+
 
 func update_camera():
 	if Gamemanager.cur_cam_node:
@@ -145,16 +151,24 @@ func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 		_enter_state(State.IDLE)
 	if anim_name == "barrel_roll":
 		animation_tree["parameters/conditions/roll"] = false
-		animation_tree["parameters/conditions/idle"] = true
+		animation_tree["parameters/conditions/is_idle"] = true
 		move_speed = 5.0
 		velocity = Vector3.ZERO
 		_enter_state(State.IDLE)
 	if anim_name == "add_painting_1":
-		animation_tree["parameters/conditions/remove_painting"] = false
-		animation_tree["parameters/conditions/idle"] = true
+		animation_tree["parameters/conditions/add_painting"] = false
+		animation_tree["parameters/conditions/is_idle"] = true
 		_enter_state(State.IDLE)
-		emit_signal("added_painting")
 		can_move = true
 	if anim_name == "remove_painting_1":
+		animation_tree["parameters/conditions/remove_painting"] = false
+		animation_tree["parameters/conditions/is_idle"] = true
+		_enter_state(State.IDLE)
+		can_move =  true
+
+
+func _on_animation_tree_animation_started(anim_name):
+	if anim_name == "add_painting_1":
+		emit_signal("added_painting")
+	if anim_name == "remove_painting_1":
 		emit_signal("removed_painting")
-		print("removed painting")

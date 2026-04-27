@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bq441h38ccukm" path="res://scripts/pick_up.gd" id="2_kl5m4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3bsp6"]
-size = Vector3(1, 5, 2)
+size = Vector3(1.08, 5, 3.275)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_klpgf"]
 viewport_path = NodePath("Area3D/Node3D/SubViewport")
@@ -24,7 +24,7 @@ ai_image = NodePath("../AI_cat")
 drawn_image = NodePath("../Bilderrahmen_katze")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.045522, 0, 0)
 shape = SubResource("BoxShape3D_3bsp6")
 
 [node name="Node3D" type="Sprite3D" parent="Area3D" index="1"]

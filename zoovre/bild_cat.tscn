@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c78xqipy6y8el"]
+[gd_scene load_steps=7 format=3 uid="uid://c78xqipy6y8el"]
 
 [ext_resource type="PackedScene" uid="uid://cpnlfojbebgw1" path="res://blender/Bild_CAT.glb" id="1_klpgf"]
 [ext_resource type="PackedScene" uid="uid://ccwmtmn3g2lwb" path="res://blender/AI_cat.glb" id="2_3bsp6"]
 [ext_resource type="Script" uid="uid://bq441h38ccukm" path="res://scripts/pick_up.gd" id="2_kl5m4"]
+[ext_resource type="PackedScene" uid="uid://kpyfpqbpf55h" path="res://blender/Rahmen/cat_rahmenglb.glb" id="4_3bsp6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3bsp6"]
 size = Vector3(1.08, 5, 3.275)
@@ -17,11 +18,12 @@ visible = false
 
 [node name="AI_cat" parent="." index="1" instance=ExtResource("2_3bsp6")]
 
-[node name="Area3D" type="Area3D" parent="." index="2" node_paths=PackedStringArray("ai_image", "drawn_image")]
+[node name="Area3D" type="Area3D" parent="." index="2" node_paths=PackedStringArray("ai_image", "drawn_image", "frame")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.77473795, 0, 0)
 script = ExtResource("2_kl5m4")
 ai_image = NodePath("../AI_cat")
 drawn_image = NodePath("../Bilderrahmen_katze")
+frame = NodePath("../cat_rahmenglb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.045522, 0, 0)
@@ -42,5 +44,8 @@ offset_right = 40.0
 offset_bottom = 23.0
 theme_override_font_sizes/font_size = 32
 text = "press e to collect"
+
+[node name="cat_rahmenglb" parent="." index="3" instance=ExtResource("4_3bsp6")]
+visible = false
 
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

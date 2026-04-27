@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cyfwdls5p3a6d"]
+[gd_scene load_steps=7 format=3 uid="uid://cyfwdls5p3a6d"]
 
 [ext_resource type="PackedScene" uid="uid://bkfwgjcmujief" path="res://blender/Bild_MOUSE.glb" id="1_kxxkh"]
 [ext_resource type="PackedScene" uid="uid://bvg7fn8artfcl" path="res://blender/AI_rat.glb" id="2_bylsk"]
 [ext_resource type="Script" uid="uid://bq441h38ccukm" path="res://scripts/pick_up.gd" id="2_hhr7s"]
+[ext_resource type="PackedScene" uid="uid://bmf12nhdyfu55" path="res://blender/Rahmen/rat_rahmenglb.glb" id="2_mmfbr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kxxkh"]
 size = Vector3(1, 5, 4)
@@ -12,16 +13,20 @@ viewport_path = NodePath("Area3D/Node3D/SubViewport")
 
 [node name="Bild_MOUSE" instance=ExtResource("1_kxxkh")]
 
-[node name="AI_rat" parent="." index="0" instance=ExtResource("2_bylsk")]
-transform = Transform3D(0.68, 0, 0, 0, 0.68, 0, 0, 0, 0.68, -0.9131018, 0.15991318, 0.48855376)
-
-[node name="Bilderrahmen_KMAUS" parent="." index="1"]
+[node name="rat_rahmenglb" parent="." index="0" instance=ExtResource("2_mmfbr")]
 visible = false
 
-[node name="Area3D" type="Area3D" parent="." index="2" node_paths=PackedStringArray("ai_image", "drawn_image")]
+[node name="AI_rat" parent="." index="1" instance=ExtResource("2_bylsk")]
+transform = Transform3D(0.68, 0, 0, 0, 0.68, 0, 0, 0, 0.68, -0.9131018, 0.15991318, 0.48855376)
+
+[node name="Bilderrahmen_KMAUS" parent="." index="2"]
+visible = false
+
+[node name="Area3D" type="Area3D" parent="." index="3" node_paths=PackedStringArray("ai_image", "drawn_image", "frame")]
 script = ExtResource("2_hhr7s")
 ai_image = NodePath("../AI_rat")
 drawn_image = NodePath("../Bilderrahmen_KMAUS")
+frame = NodePath("../rat_rahmenglb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7918363, 0.2865287, 0.54593337)

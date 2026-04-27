@@ -58,7 +58,6 @@ size = Vector3(1, 10, 18)
 shape = SubResource("WorldBoundaryShape3D_pissr")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
-visible = false
 navigation_mesh = SubResource("NavigationMesh_52iff")
 
 [node name="GridMap" type="GridMap" parent="NavigationRegion3D"]

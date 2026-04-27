@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://b5jgo3502ag5o"]
 
-[ext_resource type="Script" uid="uid://coumonf8aueim" path="res://scripts/normies.gd" id="1_aqpo4"]
+[ext_resource type="Script" uid="uid://coumonf8aueim" path="res://scripts/normie_1.gd" id="1_aqpo4"]
 [ext_resource type="PackedScene" uid="uid://odij57alsfa1" path="res://blender/Character_2_1.glb" id="2_aqpo4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rkf4d"]
 size = Vector3(0.29229736, 2.0309296, 0.80161667)
 
-[node name="Normies" type="CharacterBody3D"]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+[node name="Normie_1" type="CharacterBody3D"]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
 script = ExtResource("1_aqpo4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

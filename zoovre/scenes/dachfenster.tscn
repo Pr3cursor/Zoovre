@@ -1,0 +1,29 @@
+[gd_scene load_steps=9 format=3 uid="uid://b0c61p4q6cyej"]
+
+[ext_resource type="PackedScene" uid="uid://cemhktbqsq880" path="res://blender/Dachfenster/frame_mid_small.glb" id="1_10dgm"]
+[ext_resource type="PackedScene" uid="uid://dxl6ceg0p6o5k" path="res://blender/Dachfenster/double_frame_front_end.glb" id="1_jxlkg"]
+[ext_resource type="PackedScene" uid="uid://bu4vybyft8bgw" path="res://blender/Dachfenster/fivefold_frame_front_end.glb" id="2_vcklv"]
+[ext_resource type="PackedScene" uid="uid://oln5j6fyv6nt" path="res://blender/Dachfenster/frame_mid.glb" id="3_10dgm"]
+[ext_resource type="PackedScene" uid="uid://kgxf1sw60b7k" path="res://blender/Dachfenster/frame_side.glb" id="4_lyi7a"]
+[ext_resource type="PackedScene" uid="uid://2b4l3shbf330" path="res://blender/Dachfenster/single_frame_front_end.glb" id="5_c8yfn"]
+[ext_resource type="PackedScene" uid="uid://0k0d4glhfpjk" path="res://blender/Dachfenster/triple_frame_front_end.glb" id="6_ifxv2"]
+[ext_resource type="PackedScene" uid="uid://dxjsi5ui3u06i" path="res://blender/Dachfenster/frame_side_small.glb" id="8_lyi7a"]
+
+[node name="dachfenster" type="Node3D"]
+
+[node name="frame_mid_small2" parent="." instance=ExtResource("1_10dgm")]
+
+[node name="fivefold_frame_front_end2" parent="." instance=ExtResource("2_vcklv")]
+
+[node name="frame_mid" parent="." instance=ExtResource("3_10dgm")]
+
+[node name="frame_side2" parent="." instance=ExtResource("4_lyi7a")]
+
+[node name="single_frame_front_end" parent="." instance=ExtResource("5_c8yfn")]
+
+[node name="triple_frame_front_end2" parent="." instance=ExtResource("6_ifxv2")]
+
+[node name="double_frame_front_end2" parent="." instance=ExtResource("1_jxlkg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="frame_side_small2" parent="." instance=ExtResource("8_lyi7a")]

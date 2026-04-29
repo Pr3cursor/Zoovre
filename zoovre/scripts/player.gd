@@ -99,7 +99,6 @@ func _physics_process(delta: float) -> void:
 	else: 
 		handle_level_1_movement(delta)
 
-
 func handle_level_1_movement(delta):
 	cam_input_direction = Vector2.ZERO
 	var raw_input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -191,6 +190,8 @@ func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 		animation_tree["parameters/conditions/is_idle"] = true
 		_enter_state(State.IDLE)
 		can_move = true
+		if Gamemanager.prog_bar_nmb == 6:
+			get_tree().change_scene_to_file("res://scenes/mission_accomplished.tscn")
 	if anim_name == "remove_painting_1":
 		animation_tree["parameters/conditions/remove_painting"] = false
 		animation_tree["parameters/conditions/is_idle"] = true
@@ -201,6 +202,8 @@ func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 func _on_animation_tree_animation_started(anim_name):
 	if anim_name == "add_painting_1":
 		emit_signal("added_painting")
+		Gamemanager.prog_bar_nmb += 1
+			
 	if anim_name == "remove_painting_1":
 		emit_signal("removed_painting")
 		

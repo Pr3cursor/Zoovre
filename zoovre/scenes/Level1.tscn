@@ -313,52 +313,52 @@ camera_id = 11
 [node name="CameraChanges" type="Node3D" parent="."]
 
 [node name="camerachange" parent="CameraChanges" node_paths=PackedStringArray("prev_cam", "next_cam") instance=ExtResource("4_q8cw5")]
-transform = Transform3D(1.6401532, 0, 0, 0, 1, 0, 0, 0, 1, -143.04202, 0.039100647, 23.771276)
+transform = Transform3D(2.225, 0, 0, 0, 0.837, 0, 0, 0, 0.4, -143.04202, 0.039100647, 24.179642)
 prev_cam = NodePath("../../Cameras/camera")
 next_cam = NodePath("../../Cameras/camera2")
 
 [node name="camerachange2" parent="CameraChanges" node_paths=PackedStringArray("prev_cam", "next_cam") instance=ExtResource("4_q8cw5")]
-transform = Transform3D(2.6447394, 0, 0, 0, 1, 0, 0, 0, 1, -143.04202, 0.039100647, 10.910086)
+transform = Transform3D(2.645, 0, 0, 0, 1, 0, 0, 0, 0.4, -143.04202, 0.039100647, 10.910086)
 prev_cam = NodePath("../../Cameras/camera2")
 next_cam = NodePath("../../Cameras/camera3")
 
 [node name="camerachange3" parent="CameraChanges" node_paths=PackedStringArray("prev_cam", "next_cam") instance=ExtResource("4_q8cw5")]
-transform = Transform3D(2.6447394, 0, 0, 0, 1, 0, 0, 0, 1, -143.04202, 0.039100647, -11.992618)
+transform = Transform3D(1.83, 0, 0, 0, 1, 0, 0, 0, 0.4, -143.04202, 0.039100647, -11.992618)
 prev_cam = NodePath("../../Cameras/camera3")
 next_cam = NodePath("../../Cameras/camera4")
 
 [node name="camerachange4" parent="CameraChanges" node_paths=PackedStringArray("prev_cam", "next_cam") instance=ExtResource("4_q8cw5")]
-transform = Transform3D(-1.1560523e-07, 0, -1, 0, 1, 0, 2.6447394, 0, -4.371139e-08, -132.01411, 0.5674162, -22.882286)
+transform = Transform3D(-1.1561662e-07, 0, -0.4, 0, 1, 0, 2.645, 0, -1.7484556e-08, -132.50299, 0.5674162, -22.882286)
 prev_cam = NodePath("../../Cameras/camera4")
 next_cam = NodePath("../../Cameras/camera6")
 
 [node name="camerachange5" parent="CameraChanges" node_paths=PackedStringArray("prev_cam", "next_cam") instance=ExtResource("4_q8cw5")]
-transform = Transform3D(-1.15605225e-07, 0, -0.31610894, 0, 1, 0, 2.6447392, 0, -1.381756e-08, -111.34216, 0.039100647, -21.53439)
+transform = Transform3D(-1.1561662e-07, 0, -0.4, 0, 1, 0, 2.645, 0, -1.7484556e-08, -111.34216, 0.039100647, -21.53439)
 prev_cam = NodePath("../../Cameras/camera6")
 next_cam = NodePath("../../Cameras/camera7")
 
 [node name="camerachange6" parent="CameraChanges" node_paths=PackedStringArray("prev_cam", "next_cam") instance=ExtResource("4_q8cw5")]
-transform = Transform3D(-1.1560523e-07, 0, -1, 0, 1, 0, 2.6447394, 0, -4.371139e-08, -87.92025, 0.039100647, -21.53439)
+transform = Transform3D(-1.1561662e-07, 0, -0.4, 0, 1, 0, 2.645, 0, -1.7484556e-08, -88.51904, 0.039100647, -21.53439)
 prev_cam = NodePath("../../Cameras/camera7")
 next_cam = NodePath("../../Cameras/camera8")
 
 [node name="camerachange7" parent="CameraChanges" node_paths=PackedStringArray("prev_cam", "next_cam") instance=ExtResource("4_q8cw5")]
-transform = Transform3D(-1.1560523e-07, 0, -1, 0, 1, 0, 2.6447394, 0, -4.371139e-08, -58.03069, 0.039100647, -21.53439)
+transform = Transform3D(-1.1561662e-07, 0, -0.4, 0, 1, 0, 2.645, 0, -1.7484556e-08, -58.756775, 0.039100647, -21.53439)
 prev_cam = NodePath("../../Cameras/camera8")
 next_cam = NodePath("../../Cameras/camera11")
 
 [node name="camerachange8" parent="CameraChanges" node_paths=PackedStringArray("prev_cam", "next_cam") instance=ExtResource("4_q8cw5")]
-transform = Transform3D(-1.15605225e-07, 0, -0.23621446, 0, 1, 0, 2.6447392, 0, -1.03252615e-08, -136.96336, 0.5266042, 33.260544)
+transform = Transform3D(-1.7484555e-07, 0, -0.4, 0, 1, 0, 4, 0, -1.7484556e-08, -136.96336, 0.5266042, 33.260544)
 prev_cam = NodePath("../../Cameras/camera")
 next_cam = NodePath("../../Cameras/camera9")
 
 [node name="camerachange9" parent="CameraChanges" node_paths=PackedStringArray("prev_cam", "next_cam") instance=ExtResource("4_q8cw5")]
-transform = Transform3D(5.4165993, 0, 0, 0, 1, 0, 0, 0, 1, -74.71816, 0.5266042, 24.413998)
+transform = Transform3D(6.087, 0, 0, 0, 1.124, 0, 0, 0, 0.4, -74.71816, 0.5266042, 24.413998)
 prev_cam = NodePath("../../Cameras/camera9")
 next_cam = NodePath("../../Cameras/camera10")
 
 [node name="camerachange10" parent="CameraChanges" node_paths=PackedStringArray("prev_cam", "next_cam") instance=ExtResource("4_q8cw5")]
-transform = Transform3D(5.4165993, 0, 0, 0, 1, 0, 0, 0, 0.42781025, -72.5133, 0.59313464, -4.1823187)
+transform = Transform3D(5.246, 0, 0, 0, 0.969, 0, 0, 0, 0.4, -72.5133, 0.59313464, -4.1823187)
 prev_cam = NodePath("../../Cameras/camera10")
 next_cam = NodePath("../../Cameras/camera8")
 
@@ -426,7 +426,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0540714, 0.2982278, -24.35
 [node name="Enemies" type="Node3D" parent="."]
 
 [node name="Enemy" parent="Enemies" node_paths=PackedStringArray("patrol_points") instance=ExtResource("12_52iff")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -139.90276, 11.654781, -7.5533605)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -139.90276, 14.409997, -7.5533605)
 patrol_points = [NodePath("../../PatrolPoints/Point2"), NodePath("../../PatrolPoints/Point1")]
 
 [node name="Enemy2" parent="Enemies" node_paths=PackedStringArray("patrol_points") instance=ExtResource("12_52iff")]

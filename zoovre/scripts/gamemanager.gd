@@ -12,4 +12,3 @@ var level_2: bool = false
 func _ready() -> void:
 	if level_2:
 		cur_cam_node = $Camera3D
-	

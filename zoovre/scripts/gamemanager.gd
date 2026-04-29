@@ -12,3 +12,11 @@ var level_2: bool = false
 func _ready() -> void:
 	if level_2:
 		cur_cam_node = $Camera3D
+
+func _input(event):
+	if event.is_action_pressed("1"):
+		get_tree().change_scene_to_file("res://scenes/Level1.tscn")
+	if event.is_action_pressed("2"):
+		pass
+	if event.is_action_pressed("3"):
+		get_tree().change_scene_to_file("res://scenes/Level2.tscn")

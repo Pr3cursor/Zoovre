@@ -93,7 +93,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 53.36435, 0)
 omni_range = 2719.853
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.62185, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2433939, 0, 0)
 navigation_mesh = SubResource("NavigationMesh_l2n4a")
 
 [node name="Node" type="Node" parent="NavigationRegion3D"]

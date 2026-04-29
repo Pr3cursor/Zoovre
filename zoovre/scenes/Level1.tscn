@@ -358,7 +358,7 @@ prev_cam = NodePath("../../Cameras/camera9")
 next_cam = NodePath("../../Cameras/camera10")
 
 [node name="camerachange10" parent="CameraChanges" node_paths=PackedStringArray("prev_cam", "next_cam") instance=ExtResource("4_q8cw5")]
-transform = Transform3D(5.4165993, 0, 0, 0, 1, 0, 0, 0, 1, -74.71816, 0.5266042, -5.553917)
+transform = Transform3D(5.4165993, 0, 0, 0, 1, 0, 0, 0, 0.42781025, -72.5133, 0.59313464, -4.1823187)
 prev_cam = NodePath("../../Cameras/camera10")
 next_cam = NodePath("../../Cameras/camera8")
 

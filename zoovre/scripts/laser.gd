@@ -47,7 +47,7 @@ func _process(delta):
 
 func _on_toggle_timer_timeout() -> void:
 	if laser_active:
-		deactivate(1.0)
+		deactivate(3.0)
 	else:
 		activate(1.0)
 

@@ -65,6 +65,7 @@ func _update_agent_target() -> void:
 			animation_tree["parameters/conditions/is_idle"] = false
 			animation_tree["parameters/conditions/is_moving"] = false
 			animation_tree["parameters/conditions/roll"] = true
+			activate_dust_cloud()
 		State.TAKE_PAINTING:
 			animation_tree["parameters/conditions/is_idle"] = false
 			animation_tree["parameters/conditions/is_moving"] = false
@@ -170,3 +171,13 @@ func _on_animation_tree_animation_started(anim_name):
 		emit_signal("added_painting")
 	if anim_name == "remove_painting_1":
 		emit_signal("removed_painting")
+		
+		
+func activate_dust_cloud():
+	var particle_l = $dust_cloud/GPUParticles3D_L
+	var particle_r = $dust_cloud/GPUParticles3D_R
+	particle_l.emitting = true
+	particle_r.emitting = true
+	pass
+	
+	

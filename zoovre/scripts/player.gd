@@ -3,9 +3,13 @@ extends CharacterBody3D
 
 @export var move_speed = 5.0
 @export var acceleration = 20.0
-@onready var animation_tree: AnimationTree = $AnimationTree
+@export var level_2_move_speed = 7.0
+@export var rotation_speed = 8.0
 
+@onready var animation_tree: AnimationTree = $AnimationTree
 @onready var anim : AnimationPlayer = $raccoon_3/AnimationPlayer
+@onready var player_cam: Camera3D = $Camera3D
+
 
 signal added_painting
 signal removed_painting
@@ -15,7 +19,7 @@ const JUMP_VELOCITY = 4.5
 var cam: Camera3D
 var cam_input_direction := Vector2.ZERO
 const EPSILON = 0.01
-
+var facing_direction: Vector3 = Vector3.FORWARD
 var can_move: bool = true
 
 enum State {IDLE, MOVE, MOVE_IN_BIN, IN_BIN, MOVE_OUT_BIN, CAUGHT, ROLL, TAKE_PAINTING, PUT_PAINTING}
@@ -87,29 +91,57 @@ func update_camera():
 func _physics_process(delta: float) -> void:
 	update_camera()
 	_update_agent_target()
-	if can_move:
-		cam_input_direction = Vector2.ZERO
-		var raw_input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
-		var forward := cam.global_transform.basis.z
-		var right := cam.global_basis.x
-		
-		var move_direction := forward*raw_input.y + right * raw_input.x
-		move_direction.y = 0.0
-		move_direction = move_direction.normalized()
-		look_at(global_position + move_direction, Vector3.UP)
-		velocity = velocity.move_toward(move_direction*move_speed,acceleration * delta)
-		move_and_slide()
-	else:
+	if not can_move:
 		velocity = Vector3.ZERO
+		return
+	if Gamemanager.level_2:
+		handle_level_2_movement(delta)
+	else: 
+		handle_level_1_movement(delta)
 
+
+func handle_level_1_movement(delta):
+	cam_input_direction = Vector2.ZERO
+	var raw_input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	var forward := cam.global_transform.basis.z
+	var right := cam.global_basis.x
+		
+	var move_direction := forward*raw_input.y + right * raw_input.x
+	move_direction.y = 0.0
+	move_direction = move_direction.normalized()
+	look_at(global_position + move_direction, Vector3.UP)
+	velocity = velocity.move_toward(move_direction*move_speed,acceleration * delta)
+	move_and_slide()
+
+func handle_level_2_movement(delta: float) -> void:
+	player_cam.make_current()
+
+	var turn_input := Input.get_axis("move_right", "move_left")
+	var move_input := Input.get_axis("move_down", "move_up")
+
+	if abs(turn_input) > EPSILON:
+		rotate_y(turn_input * rotation_speed * delta)
+
+	var forward := -global_transform.basis.z
+	forward.y = 0.0
+	forward = forward.normalized()
+
+	facing_direction = forward
+
+	var target_speed = move_input * level_2_move_speed
+	var target_velocity = forward * target_speed
+
+	velocity = velocity.move_toward(target_velocity, acceleration * delta)
+	move_and_slide()
+	
 func state_move():
-	if velocity == Vector3.ZERO:
+	if velocity.length() <= EPSILON:
 		_enter_state(State.IDLE)
 
 func state_idle():
-	if velocity > Vector3.ZERO:
+	if velocity.length() > EPSILON:
 		_enter_state(State.MOVE)
-
+		
 func _on_player_in_bin():
 	if state == 3:
 		_enter_state(State.MOVE_OUT_BIN)

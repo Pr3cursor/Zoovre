@@ -7,3 +7,4 @@ func _ready():
 		var area := child.find_child("Area3D", true, false)
 		if area and area.has_method("change_to_drawn"):
 			area.change_to_drawn()
+	Gamemanager.level_2 = true

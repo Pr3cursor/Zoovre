@@ -128,6 +128,7 @@ light_energy = 16.0
 spot_range = 10.154628
 
 [node name="Cameras" type="Node3D" parent="."]
+visible = false
 
 [node name="camera" parent="Cameras" instance=ExtResource("3_wd6ad")]
 transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, -142.91353, 6.0376363, 39.396355)

@@ -4,11 +4,17 @@ extends CharacterBody3D
 @export var move_speed = 5.0
 @export var acceleration = 20.0
 @export var level_2_move_speed = 7.0
-@export var rotation_speed = 8.0
+@export var rotation_speed = 5.0
+@export var mouse_sensitivity := 0.002
+@export var min_pitch := deg_to_rad(-60.0)
+@export var max_pitch := deg_to_rad(45.0)
+
 
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var anim : AnimationPlayer = $raccoon_3/AnimationPlayer
-@onready var player_cam: Camera3D = $Camera3D
+@onready var camera_pivot: Node3D = $CameraPivot
+@onready var camera_pitch: Node3D = $CameraPivot/CameraPitch
+@onready var player_cam: Camera3D = $CameraPivot/CameraPitch/Camera3D
 
 
 signal added_painting
@@ -21,6 +27,7 @@ var cam_input_direction := Vector2.ZERO
 const EPSILON = 0.01
 var facing_direction: Vector3 = Vector3.FORWARD
 var can_move: bool = true
+var camera_pitch_x := 0.0
 
 enum State {IDLE, MOVE, MOVE_IN_BIN, IN_BIN, MOVE_OUT_BIN, CAUGHT, ROLL, TAKE_PAINTING, PUT_PAINTING}
 var state: State
@@ -30,6 +37,7 @@ func _ready() -> void:
 	update_camera()
 	animation_tree.active = true
 	_enter_state(State.IDLE)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	for child in painting_folder.get_children():
 		var area := child.find_child("Area3D", true, false)
@@ -114,10 +122,19 @@ func handle_level_1_movement(delta):
 
 func handle_level_2_movement(delta: float) -> void:
 	player_cam.make_current()
-
+	var raw_input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	var turn_input := Input.get_axis("move_right", "move_left")
+	@warning_ignore("unused_variable")
 	var move_input := Input.get_axis("move_down", "move_up")
+	var cam_forward := -player_cam.global_transform.basis.z
+	var cam_right := player_cam.global_transform.basis.x
 
+	cam_forward.y = 0.0
+	cam_right.y = 0.0
+
+	cam_forward = cam_forward.normalized()
+	cam_right = cam_right.normalized()
+	
 	if abs(turn_input) > EPSILON:
 		rotate_y(turn_input * rotation_speed * delta)
 
@@ -125,13 +142,23 @@ func handle_level_2_movement(delta: float) -> void:
 	forward.y = 0.0
 	forward = forward.normalized()
 
-	facing_direction = forward
+	facing_direction = cam_forward
+	var move_direction = (cam_right * raw_input.x) - (cam_forward * raw_input.y)
+	if move_direction.length() > EPSILON:
+		move_direction = move_direction.normalized()
+		facing_direction = move_direction
 
-	var target_speed = move_input * level_2_move_speed
-	var target_velocity = forward * target_speed
+		var target_basis := Basis.looking_at(facing_direction, Vector3.UP)
+		basis = basis.slerp(target_basis, rotation_speed * delta).orthonormalized()
 
-	velocity = velocity.move_toward(target_velocity, acceleration * delta)
+	velocity = velocity.move_toward(move_direction * level_2_move_speed, acceleration * delta)
 	move_and_slide()
+
+	#var target_speed = move_input * level_2_move_speed
+	#var target_velocity = forward * target_speed
+#
+	#velocity = velocity.move_toward(target_velocity, acceleration * delta)
+	#move_and_slide()
 	
 func state_move():
 	if velocity.length() <= EPSILON:
@@ -148,11 +175,21 @@ func _on_player_in_bin():
 		_enter_state(State.MOVE_IN_BIN)
 
 func _input(event):
+	if event is InputEventMouseMotion and Gamemanager.level_2:
+		camera_pivot.rotate_y(-event.relative.x * mouse_sensitivity)
+		camera_pitch_x = clamp(camera_pitch_x - event.relative.y * mouse_sensitivity, min_pitch, max_pitch)
+		camera_pitch.rotation.x = camera_pitch_x
+	
+	
 	if event.is_action_pressed("barrel_roll") and state != 6:
 		barrel_roll()
 	if event.is_action_pressed("reset"):
 		reset()
-
+	if event.is_action_pressed("ui_cancel"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		
 func game_won():
 		if Gamemanager.prog_bar_nmb >= 6:
 			get_tree().change_scene_to_file("res://scenes/mission_accomplished.tscn")

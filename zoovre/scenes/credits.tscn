@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://4bkc820hj1q8"]
+[gd_scene load_steps=14 format=3 uid="uid://4bkc820hj1q8"]
 
 [ext_resource type="Texture2D" uid="uid://duqpv3m3ka3rm" path="res://2D_art/2D_Bilderrahmen.png" id="1_0bpdh"]
 [ext_resource type="Script" uid="uid://ddj5udp04o630" path="res://scripts/credits.gd" id="1_8gwij"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c3o24prcxs3it" path="res://2D_art/2D_gemaelde_hase-ohrring.png" id="10_83ncp"]
 [ext_resource type="Texture2D" uid="uid://hkde5weoox68" path="res://2D_art/2D_gemaelde_monalisa-gans.png" id="11_sxold"]
 [ext_resource type="Texture2D" uid="uid://ds3q2ed23bjrm" path="res://2D_art/credits.png" id="12_qbfqv"]
+[ext_resource type="Texture2D" uid="uid://ckuhopbaad5sc" path="res://2D_art/credits_neu.png" id="13_x5q3x"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -76,5 +77,10 @@ texture = ExtResource("11_sxold")
 position = Vector2(960.0578, 540.25)
 scale = Vector2(0.4438733, 0.44387332)
 texture = ExtResource("12_qbfqv")
+
+[node name="CreditsNeu" type="Sprite2D" parent="."]
+position = Vector2(958.00006, 554)
+scale = Vector2(0.444, 0.444)
+texture = ExtResource("13_x5q3x")
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

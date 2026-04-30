@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bwrplsr008yoi"]
+[gd_scene load_steps=8 format=3 uid="uid://bwrplsr008yoi"]
 
 [ext_resource type="Texture2D" uid="uid://dd8kdaqjf4hrm" path="res://2D_art/UI Elemente/UI_Background.png" id="1_kukqi"]
 [ext_resource type="Script" uid="uid://c53cti1v8geuj" path="res://scripts/pause_menu.gd" id="1_v4r4p"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://kg3n4wtyq0mx" path="res://2D_art/UI Elemente/current_mission_text_bigger.png" id="3_7l7mv"]
 [ext_resource type="Texture2D" uid="uid://bmu86kjbuk18x" path="res://2D_art/UI Elemente/backToMenu_light.jpg" id="4_7l7mv"]
 [ext_resource type="Texture2D" uid="uid://cude4aqjfbsvx" path="res://2D_art/UI Elemente/backToMenu_dark.jpg" id="5_v4r4p"]
+[ext_resource type="Texture2D" uid="uid://ck5k54jsqjca5" path="res://2D_art/UI Elemente/other info_shortcuts.png" id="7_1s2dm"]
 
 [node name="pause_menu" type="Node2D"]
 script = ExtResource("1_v4r4p")
@@ -16,7 +17,7 @@ position = Vector2(960, 540)
 texture = ExtResource("1_kukqi")
 
 [node name="OtherInfo" type="Sprite2D" parent="."]
-position = Vector2(944, 538.00006)
+position = Vector2(651, 497.00006)
 scale = Vector2(1.2559136, 1.2559136)
 texture = ExtResource("2_5d2l8")
 
@@ -40,5 +41,9 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture_normal = ExtResource("4_7l7mv")
 texture_hover = ExtResource("5_v4r4p")
+
+[node name="OtherInfoShortcuts" type="Sprite2D" parent="."]
+position = Vector2(1690, 506)
+texture = ExtResource("7_1s2dm")
 
 [connection signal="pressed" from="Control/back_to_menu" to="." method="_on_back_to_menu_pressed"]

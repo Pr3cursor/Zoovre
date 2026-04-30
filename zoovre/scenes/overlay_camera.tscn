@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://cqc5c11r6rp0s" path="res://2D_art/camera-stuff/Streifen/frame_11.png" id="16_invvc"]
 [ext_resource type="Texture2D" uid="uid://cy6dniq07q1j2" path="res://2D_art/camera-stuff/Streifen/frame_12.png" id="17_ji13w"]
 [ext_resource type="Texture2D" uid="uid://0fjbsqnsq44f" path="res://2D_art/camera-stuff/Streifen2/frame_01 1.png" id="18_x1a6y"]
-[ext_resource type="Script" path="res://scenes/animated_sprite_2d.gd" id="18_y4rg2"]
+[ext_resource type="Script" uid="uid://dbhy6qi4hk8a5" path="res://scenes/animated_sprite_2d.gd" id="18_y4rg2"]
 [ext_resource type="Texture2D" uid="uid://7h27ylqgv3m7" path="res://2D_art/camera-stuff/Streifen2/frame_02 1.png" id="19_rju0t"]
 [ext_resource type="Texture2D" uid="uid://du6m18mioxbuv" path="res://2D_art/camera-stuff/Streifen2/frame_03 1.png" id="20_0j8uo"]
 [ext_resource type="Texture2D" uid="uid://cl2d4fo7l538h" path="res://2D_art/camera-stuff/Streifen2/frame_04 1.png" id="21_gxm3b"]

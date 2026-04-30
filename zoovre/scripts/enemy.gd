@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-@onready var agent = $NavigationAgent3D
+@onready var agent: NavigationAgent3D = $NavigationAgent3D
 @onready var vision_ray = $RayCast3D
 
 @export var patrol_points: Array[Node3D] = []
@@ -34,14 +34,14 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 func _ready() -> void:
 	target = Gamemanager.player
 	_enter_state(State.IDLE if patrol_points.is_empty() else State.PATROL)
+	return_position = global_position
 	
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("barrel_roll"):
 		_state_knocked(1)
-	
+		
 func _physics_process(delta: float) -> void:
 	_update_path(delta)
 	
@@ -95,6 +95,7 @@ func _update_agent_target() -> void:
 				agent.set_target_position(target.global_transform.origin)
 		State.RETURN:
 			agent.set_target_position(return_position)
+			print("returning")
 	
 func _update_path(delta):
 	update_timer -= delta
@@ -108,7 +109,9 @@ func _can_see_player() -> bool:
 func _looking() -> void:
 	if not target:
 		return
-	
+	#if State.RETURN:
+		#look_at(return_position)
+		#return
 	var to_player = (target.global_transform.origin - global_transform.origin).normalized()
 	var forward = -global_transform.basis.z
 	var angle_deg = rad_to_deg(acos(clamp(forward.dot(to_player), -1.0, 1.0)))
@@ -144,7 +147,7 @@ func _state_patrol(delta: float) -> void:
 		else:
 			patrol_timer -= delta
 			if patrol_timer <= 0.0:
-				_go_to_next_patrol_point()
+				_go_to_next_patrol_point()										
 	else:
 		_walk_to(agent.get_next_path_position(), speed_walk)
 
@@ -155,22 +158,24 @@ func _state_chase(delta: float) -> void:
 	if not target:
 		_enter_state(State.RETURN)
 		return
+	if target.state == 2 or target.state == 3 or target.state == 4:
+		_enter_state(State.RETURN)
+		return
 	_walk_to(agent.get_next_path_position(), speed_run)
 
 func _state_knocked(delta: float):
 	if weak_spot == true:
-		if state == State.KNOCKED:
-			pass
-		else: 
+		if state != 6:
 			$RayCast3D/Area3D.queue_free()
 			animation_player.play("knock")
 			velocity = Vector3(0,0,0)
 			state = State.KNOCKED
 	else:
-		print("no target")
+		#print("no target")
+		return
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body.is_in_group("player") and !Gamemanager.player.is_in_bin:
+	if body.is_in_group("player") and !Gamemanager.player.state == 3:
 		Gamemanager.player.game_over()
 		print("in raycast")
 

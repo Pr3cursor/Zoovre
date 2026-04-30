@@ -9,9 +9,6 @@ extends CanvasLayer
 
 var time_passed := 0.0
 
-#func _ready() -> void:
-	#progress_update.connect()
-
 func _process(delta):
 	time_passed += delta
 

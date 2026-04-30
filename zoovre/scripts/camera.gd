@@ -22,9 +22,6 @@ func reset_make_current():
 	camera.make_current()
 	print(camera)
 		
-	
-func _process(delta: float) -> void:
-	pass
 
 #func change_camera(prev_cam_id, next_cam_id):
 	#print("prev ", prev_cam_id)

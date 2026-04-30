@@ -1,26 +1,65 @@
 extends Area3D
 
 var player_in_range = false
-@onready var animation: AnimationPlayer =  Gamemanager.player.get_node("raccoon").get_node("AnimationPlayer")
 signal progress_update()
+@export var ai_image: Node3D
+@export var drawn_image: Node3D
+@export var frame :  Node3D
 
+@onready var label: Label = $Node3D/SubViewport/Label
 
+var picked_up = false
+var changed_image = false
+var current_image = false 
+var current_image_pos: Vector3 
+var level2: bool = false
+
+func change_to_drawn():
+	ai_image.visible = false
+	drawn_image.visible = true
+	level2 = true
+	label.text = ""
 
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		player_in_range = !player_in_range
-		#print(player_in_range)
+		current_image = true
+		current_image_pos = self.position
 		progress_update.emit()
 
+func _on_body_exited(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		current_image = false
+		
+
+
 func pick_up():
-	animation.play("caught")
 	owner.queue_free()
 	Gamemanager.prog_bar_nmb += 1
-	#progress_update.emit()
 	Gamemanager.player.game_won()
 
-	
-	
-func _physics_process(delta: float) -> void:
-	if player_in_range and Input.is_action_pressed("interact"):
-		pick_up()
+func _input(event):
+	if event.is_action_pressed("interact") and player_in_range and !picked_up and !level2:
+		Gamemanager.player.state = 7
+
+	if event.is_action_pressed("interact") and player_in_range and picked_up and !changed_image and !level2:
+		Gamemanager.player.state = 8
+		changed_image = true
+
+
+func _on_image_picked_up():
+	if current_image and picked_up:
+		Gamemanager.player.look_at(self.position)
+		await get_tree().create_timer(1).timeout
+		frame.hide()
+		drawn_image.visible = true
+		label.text = ""
+		
+func _on_image_removed():
+	if current_image and !picked_up:
+		Gamemanager.player.look_at(self.position)
+		await get_tree().create_timer(1).timeout
+		ai_image.hide()
+		frame.visible = true
+		picked_up = true
+		label.text = "press e to place new drawing"

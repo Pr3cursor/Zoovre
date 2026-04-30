@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqgwd02rwbp63"]
+[gd_scene load_steps=8 format=3 uid="uid://cqgwd02rwbp63"]
 
 [ext_resource type="Script" uid="uid://us56f10c3b62" path="res://scripts/hideout.gd" id="1_0dpjq"]
 [ext_resource type="PackedScene" uid="uid://dn8lrs4k8ycer" path="res://blender/Zoovre_room.glb" id="1_uy1vd"]
 [ext_resource type="PackedScene" uid="uid://be8djbhs0vga5" path="res://scenes/player.tscn" id="2_kwc7s"]
+[ext_resource type="PackedScene" uid="uid://c18mavfwhh5gd" path="res://scenes/camera.tscn" id="4_3vob5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fk3o7"]
 size = Vector3(5, 2, 1.82)
@@ -10,14 +11,17 @@ size = Vector3(5, 2, 1.82)
 [sub_resource type="ViewportTexture" id="ViewportTexture_vtraw"]
 viewport_path = NodePath("Area3D/Node3D/SubViewport")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_vtraw"]
+size = Vector3(15, 10, 1)
+
 [node name="hideout" type="Node3D"]
 script = ExtResource("1_0dpjq")
 
 [node name="Zoovre_room" parent="." instance=ExtResource("1_uy1vd")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
 [node name="player" parent="." instance=ExtResource("2_kwc7s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.2629814, 1.9617801)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.7634373, 1.9617801)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.1036158, 1.8579779, -3.9733057)
@@ -80,14 +84,14 @@ spot_range = 9.54
 spot_angle = 11.8
 
 [node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5947864, -2.6525986, -4.8566685)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.33693755, -0.99006, -3.4918613)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2737144, -0.53302646, -0.15290117)
 shape = SubResource("BoxShape3D_fk3o7")
 
 [node name="Node3D" type="Sprite3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.137341, -0.63512564, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.137341, -0.63512564, -0.24456811)
 billboard = 2
 texture = SubResource("ViewportTexture_vtraw")
 
@@ -102,7 +106,27 @@ offset_bottom = 23.0
 theme_override_colors/font_color = Color(1, 1, 1, 0.78431374)
 theme_override_font_sizes/font_size = 64
 text = "Press e for 
-Next Level"
+Next Level
+"
+
+[node name="camera" parent="." instance=ExtResource("4_3vob5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1630752, 0, 13.733303)
+camera_id = 1
+
+[node name="Camera3D" parent="camera" index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.9533699, 0.3018042, 0, -0.3018042, 0.9533699, -1.3321574, 0, -6.4426756)
+
+[node name="cone" parent="camera" index="2"]
+visible = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.6059818)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.3971252)
+shape = SubResource("BoxShape3D_vtraw")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+
+[editable path="camera"]

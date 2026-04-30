@@ -60,6 +60,7 @@ size = Vector3(1, 10, 18)
 shape = SubResource("WorldBoundaryShape3D_pissr")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+visible = false
 navigation_mesh = SubResource("NavigationMesh_52iff")
 
 [node name="GridMap" type="GridMap" parent="NavigationRegion3D"]
@@ -320,7 +321,7 @@ prev_cam = NodePath("../../Cameras/camera")
 next_cam = NodePath("../../Cameras/camera2")
 
 [node name="camerachange2" parent="CameraChanges" node_paths=PackedStringArray("prev_cam", "next_cam") instance=ExtResource("4_q8cw5")]
-transform = Transform3D(2.645, 0, 0, 0, 1, 0, 0, 0, 0.4, -143.04202, 0.039100647, 10.910086)
+transform = Transform3D(2.645, 0, 0, 0, 1, 0, 0, 0, 0.4, -143.04202, 0.039100647, 8.6011505)
 prev_cam = NodePath("../../Cameras/camera2")
 next_cam = NodePath("../../Cameras/camera3")
 

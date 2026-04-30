@@ -8,7 +8,7 @@ extends CharacterBody3D
 @export var mouse_sensitivity := 0.002
 @export var min_pitch := deg_to_rad(-60.0)
 @export var max_pitch := deg_to_rad(45.0)
-
+@onready var light: SpotLight3D = $SpotLight3D
 
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var anim : AnimationPlayer = $raccoon_3/AnimationPlayer
@@ -158,7 +158,7 @@ func handle_level_2_movement(delta: float) -> void:
 		var target_basis := Basis.looking_at(facing_direction, Vector3.UP)
 		basis = basis.slerp(target_basis, rotation_speed * delta).orthonormalized()
 
-	velocity = velocity.move_toward(move_direction * level_2_move_speed, acceleration * delta)
+	velocity = velocity.move_toward(move_direction * move_speed*1.5, acceleration * delta)
 	move_and_slide()
 
 	#var target_speed = move_input * level_2_move_speed

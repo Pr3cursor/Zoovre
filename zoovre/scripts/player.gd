@@ -37,7 +37,8 @@ func _ready() -> void:
 	update_camera()
 	animation_tree.active = true
 	_enter_state(State.IDLE)
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	if Gamemanager.level_2:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	for child in painting_folder.get_children():
 		var area := child.find_child("Area3D", true, false)

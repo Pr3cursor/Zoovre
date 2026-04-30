@@ -15,7 +15,7 @@ extends CharacterBody3D
 @onready var camera_pivot: Node3D = $CameraPivot
 @onready var camera_pitch: Node3D = $CameraPivot/CameraPitch
 @onready var player_cam: Camera3D = $CameraPivot/CameraPitch/Camera3D
-
+@onready var cam_movement: bool = false
 
 signal added_painting
 signal removed_painting
@@ -39,13 +39,17 @@ func _ready() -> void:
 	_enter_state(State.IDLE)
 	if Gamemanager.level_2:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	elif Gamemanager.hideout:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
 	
-	for child in painting_folder.get_children():
-		var area := child.find_child("Area3D", true, false)
-		if area and area.has_method("_on_image_picked_up"):
-			added_painting.connect(area._on_image_picked_up)
-		if area and area.has_method("_on_image_removed"):
-			removed_painting.connect(area._on_image_removed)
+	if painting_folder:
+		for child in painting_folder.get_children():
+			var area := child.find_child("Area3D", true, false)
+			if area and area.has_method("_on_image_picked_up"):
+				added_painting.connect(area._on_image_picked_up)
+			if area and area.has_method("_on_image_removed"):
+				removed_painting.connect(area._on_image_removed)
 
 func _enter_state(new_state: State) -> void:
 	state = new_state
@@ -104,6 +108,8 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector3.ZERO
 		return
 	if Gamemanager.level_2:
+		handle_level_2_movement(delta)
+	elif Gamemanager.hideout:
 		handle_level_2_movement(delta)
 	else: 
 		handle_level_1_movement(delta)
@@ -180,7 +186,11 @@ func _input(event):
 		camera_pivot.rotate_y(-event.relative.x * mouse_sensitivity)
 		camera_pitch_x = clamp(camera_pitch_x - event.relative.y * mouse_sensitivity, min_pitch, max_pitch)
 		camera_pitch.rotation.x = camera_pitch_x
-	
+	if event is InputEventMouseMotion and Gamemanager.hideout:
+		print("mouse movement")
+		camera_pivot.rotate_y(-event.relative.x * mouse_sensitivity)
+		camera_pitch_x = clamp(camera_pitch_x - event.relative.y * mouse_sensitivity, min_pitch, max_pitch)
+		camera_pitch.rotation.x = camera_pitch_x
 	
 	if event.is_action_pressed("barrel_roll") and state != 6:
 		barrel_roll()

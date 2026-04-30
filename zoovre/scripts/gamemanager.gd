@@ -17,7 +17,13 @@ func _ready() -> void:
 func _input(event):
 	if event.is_action_pressed("1"):
 		get_tree().change_scene_to_file("res://scenes/Level1.tscn")
+		level_2 = false
+		prog_bar_nmb = 0
+		
 	if event.is_action_pressed("2"):
 		get_tree().change_scene_to_file("res://scenes/hideout.tscn")
+		level_2 = false
+
 	if event.is_action_pressed("3"):
 		get_tree().change_scene_to_file("res://scenes/Level2.tscn")
+		level_2 = true
